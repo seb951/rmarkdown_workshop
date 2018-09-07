@@ -1,7 +1,7 @@
 **#This will be the github repo for the Rmarkdown workshop (Note that I'm still working on preparing the workshop)**  
 sebastien.renaut@umontreal.ca  
 
-**#The workshop will be held September 27th, 2108 at the Institut de Recherche en Biologie Végétale (en français).**
+**#The workshop is intented for [QCBS](http://qcbs.ca/) members and will be held September 27th, 2108 at the Institut de Recherche en Biologie Végétale (en français).**
 
 **#In this workshop, we will:**  
 -Learn the basic idea being Rmarkdown and the R package `knitr`   
