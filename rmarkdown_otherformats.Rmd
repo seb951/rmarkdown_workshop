@@ -1,25 +1,34 @@
 ---
-title: "rmarkdown_pdf"
+title: "rmarkdown_pdf_docx"
 author: "Sebastien Renaut"
 date: '2018-09-06'
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
-install.packages("rticles")
-library(rticles)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
 
 #pdf
-`tinytex` R package is a wrapper function that installs `TinyTeX`. `TinyTex` is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/). 
-
+• `tinytex` R package is a wrapper function that installs `TinyTeX`. `TinyTex` is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/). 
+```{r setup, include=T}
 install.packages('tinytex')
 tinytex::install_tinytex()
+```
 
-#mictex or others
+
+#basic yaml setup
+
+
+#csl files
+
+
+#R packages rticles
+```{r rticles, include=T}
+install.packages("rticles")
+library(rticles)
+```
 
 #docx
 
