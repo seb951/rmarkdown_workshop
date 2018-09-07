@@ -1,5 +1,5 @@
-#This is the github repo for the Rmarkdown workshop.  
-sebastien.renaut@umontreal.ca
+**#This is the github repo for the Rmarkdown workshop.**  
+sebastien.renaut@umontreal.ca  
 
 **#The workshop will be held September 27th, 2108 at the Institut de Recherche en Biologie Végétale (en français).**
 
@@ -10,7 +10,7 @@ sebastien.renaut@umontreal.ca
 -Create a dynamic .html page (R package `Shiny`)  
 -Practice, learn tricks and find out were to get more info about Rmarkdown.  
 
-**#Please fill in this form if you are interested. I will contact you several days in advances with details about the workshop.**
+**#Please fill in this form if you are interested. I will contact you several days in advances with details about the workshop.**  
 https://docs.google.com/forms/d/1HhB20IOW69GljjmXBoLvkhncICN74L0tRqeDRrgkQw8/edit
 
 **#The repo contains (note that I'm still working on preparing the workshop):**    
