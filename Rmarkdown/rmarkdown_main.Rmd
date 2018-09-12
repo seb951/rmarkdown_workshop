@@ -11,8 +11,8 @@ output:
     toc_depth: 3
     toc_float:
       collapsed: T
-csl: csl/peerj.csl
-bibliography: biblio/test_library.bib
+csl: ../csl/peerj.csl
+bibliography: ../biblio/test_library.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -34,14 +34,14 @@ Like other markup languages (e.g. HTML and Latex), it is completely independent 
 
 • It is subsequently tranformed into `html`/`.tex`/`.docx` by `pandoc`. `.tex` files need to be transformed by `pdflatex` into `.pdf` files.
 
-• `rmardown`, `knitr`, and ``pandoc` are built in `Rstudio`. `pdflatex` is not. We'll come back to that later. (https://yihui.name/tinytex/)
+• `rmardown`, `knitr`, and ``pandoc` are built in `Rstudio`. `pdflatex` is not. We'll come back to that later. 
 
 • When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-![](figures/pandoc1.png){width=500px}
+![](../figures/pandoc1.png){width=500px}
 
 #Get started!
-![](figures/getstarted.png){width=500px}
+![](../figures/getstarted.png){width=500px}
 &nbsp;  
 &nbsp;  
 1.file>new file>R markdown > HTML   
@@ -147,6 +147,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 • **bold**  
 • `code`  
 • [links](rmarkdown.rstudio.com)  
+• backslach (\\) to interpret a special characters as character!
 • etc.  
 • "\&nbsp;  " character for extra line spacing  
 • See the [cheatsheet] (https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)  
@@ -166,7 +167,9 @@ Markdown provides an easy way to make standard types of formatted text, like:
 `bibliography: biblio/test_library.bib`  
 `---`
 
-• `csl` specifies the reference format. Here I just googled and download the .csl file for PlosOne. Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*YACL - Yet Another Citation Language...*)
+• `csl` specifies the reference format. 
+• The Citation Style Language (CSL) is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using CSL include Zotero, Mendeley and Papers.
+• Here I just googled and download the .csl file for PlosOne. Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*YACL - Yet Another Citation Language...*)
 
 • `bib` is my reference library for this project. Here: a .bib file I created in [*Papers3 (reference management software)* (https://www.readcube.com/papers/mac) with some references (eg. @Yoshida:2014bn, @ThibertPlante:2010vw, @Wagner:2012hw).
 
@@ -179,7 +182,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 &nbsp;  
 &nbsp;  
 • This is a graph saved in my directory   
-![](figures/DEG_heatmap.png){width=250px}
+![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
 • In both these cases, graphs are rendering with `pandoc` and not `knitr`. It's simple, but options are tricky.  
 • You may need to play with spacing, figure size, and figure position.  
@@ -188,7 +191,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 • Images can interpreted directly by `knitr` too as below:  
 
 ```{r view, out.width = "20%", fig.cap = "Another example", echo = FALSE}
-knitr::include_graphics("figures/orange.jpeg")
+knitr::include_graphics("../figures/orange.jpeg")
 ```
 
 ##Including Tables

@@ -1,0 +1,87 @@
+---
+title: "rmarkdown_pdf_docx"
+author: "Sebastien Renaut"
+date: '2018-09-06'
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Word document
+• You can specify it when you create a new Rmarkdown document
+• You can specify it in the YAML
+`---`
+`title: "rmarkdown_pdf_docx"`
+`author: "Sebastien Renaut"`
+`date: '2018-09-06'`
+`output: word_document`
+`---`
+
+#pdf document
+• You need a extra step to go from a Latex file to pdf.
+• [Latex software](https://www.latex-project.org is a high-quality typesetting system; It is the *de facto* standard for the communication and publication of scientific documents. LaTeX is available as free software.
+![](../figures/pandoc1.png){width=500px}
+
+• [Latex software](https://www.latex-project.org/get/) is available here.
+• `tinytex` R package is a wrapper function that installs `TinyTeX`. `TinyTex` is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/). 
+
+```{r setup, include=T}
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
+#Basic yaml setup for pdf
+`---`
+`title: "rmarkdown_pdf_docx"`
+`author: "Sebastien Renaut"`
+`date: '2018-09-06'`
+`output: pdf_document`
+`---`
+
+#More complex yaml setup for .pdf files
+`---`
+`output:` 
+`  pdf_document:`
+`    keep_tex: true`
+`    fig_caption: true`
+`    latex_engine: pdflatex`
+`title: "**This is my first Rmarkdown manuscript**"`
+`date: "`r format(Sys.time(), '%B %d, %Y')`"`
+`geometry: margin=1in`
+`fontfamily: mathpazo`
+`fontsize: 11pt`
+`spacing: double`
+`csl: ../reference_material/peerj.csl`
+`bibliography: ../reference_material/reference.bib`
+---
+
+
+#R packages rticles
+• This is a nice package to format articles according to the specification of a journal
+```{r rticles, include=T}
+install.packages("rticles")
+library(rticles)
+```
+• Once installed, try starting a new R markdown according to your journal of interest.
+![](../figures/getstarted.png){width=500px}
+![](../figures/fromtemplate.png){width=500px}
+![](../figures/pandoc1.png){width=500px}
+
+#.tex template
+• There are many out there...
+• Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex):
+• Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):
+• Simply add it to the YAML header like this: 
+template: ../reference_material/svm-latex-ms.tex
+`---`
+`output:`
+`  pdf_document:`
+`   keep_tex: true`
+`   fig_caption: true`
+`   latex_engine: pdflatex`
+`   template: ../reference_material/svm-latex-ms.tex`      
+`title: "**This is my first Rmarkdown manuscript**"
+• You can create, modify your own, but need to know latex...
+
+#slide presentation
