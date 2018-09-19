@@ -17,21 +17,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Inputs and Outputs
 
-You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.  This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to drive the plot.
+• You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.  This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to drive the plot.
 
 ```{r eruptions, echo=FALSE}
 inputPanel(
+  #selecting the type of input (n_breaks)
   selectInput("n_breaks", label = "Number of bins:",
               choices = c(10, 20, 35, 50), selected = 20),
   
+  #selecting the type of input (bw_adjust)
   sliderInput("bw_adjust", label = "Bandwidth adjustment:",
               min = 0.2, max = 2, value = 1, step = 0.2)
 )
 
+  #what plot will be made
 renderPlot({
+  #an histogram of faithful$eruptions with breaks defined according to above
   hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
        xlab = "Duration (minutes)", main = "Geyser eruption duration")
   
+  #a density line of faithful$eruptions with adjust defined according to above
   dens <- density(faithful$eruptions, adjust = input$bw_adjust)
   lines(dens, col = "blue")
 })
@@ -57,4 +62,136 @@ You can also use the `shinyApp` function to define an application inline rather 
 In all of R code chunks above the `echo = FALSE` attribute is used. This is to prevent the R code within the chunk from rendering in the document alongside the Shiny components.
 
 
+## Another simple example
+
+https://shiny.rstudio.com/gallery/
+```
+```{r kmean clustering, echo=T}
+kmeans_cluster = function(dataset) {
+
+  library(shiny)  
+  vars = names(dataset)
+
+  shinyApp(
+    ui = fluidPage(
+      fluidRow(style = "padding-bottom: 20px;",
+        column(4, selectInput('xcol', 'X Variable', vars)),
+        column(4, selectInput('ycol', 'Y Variable', vars,
+                              selected = vars[2])),
+        column(4, numericInput('clusters', 'Cluster count', 3,
+                               min = 1, max = 9))
+      ),
+      fluidRow(
+        plotOutput('kmeans', height = "400px")  
+      )
+    ),
+
+    server = function(input, output, session) {
+
+      # Combine the selected variables into a new data frame
+      selectedData = reactive({
+        dataset[, c(input$xcol, input$ycol)]
+      })
+
+      clusters = reactive({
+        kmeans(selectedData(), input$clusters)
+      })
+
+      output$kmeans = renderPlot(height = 400, {
+        res = clusters()
+        par(mar = c(5.1, 4.1, 0, 1))
+        plot(selectedData(),
+             col = res$cluster, pch = 20, cex = 3)
+        points(res$centers, pch = 4, cex = 4, lwd = 4)
+      })
+    },
+
+    options = list(height = 500)
+  )
+}
+
+kmeans_cluster(iris)
+```
+# Deployment
+Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
+
+There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny documents.
+
+# ShinyApps.io
+• sign up to http://www.shinyapps.io/  
+• `install.packages("rsconnect")`  
+• `rsconnect::setAccountInfo(name='sebastien',`  
+	`		  token='9EC11C1F1441B6D968993E601C5F854D',` 
+	`		  secret='<SECRET>')`  
+• `library(rsconnect)`	  
+• Publish document at the top right corner
+
+```{r view, out.width = "80%", fig.cap = "shiny", echo = FALSE}
+knitr::include_graphics("/Users/jerry/Documents/protocols_documentation/Rmarkdown/figures/shiny.png")
+```
+
+    
+    
+```{r mtcars, echo=T} 
+# Define UI for miles per gallon app ----
+ui <- fluidPage(
+
+  # App title ----
+  titlePanel("Miles Per Gallon"),
+
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+
+      # Input: Selector for variable to plot against mpg ----
+      selectInput("variable", "Variable:",
+                  c("Cylinders" = "cyl",
+                    "Transmission" = "am",
+                    "Gears" = "gear"))
+    ),
+
+    # Main panel for displaying outputs ----
+    mainPanel(
+
+      # Output: Formatted text for caption ----
+      h3(textOutput("caption")),
+
+      # Output: Plot of the requested variable against mpg ----
+      plotOutput("mpgPlot")
+
+    )
+  )
+)
+
+# Define server logic to plot various variables against mpg ----
+server <- function(input, output) {
+
+  # Compute the formula text ----
+  # This is in a reactive expression since it is shared by the
+  # output$caption and output$mpgPlot functions
+  formulaText <- reactive({
+    paste("mpg ~", input$variable)
+  })
+
+  # Return the formula text for printing as a caption ----
+  output$caption <- renderText({
+    formulaText()
+  })
+
+  # Generate a plot of the requested variable against mpg ----
+  # and only exclude outliers if requested
+  output$mpgPlot <- renderPlot({
+    plot(as.formula(formulaText()),
+            data = mtcars,
+            col = "#75AADB", pch = 19)
+  })
+
+}
+
+
+# Return a Shiny app object
+shinyApp(ui = ui, server = server)
+```
 
