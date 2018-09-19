@@ -98,3 +98,6 @@ library(rticles)
 
 
 #slide presentation  
+
+# Radix
+https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/

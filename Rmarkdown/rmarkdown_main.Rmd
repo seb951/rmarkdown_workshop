@@ -19,31 +19,33 @@ bibliography: ../biblio/test_library.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Introduction
+#Introduction  
+• You can download the workshop material here (https://github.com/seb951/rmarkdown_workshop)   
+• ~1h30min: intro + html format  
+• ~10min. pause  
+• ~1hr: other formats (.docx, .pdf, shiny app)  
+
+
 ##Markdown
-Markdown is a **lightweight markup language** with plain text formatting syntax (*Easy-to-read, easy-to-write plain text format*). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word).
-
-It saves and executes code in order to generate fully reproducible reports in dozens of static and dynamic output formats.
-
-Like other markup languages (e.g. HTML and Latex), it is completely independent from R.
+• Markdown is a **lightweight markup language** with plain text formatting syntax (*Easy-to-read, easy-to-write plain text format*). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word).  
+• Example: https://github.com/seb951/rmarkdown_workshop/blob/master/README.md  
+• It saves and executes code in order to generate fully reproducible reports in dozens of static and dynamic output formats.  
+• Like other markup languages (e.g. HTML and Latex), it is completely independent from R.  
 
 ##R Markdown
-• R Markdown is an extension of the markdown syntax. R Markdown files are plain text files that typically have the file extension `.Rmd`. They are written using an extension of markdown syntax that enables **R code to be embedded in them in a way which can later be executed**.
-
-• The R package `rmarkdown` package feeds the `.Rmd` file to `knitr`, which executes all of the code chunks and creates a new markdown (`.md`) document which includes the code and it’s output.
-
-• It is subsequently tranformed into `html`/`.tex`/`.docx` by `pandoc`. `.tex` files need to be transformed by `pdflatex` into `.pdf` files.
-
-• `rmardown`, `knitr`, and ``pandoc` are built in `Rstudio`. `pdflatex` is not. We'll come back to that later. 
-
-• When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+• R Markdown is an extension of the markdown syntax. R Markdown files are plain text files that typically have the file extension `.Rmd`. They are written using an extension of markdown syntax that enables **R code to be embedded in them in a way which can later be executed**.  
+• The R package `rmarkdown` package feeds the `.Rmd` file to `knitr`, which executes all of the code chunks and creates a new markdown (`.md`) document which includes the code and it’s output.  
+• It is subsequently tranformed into `html`/`.tex`/`.docx` by `pandoc`. Note that `.tex` files need to be transformed by `pdflatex` into `.pdf` files. We'll come back to that later.  
+• `rmardown`, `knitr`, and ``pandoc` are built in `Rstudio`. `pdflatex` is not.  
+• When you click the **Knit** button (top left),  a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.  
 
 ![](../figures/pandoc1.png){width=500px}
 
-#Get started!
+#Try it for yourself
+• Set up an Rmarkdown file  
 ![](../figures/getstarted.png){width=500px}
-&nbsp;  
-&nbsp;  
+    
+     
 1.file>new file>R markdown > HTML   
 2.Save it ("myfirstRmarkdown.Rmd")   
 3.Knit
@@ -59,14 +61,11 @@ Like other markup languages (e.g. HTML and Latex), it is completely independent 
 `---`  
 
 • Why YAML (https://en.wikipedia.org/wiki/YAML#History_and_name) ?  
-  
-• It uses Python-style indentation to specify general options and what kind of document will be created.  
-
-• It is not required (defaults then apply)
-
-• Many options possible depending what type of document you are generating. See below for some examples.
-
-• Note that several options can be specified either for the whole document (in the YAML header), or the code chunks, or both (chunks options superseede YAML header).
+• It specifies what kind of document will be created, and the options chosen.   
+• It is not required (defaults then apply)  
+• It uses Python-style indentation to specify options  
+• Many options possible depending what type of document you are generating. See below for some examples.  
+• Note that several options can be specified either for the whole document (in the YAML header), or the code chunks, or both (chunks options superseede YAML header).  
 
 ##Customizing metadata
 `---`  
@@ -83,33 +82,34 @@ Like other markup languages (e.g. HTML and Latex), it is completely independent 
 `---`
 
 ##Output types 
-See the documentation for more information. But these are some [formats](https://rmarkdown.rstudio.com/lesson-9.html) that are of interest.
-• `html_document`  
+See the documentation for more information. But these are some [formats](https://rmarkdown.rstudio.com/lesson-9.html) that are of interest.  
+• `html_document`   
 • `ioslides_presentation`  
-• `pdf_document`  (This will require that you have a [Latex software](https://www.latex-project.org/get/) installed)
-• interactive shiny apps (Well get to that later)
+• `pdf_document`  (This will require that you have a [Latex software](https://www.latex-project.org/get/) installed)  
+• `word_document`   
+• interactive shiny apps (We may get to that later)  
 
 ##Table of content options
-• `toc: yes` Generate TOC 
-• `toc_depth:3` depth of TOC  
-• `number_sections:T` Add section numbering to headers (e.g., number_sections: true).
+• `toc: yes` Generate TOC   
+• `toc_depth:3` depth of TOC    
+• `number_sections:T` Add section numbering to headers (e.g., number_sections: true).  
     
 ##theme, highlight, tabs, other options
-• `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo")
-• `highlight = ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn")
-• `include ` If FALSE, knitr will run the chunk but not include the chunk in the final document  
-• See this [Reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+• `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo")  
+• `highlight = ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn")  
+• `include ` If FALSE, knitr will run the chunk but not include the chunk in the final document    
+• See this [Reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
 
 #Code chunks
-Code Chunk output can be customized with knitr options, arguments set in the {} of a chunk header. Below, I use five arguments: 
-• In this example, the first code chunk specifies global options. These can be redefined later.   
-•  `include = FALSE` prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.  
-•  `echo = FALSE` prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.
-• `message = FALSE` prevents messages that are generated by code from appearing in the finished file.  
-• `warning = FALSE` prevents warnings that are generated by code from appearing in the finished.  
-• `fig.cap = "..."` adds a caption to graphical results.  
-• `fig.width=..., fig.height=...` to change figure width/heigth.  
-• see [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more info.   
+• Code Chunk output can be customized with knitr options, arguments set in the {} of a chunk header. Below, I use five arguments:   
+• In this example, the first code chunk specifies global options. These can be redefined later.     
+•  `include = FALSE` prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.    
+•  `echo = FALSE` prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.  
+• `message = FALSE` prevents messages that are generated by code from appearing in the finished file.    
+• `warning = FALSE` prevents warnings that are generated by code from appearing in the finished file.    
+• `fig.cap = "..."` adds a caption to graphical results.    
+• `fig.width=..., fig.height=...` to change figure width/heigth.    
+• see [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more info.     
 
 ```{r code chunk example, include = T, message = T, warning=T, echo = T, fig.cap="Figure 1"}
 #This is an example using include = T, message = T, warning=T, echo = T, fig.cap="Figure 1".
@@ -119,7 +119,7 @@ max(x)
 plot(x)
 ```
 
-• In this example, the first code chunk specifies global options. These can be redefined later. 
+• In this example, the first code chunk specifies options. These can be redefined later. 
 
 
 ##Markdown can read and knitr execute different languages!
@@ -147,7 +147,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 • **bold**  
 • `code`  
 • [links](rmarkdown.rstudio.com)  
-• backslach (\\) to interpret a special characters as character!
+• backslash (\\) to interpret a special characters as character!
 • etc.  
 • "\&nbsp;  " character for extra line spacing  
 • See the [cheatsheet] (https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)  
@@ -167,11 +167,10 @@ Markdown provides an easy way to make standard types of formatted text, like:
 `bibliography: biblio/test_library.bib`  
 `---`
 
-• `csl` specifies the reference format. 
-• The Citation Style Language (CSL) is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using CSL include Zotero, Mendeley and Papers.
-• Here I just googled and download the .csl file for PlosOne. Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*YACL - Yet Another Citation Language...*)
-
-• `bib` is my reference library for this project. Here: a .bib file I created in [*Papers3 (reference management software)* (https://www.readcube.com/papers/mac) with some references (eg. @Yoshida:2014bn, @ThibertPlante:2010vw, @Wagner:2012hw).
+• The Citation Style Language (`csl`) file specifies the reference format. 
+• It is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using CSL include Zotero, Mendeley and Papers.
+• Here I just googled and download the .csl file for PeerJ Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*Yet Another Citation Format...*)  
+• A `.bib` file will contains the bibliographic information of our document. Here: a `.bib` file was created in [*Papers3 (reference management software)* (https://www.readcube.com/papers/mac) with some references (eg. @Yoshida:2014bn, @ThibertPlante:2010vw, @Wagner:2012hw).  
 
 ##Include pictures / figures from a local file or an URL.
 • There are several ways to include figures.   
@@ -184,9 +183,9 @@ Markdown provides an easy way to make standard types of formatted text, like:
 • This is a graph saved in my directory   
 ![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
-• In both these cases, graphs are rendering with `pandoc` and not `knitr`. It's simple, but options are tricky.  
+• In both these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options are given, not R graphing options. It's simple, but options are tricky.  
 • You may need to play with spacing, figure size, and figure position.  
-• Options can be specified directly after the URL or link to image with (eg. {width=250px} or eg. {width=50%}).  
+• Options are specified directly after the URL or link to image with (eg. {width=250px} or eg. {width=50%}).  
 • Graphs can be generated directly by R code, specified in a code chunk (options can be specified in the code chunk as we did above) and interpreted by `knitr`.  
 • Images can interpreted directly by `knitr` too as below:  
 
@@ -215,11 +214,12 @@ kable(head(mtcars),digits =1,caption = "An motorcars table")
 • https://rmarkdown.rstudio.com/l
 
 #Now go make your own html file!
-• Try loading a picture from the web
-• Try running some R code
-• Try ploting some results
-• Try generating a TOC and several sections
-• Add some equations
+• Try loading a picture from the web  
+• Try running some R code  
+• Try ploting some results  
+• Try generating a TOC and several sections  
+• Add some equations    
+• Add some references or footnotes  
 
 #References
 [^1]: Renaut 2018. footnote number 1. pp1-2
