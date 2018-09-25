@@ -1,33 +1,49 @@
 ---
-title: "rmarkdown_pdf_docx"
+title: "Rmarkdown_otherformats"
 author: "Sebastien Renaut"
-date: '2018-09-06'
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #Word documents
-• You can specify it when you create a new Rmarkdown document
-• You can also specify it later in the YAML  
+• You can specify it when you create a new Rmarkdown document.
+
+• You can also specify it later in the YAML header.     
+
 `---`  
 `title: "rmarkdown_pdf_docx"`  
 `author: "Sebastien Renaut"`  
 `date: '2018-09-06'`  
 `output: word_document`  
 `---`    
+
 • Then, it's just a matter of kniting the document!      
 
 #pdf document
 • You need a extra step to go from a Latex (.tex) file to a .pdf.
-• [Latex software](https://www.latex-project.org is a high-quality typesetting system; It is the *de facto* standard for the communication and publication of scientific documents. LaTeX is available as free software.
+
+• [Latex software](https://www.latex-project.org) is a high-quality typesetting system.  
+
+• It is the *de facto* standard for the communication and publication of scientific documents.  
+
+• LaTeX is available as free software.  
+
 ![](../figures/pandoc1.png){width=500px}
 
-• [Latex software](https://www.latex-project.org/get/) is available here.  
-• `tinytex` R package is a wrapper function that installs `TinyTeX`. `TinyTex` is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
+• (Latex software)[https://www.latex-project.org/get/] is available here.  
+
+• `tinytex` R package is a wrapper function that installs *TinyTeX*.
+
+• *TinyTex* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
+
 • But first, go install it in the R console `install.packages("tinytex")`    
+
 ```{r tinytex, include=T}
+#install.packages("tinytex")
 library(tinytex)
 #tinytex::install_tinytex()
 ```
@@ -56,25 +72,35 @@ library(tinytex)
 `csl: ../reference_material/peerj.csl`  
 `bibliography: ../reference_material/reference.bib`  
 `---`    
-• Note the indentation  
+
+• Note the indentation in the **.Rmd** document.     
+
 • Note the bibliography file for references + .csl file for formatting references.
 
 #R packages rticles
-• This is a nice package to format articles according to the specification of a journal
-• But first, go install it in the R console `install.packages("rticles")`
+• This is a nice package to format articles according to the specification of a journal.  
+
+• But first, go install it in the R console `install.packages("rticles")`.
+
 ```{r rticles, include=T}
+#install.packages("rticles")
 library(rticles)
-```
-• Once installed, try starting a new R markdown according to your journal of interest.
+```  
+
+• Once installed, try starting a new R markdown document according to your journal of interest.  
 ![](../figures/getstarted.png){width=500px}
 ![](../figures/from_template.png){width=500px}
 
 
 #.tex template  
-• You can build your own if you know Latex...     
+• You can build your own template if you know Latex...     
+
 • There are many templates available on the web that you can use.  
-• Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex):  
+
+• Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks svmiller!):  
+
 • Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
+
 • Simply add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
 `---`  
 `output:`  
@@ -86,18 +112,27 @@ library(rticles)
 `title: "**This is my first Rmarkdown manuscript**`  
 
 #Overleaf 
-• Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.  
+• Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
+
 ![](../figures/overleaf.png){width=500px}
   
 • Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
+• In theory, you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
+
 • [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
 
-• You can generate your .tex file, upload it to a github repo and overleaf will connect to it. Others can then collaborate and modify the .tex file   
-
-
+  
 #slide presentation  
+• You can generate Powerpoint like presentations. We will not learn this today:
+![](../figures/slides.png){width=500px} 
+
 
 # Radix
-https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/
+• https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
+
+• Stay tuned...  
+![](../figures/slides.png){width=500px}  
+
+

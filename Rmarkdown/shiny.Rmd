@@ -6,8 +6,9 @@ output: html_document
 runtime: shiny
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, echo=T}
+#install.packages("shiny")
+library(shiny)
 ```
 
 # What is Shiny?
@@ -17,9 +18,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Inputs and Outputs
 
-• You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.  This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to drive the plot.
+• You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.   
+
+• The code bellow demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to generate plots.  
+
 
 ```{r eruptions, echo=FALSE}
+#Here we will use the faithful geyser example dataset to generate histogram and a density function.
+#Go see what the data looks like
+head(faithful)
+
 inputPanel(
   #selecting the type of input (n_breaks)
   selectInput("n_breaks", label = "Number of bins:",
@@ -30,7 +38,7 @@ inputPanel(
               min = 0.2, max = 2, value = 1, step = 0.2)
 )
 
-  #what plot will be made
+  #What plot will you make
 renderPlot({
   #an histogram of faithful$eruptions with breaks defined according to above
   hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
@@ -44,7 +52,7 @@ renderPlot({
 
 ## Embedded Application
 
-It's also possible to embed an entire Shiny application within an R Markdown document using the `shinyAppDir` function. This example embeds a Shiny application located in another directory:
+• It's also possible to embed an entire Shiny application within an R Markdown document using the `shinyAppDir` function. This example embeds a Shiny application located in another directory:
 
 ```{r tabsets, echo=FALSE}
 shinyAppDir(
@@ -55,83 +63,14 @@ shinyAppDir(
 )
 ```
 
-Note the use of the `height` parameter to determine how much vertical space the embedded application should occupy.
+• Note the use of the `height` parameter to determine how much vertical space the embedded application should occupy.
 
-You can also use the `shinyApp` function to define an application inline rather then in an external directory.
-
-In all of R code chunks above the `echo = FALSE` attribute is used. This is to prevent the R code within the chunk from rendering in the document alongside the Shiny components.
+• In all of R code chunks above the `echo = FALSE` attribute is used. This is to prevent the R code within the chunk from rendering in the document alongside the Shiny components.
 
 
-## Another simple example
+## Another (simple) example
+• See [gallery](https://shiny.rstudio.com/gallery/) for more examples.
 
-https://shiny.rstudio.com/gallery/
-```
-```{r kmean clustering, echo=T}
-kmeans_cluster = function(dataset) {
-
-  library(shiny)  
-  vars = names(dataset)
-
-  shinyApp(
-    ui = fluidPage(
-      fluidRow(style = "padding-bottom: 20px;",
-        column(4, selectInput('xcol', 'X Variable', vars)),
-        column(4, selectInput('ycol', 'Y Variable', vars,
-                              selected = vars[2])),
-        column(4, numericInput('clusters', 'Cluster count', 3,
-                               min = 1, max = 9))
-      ),
-      fluidRow(
-        plotOutput('kmeans', height = "400px")  
-      )
-    ),
-
-    server = function(input, output, session) {
-
-      # Combine the selected variables into a new data frame
-      selectedData = reactive({
-        dataset[, c(input$xcol, input$ycol)]
-      })
-
-      clusters = reactive({
-        kmeans(selectedData(), input$clusters)
-      })
-
-      output$kmeans = renderPlot(height = 400, {
-        res = clusters()
-        par(mar = c(5.1, 4.1, 0, 1))
-        plot(selectedData(),
-             col = res$cluster, pch = 20, cex = 3)
-        points(res$centers, pch = 4, cex = 4, lwd = 4)
-      })
-    },
-
-    options = list(height = 500)
-  )
-}
-
-kmeans_cluster(iris)
-```
-# Deployment
-Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Usually only you can see and interact with the document. If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
-
-There are two ways to deploy a Shiny document. You can either use a hosted service provided by RStudio, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny documents.
-
-# ShinyApps.io
-• sign up to http://www.shinyapps.io/  
-• `install.packages("rsconnect")`  
-• `rsconnect::setAccountInfo(name='sebastien',`  
-	`		  token='9EC11C1F1441B6D968993E601C5F854D',` 
-	`		  secret='<SECRET>')`  
-• `library(rsconnect)`	  
-• Publish document at the top right corner
-
-```{r view, out.width = "80%", fig.cap = "shiny", echo = FALSE}
-knitr::include_graphics("/Users/jerry/Documents/protocols_documentation/Rmarkdown/figures/shiny.png")
-```
-
-    
-    
 ```{r mtcars, echo=T} 
 # Define UI for miles per gallon app ----
 ui <- fluidPage(
@@ -194,4 +133,25 @@ server <- function(input, output) {
 # Return a Shiny app object
 shinyApp(ui = ui, server = server)
 ```
+# Deployment
+• Shiny documents must be supported by a live R session running behind the scenes. When you run a Shiny document locally, it uses your local R session. Only you can see and interact with the document. 
+
+• If you want to share the document with people who do not have R installed, or do not want to run the document locally, you will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to visit your document.
+
+• Two ways to deploy a Shiny document: You can either use a hosted service provided by **RStudio**, or set up your own server. The first way is technically easier, but sometimes you may not be allowed to use an external hosted service, so you have to install the required software (Shiny Server or RStudio Connect) on your own server to deploy the Shiny documents.
+
+# The first way: ShinyApps.io
+• Sign up to http://www.shinyapps.io/ 
+
+• Connect to the remote server
+
+`install.packages("rsconnect")
+`library(rsconnect)
+`rsconnect::setAccountInfo(name='sebastien',token='9EC11C1F1441B6D968993E601C5F854D',secret='zsFPQ/7ckRkrzuaaEatBRIf0B24nXxhAM+NcY/V9')` 
+
+• Publish document at the top right corner  
+```
+
+
+![](../figures/shiny.png){width=500px} 
 

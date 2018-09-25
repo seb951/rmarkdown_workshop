@@ -5,8 +5,8 @@ account: sebastien
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 456072
-bundleId: 1594266
+bundleId: 1605175
 url: https://sebastien.shinyapps.io/shiny/
-when: 1537384551.02283
+when: 1537904503.12365
 asMultiple: FALSE
 asStatic: FALSE
