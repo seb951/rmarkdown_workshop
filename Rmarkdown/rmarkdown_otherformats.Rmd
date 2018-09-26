@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #Word documents
-• You can specify it when you create a new Rmarkdown document.
-
+• You can specify it when you create a new `rmarkdown` document.  
+  
 • You can also specify it later in the YAML header.     
 
 `---`  
@@ -24,9 +24,9 @@ knitr::opts_chunk$set(echo = TRUE)
 • Then, it's just a matter of kniting the document!      
 
 #pdf document
-• You need a extra step to go from a Latex (.tex) file to a .pdf.
+• You need a extra step to go from a LaTeX (*.tex*) file to a *.pdf* file.
 
-• [Latex software](https://www.latex-project.org) is a high-quality typesetting system.  
+• [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
 
 • It is the *de facto* standard for the communication and publication of scientific documents.  
 
@@ -34,11 +34,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](../figures/pandoc1.png){width=500px}
 
-• (Latex software)[https://www.latex-project.org/get/] is available here.  
+• [Latex software](https://www.latex-project.org/get/) is available here.  
 
 • `tinytex` R package is a wrapper function that installs *TinyTeX*.
 
-• *TinyTex* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
+• *TinyTeX* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
 
 • But first, go install it in the R console `install.packages("tinytex")`    
 
@@ -77,7 +77,7 @@ library(tinytex)
 
 • Note the bibliography file for references + .csl file for formatting references.
 
-#R packages rticles
+#R packages `rticles`  
 • This is a nice package to format articles according to the specification of a journal.  
 
 • But first, go install it in the R console `install.packages("rticles")`.
@@ -86,13 +86,15 @@ library(tinytex)
 #install.packages("rticles")
 library(rticles)
 ```  
-
+  
 • Once installed, try starting a new R markdown document according to your journal of interest.  
-![](../figures/getstarted.png){width=500px}
-![](../figures/from_template.png){width=500px}
-
-
-#.tex template  
+   
+![](../figures/getstarted.png){width=500px}  
+&nbsp;  
+![](../figures/from_template.png){width=500px}  
+&nbsp;  
+  
+#Template (*.tex*)  
 • You can build your own template if you know Latex...     
 
 • There are many templates available on the web that you can use.  
@@ -101,7 +103,7 @@ library(rticles)
 
 • Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
 
-• Simply add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
+• Simply download it and add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
 `---`  
 `output:`  
 `  pdf_document:`  
@@ -110,6 +112,7 @@ library(rticles)
 `   latex_engine: pdflatex`  
 `   template: ../reference_material/svm-latex-ms.tex`        
 `title: "**This is my first Rmarkdown manuscript**`  
+`---`   
 
 #Overleaf 
 • Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
@@ -119,7 +122,7 @@ library(rticles)
 • Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
-• In theory, you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
+• So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
 
 • [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
 
@@ -133,6 +136,6 @@ library(rticles)
 • https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
 
 • Stay tuned...  
-![](../figures/slides.png){width=500px}  
+![](../figures/radix.png){width=500px}  
 
 

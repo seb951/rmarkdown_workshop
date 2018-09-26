@@ -15,17 +15,18 @@ csl: ../csl/peerj.csl
 bibliography: ../biblio/test_library.bib
 ---
 
-```{r setup, include=T}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #Introduction  
 • You can download the workshop material here (https://github.com/seb951/rmarkdown_workshop)  
 
-• Follow the .html document + in Rstudio, look at the .Rmd version and experiment.  
+• Follow the *.html* and the *.Rmd* document. Try and experiment.  
 
 ![](../figures/download.png){width=500px}  
-
+&nbsp;  
+  
 • ~1h00min: intro + html format    
 
 • ~10min. pause  
@@ -52,20 +53,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 • Written using an extension of markdown syntax that enables **R code to be embedded in them in a way which can later be executed**.  
 
-• The R package `rmarkdown` package feeds the .Rmd file to `knitr`, which executes all of the code chunks and creates a new markdown (*.md*) document which includes the code and output.  
+• The R package `rmarkdown` package feeds the *.Rmd* file to `knitr`, which executes all of the code chunks and creates a new markdown (*.md*) document which includes the code and output.  
 
 • Subsequently tranformed into *.html*/*.tex*/*.docx* by `pandoc`. Note that *.tex* files need to be transformed by `pdflatex` into *.pdf* files. We'll come back to that later.  
 
-• `rmardown`, `knitr`, and `pandoc` are built in `Rstudio`. `pdflatex` is not.  
+• `rmarkdown`, `knitr`, and `pandoc` are built in `Rstudio`. `pdflatex` is not.  
 
 • When you click the **Knit** button (top left),  a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.  
 ![](../figures/pandoc1.png){width=500px}
 
 #Try it for yourself
 • Set up an Rmarkdown file  
-![](../figures/getstarted.png){width=500px}
-    
-     
+&nbsp;  
+![](../figures/getstarted.png){width=500px}  
+&nbsp;      
+  
 • file > new file > R markdown > HTML   
 
 • Save it ("myfirstRmarkdown.Rmd")   
@@ -94,7 +96,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 • Many options possible depending what type of document you are generating. See below for some examples.  
 
-• Note that several options can be specified either for the whole document (in the YAML header), or the code chunks, or both (chunks options supersede YAML header).  
+• Note that some options can be specified either for the whole document (in the YAML header), the code chunks, or both (chunks options supersede YAML header).  
 
 ##Customizing metadata
 `---`  
@@ -112,15 +114,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##Output types 
 See the documentation for more information. But these are some [formats](https://rmarkdown.rstudio.com/lesson-9.html) of interest.  
+
 • `html_document`   
 
 • `ioslides_presentation`  
 
-• `pdf_document` - This will require that you have a [Latex software](https://www.latex-project.org/get/) installed - (We may get to that later).    
+• `pdf_document` - This will require that you have a [Latex software](https://www.latex-project.org/get/) installed - (We'll get to that later).    
 
 • `word_document (.docx)`   
 
-• interactive shiny apps (We may get to that later).  
+• interactive shiny apps (We'll get to that later).  
 
 ##Table of content options
 • `toc: yes` Generate TOC.   
@@ -132,9 +135,8 @@ See the documentation for more information. But these are some [formats](https:/
 ##Theme, highlight, tabs, other options
 • `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo").  
 
-• `highlight = ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
+• `highlight: ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
 
-• `include ` If FALSE, knitr will run the chunk but not include the chunk in the final document.   
 • See this [Reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).  
 
 #Code chunks
@@ -154,7 +156,7 @@ See the documentation for more information. But these are some [formats](https:/
 
 • `fig.width=..., fig.height=...` to change figure width/heigth.    
 
-• Also, try clicking the green arrow on the right to execute code.   
+• Also, try clicking the green arrow in the *.Rmd* on the right to execute code.   
 
 • see [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more info. 
 
@@ -169,7 +171,7 @@ plot(x)
 
 
 
-##Markdown can read and knitr execute different languages!
+##Markdown can read and knitr can execute different languages!
 • Click green arrow.
 **bash**
 ```{bash}
@@ -211,7 +213,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 ##Equations/math symbols (from LaTeX typesetting language)  
 • Mathematical material is set off by the use of single dollar-sign characters. Consequently, if you wish to use a dollar sign (for example, to indicate currency), you need to preface it with a back-slash.
 
-• $E = mc^{2}$  
+• $E = mc^{2}$ versus \$E = mc^{2}\$  
 
 • $\sum_{i=1}^n ASV$  
 
@@ -221,42 +223,43 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • $\sqrt{b^2 - 4ac}$  
 
-• The use of double dollars quote allows for displayed formulas. $$X_i$$  
+• The use of double dollars quote allows for displayed formulas (centered). $$\sqrt{b^2 - 4ac}$$  
 
 • See [these](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) for more examples.  
 
-##References, footnotes, bibliography
+##Citations, footnotes, bibliography
 • Footnotes are easy when you have a few references [^1]  
 
-• Otherwise, you may specify a bibliography in the YAML metadata header.  
+• Otherwise, you may specify a bibliography and citation style in the YAML metadata header.  
 
 `...`  
 `csl: csl/peerj.csl`  
 `bibliography: biblio/test_library.bib`  
 `---`
+ 
+• The Citation Style Language (*.csl*) file specifies the reference format.   
 
-• Example: *Gapped BLAST and PSI-BLAST: a new generation of protein database search programs* [@altschul1997gapped] has been cited nearly 70,000 times!  
+• It is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using *.csl* include Zotero, Mendeley and Papers.  
 
-• These are just random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn]   
-
-• Citations go inside square brackets and are separated by semicolons. Each citation must have a key, composed of ‘@’ + the citation identifier from the database.  
-
-• A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text.  
-  
-• The Citation Style Language (**.csl**) file specifies the reference format.   
-
-• It is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using **.csl** include Zotero, Mendeley and Papers.  
-
-• Here I just googled and download the .csl file for PeerJ.  
+• Here I just googled and download the *.csl* file for PeerJ.  
 
 • Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*Yet Another Citation Format...*)  
 
-• A **.bib** file will contains the bibliographic information of our document. Here: a `.bib` file was created in the reference management software [Papers3](https://www.readcube.com/papers/mac).   
+• A *.bib* file will contains the bibliographic information of our document. Here: a `.bib` file was created in the reference management software [Papers3](https://www.readcube.com/papers/mac).   
+###Citations: examples  
+• Example: *Gapped BLAST and PSI-BLAST: a new generation of protein database search programs* [@altschul1997gapped] has been cited nearly 70,000 times!  
+
+• These are just random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
+  
+• Citations go inside square brackets and are separated by semicolons. Each citation must have a key, composed of ‘@’ + the citation identifier from the database.  
+
+• A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, Altschul *et al.* [-@altschul1997gapped] has 70,000 citations. 
+  
 
 ##Include pictures / figures from a local file or an URL.
 • There are several ways to include figures.   
 
-• This is from a URL directly uploaded from the web.     
+• Can be included from a URL directly uploaded from the web.     
    
 ![](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=250px}  
 &nbsp;   
@@ -273,7 +276,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • Images can interpreted directly by `knitr` too as below:  
 
-```{r view, out.width = "20%", fig.cap = "A random orange man", echo = FALSE}
+```{r graphic_example, out.width = "20%", fig.cap = "A random orange man", echo = FALSE}
 knitr::include_graphics("../figures/orange.jpeg")
 ```
 
@@ -282,7 +285,7 @@ knitr::include_graphics("../figures/orange.jpeg")
 ##Including Tables
 • By default, R Markdown displays data frames and matrixes as they would be in the R terminal (in a monospaced font). It is not very pretty.   
 
-• If you prefer that data be displayed with additional formatting you can use the knitr::kable function, as in the .Rmd file below.  
+• If you prefer that data be displayed with additional formatting you can use the knitr::kable function, as in the *.Rmd* file below.  
 
 ```{r table, echo=T}
 #default R printout (ugly)
@@ -307,7 +310,7 @@ kable(head(mtcars),digits =1,caption = "An motorcars table")
 
 • Try ploting some results  
 
-• Try generating a TOC and several sections  
+• Try generating a TOC with several sections  
 
 • Add some equations    
 
