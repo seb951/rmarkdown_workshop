@@ -27,20 +27,20 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](../figures/download.png){width=500px}  
 &nbsp;  
   
-• ~1h00min: intro + html format    
+• ~1h: intro + html format    
 
 • ~10min. pause  
 
-• ~45min: other formats (.docx, .pdf, shiny app)  
+• ~45min: other formats (.docx, .pdf)  
 
 • ~15min: shiny   
 
 ##Markdown
-• Markdown is a **lightweight markup language** with plain text formatting syntax (*Easy-to-read, easy-to-write plain text format*). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word .docx).  
+• Markdown is a **lightweight markup language** with plain text formatting syntax (Easy-to-read, easy-to-write plain text format). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word .docx).  
 
 • Example: https://github.com/seb951/rmarkdown_workshop/blob/master/README.md  
 
-• It saves and executes code in order to generate fully reproducible reports in different of static and dynamic output formats.  
+• It saves and executes code in order to **generate fully reproducible reports** in different of static and dynamic output formats.  
 
 • Like other markup languages (e.g. HTML and Latex), it is completely independent from R.  
 
@@ -51,7 +51,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 • Plain text files that typically have the file extension *.Rmd*.  
 
-• Written using an extension of markdown syntax that enables **R code to be embedded in them in a way which can later be executed**.  
+• Written using an extension of markdown syntax that enables **R code to be embedded and executed**.  
 
 • The R package `rmarkdown` package feeds the *.Rmd* file to `knitr`, which executes all of the code chunks and creates a new markdown (*.md*) document which includes the code and output.  
 
@@ -171,8 +171,8 @@ plot(x)
 
 
 
-##Markdown can read and knitr can execute different languages!
-• Click green arrow.
+#Markdown can read and knitr can execute different languages!
+• Click green arrow in *.rmd* file to execute code in console.  
 **bash**
 ```{bash}
 ls -thor
@@ -227,7 +227,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • See [these](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) for more examples.  
 
-##Citations, footnotes, bibliography
+#Citations, footnotes, bibliography
 • Footnotes are easy when you have a few references [^1]  
 
 • Otherwise, you may specify a bibliography and citation style in the YAML metadata header.  
@@ -245,18 +245,19 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • Most journals should be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own (*Yet Another Citation Format...*)  
 
-• A *.bib* file will contains the bibliographic information of our document. Here: a `.bib` file was created in the reference management software [Papers3](https://www.readcube.com/papers/mac).   
-###Citations: examples  
-• Example: *Gapped BLAST and PSI-BLAST: a new generation of protein database search programs* [@altschul1997gapped] has been cited nearly 70,000 times!  
+• A *.bib* file will contains the bibliographic information of our document. Here: a `.bib` file was created in the reference management software [Papers3](https://www.readcube.com/papers/mac).  
+  
+##Citations: examples  
+• Example: Gapped BLAST and PSI-BLAST: a new generation of protein database search programs [@altschul1997gapped] has been cited nearly 70,000 times!  
 
-• These are just random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
+• These are three random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
   
 • Citations go inside square brackets and are separated by semicolons. Each citation must have a key, composed of ‘@’ + the citation identifier from the database.  
 
 • A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, Altschul *et al.* [-@altschul1997gapped] has 70,000 citations. 
   
 
-##Include pictures / figures from a local file or an URL.
+#Include pictures / figures from a local file or an URL.
 • There are several ways to include figures.   
 
 • Can be included from a URL directly uploaded from the web.     
@@ -265,7 +266,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 &nbsp;   
 &nbsp;  
 &nbsp;  
-• This is a graph saved in our *figures* directory   
+• This is a graph previously saved in the *figures* directory   
 ![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
 • In both these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be given, not R graphing options. It's simple, but options are tricky.  
@@ -274,7 +275,7 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • Options are specified directly after the URL or link to image with (eg. {width=250px} or eg. {width=50%}).  
 
-• Images can interpreted directly by `knitr` too as below:  
+• Images can interpreted directly by `knitr` as below:  
 
 ```{r graphic_example, out.width = "20%", fig.cap = "A random orange man", echo = FALSE}
 knitr::include_graphics("../figures/orange.jpeg")
@@ -282,7 +283,7 @@ knitr::include_graphics("../figures/orange.jpeg")
 
 • Graphs can also be generated directly by R code, specified in a code chunk (R options specified in the code chunk) and interpreted by `knitr` as we did previously.  
 
-##Including Tables
+#Including Tables
 • By default, R Markdown displays data frames and matrixes as they would be in the R terminal (in a monospaced font). It is not very pretty.   
 
 • If you prefer that data be displayed with additional formatting you can use the knitr::kable function, as in the *.Rmd* file below.  
