@@ -292,7 +292,6 @@ knitr::include_graphics("../figures/orange.jpeg")
 print(head(mtcars))
 
 #kable from knitr (better looking)
-library(knitr)
 kable(head(mtcars),digits =1,caption = "An motorcars table")
 ```
 

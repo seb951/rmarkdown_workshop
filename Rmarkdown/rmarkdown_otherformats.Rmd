@@ -45,6 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r tinytex, include=T}
 #install.packages("tinytex")
 library(tinytex)
+#(Next line is commented out as well, because it takes a few minutes to install...)
 #tinytex::install_tinytex()
 ```
 
