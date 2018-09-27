@@ -45,7 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r tinytex, include=T}
 #install.packages("tinytex")
 library(tinytex)
-#(Next line is commented out as well, because it takes a few minutes to install...)
+#(Next line is commented out as well, because it takes a few minutes to install tinytex...)
 #tinytex::install_tinytex()
 ```
 
@@ -76,12 +76,12 @@ library(tinytex)
 
 • Note the indentation in the **.Rmd** document.     
 
-• Note the bibliography file for references + .csl file for formatting references.
+• Note the bibliography file + *.csl* file for formatting references.
 
 #R packages `rticles`  
 • This is a nice package to format articles according to the specification of a journal.  
 
-• But first, go install it in the R console `install.packages("rticles")`.
+• But first, you need to install it in the R console `install.packages("rticles")`.
 
 ```{r rticles, include=T}
 #install.packages("rticles")
@@ -136,7 +136,7 @@ library(rticles)
 # Radix
 • https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
 
-• Stay tuned...  
+• Stay tuned, as it might replace the 'rmarkdown' package...  
 ![](../figures/radix.png){width=500px}  
 
 
