@@ -1,7 +1,7 @@
 # Atelier R markdown / R markdown workshop
 sebastien.renaut@umontreal.ca
 
-**S'il vous plait, remplissez ce formulaire si intéressé(e). Je vous recontacterai quelques jours avant l'atelier. / Please fill in this form if you are interested. I will contact you a few days in advance with details about location.**
+**S'il vous plait, remplissez ce formulaire si intéressé.e. Je vous recontacterai quelques jours avant l'atelier. / Please fill in this form if you are interested. I will contact you a few days in advance with details about location.**
 https://docs.google.com/forms/d/1HhB20IOW69GljjmXBoLvkhncICN74L0tRqeDRrgkQw8/edit
 
 **Cet atelier est offert pour les membres du [CSBQ](http://qcbs.ca/) / The workshop is intended for [CSBQ](http://qcbs.ca/) members**
