@@ -26,7 +26,7 @@ sebastien.renaut@umontreal.ca
 **Currently, the repo contains (note that I'm still working on preparing the workshop):**    
 • The workshop introduction (`rmarkdown_main.Rmd` and [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
 • The second part of the workshop (`rmarkdown_otherformats.Rmd` and [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))    
-• The shiny.Rmd introduction.  
+• The `shiny` introduction.  
 • A `figures` directory with some example figures I loaded.  
 • A `biblio` directory with an example bibliography.  
 • A `csl` directory with some example .csl files.  
