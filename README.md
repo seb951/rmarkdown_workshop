@@ -22,9 +22,9 @@ https://docs.google.com/forms/d/1HhB20IOW69GljjmXBoLvkhncICN74L0tRqeDRrgkQw8/edi
 • Create a dynamic R page (R package `shiny`)  
 • Practice, hopefully learn some tricks and find out where to get more info about Rmarkdown.  
 
-**Actuellement, ce dépôt github contient:**
+**Actuellement, ce dépôt github contient:**  
 • Le fichier .Rmd et .html format pour l'intro à l'atelier (`rmarkdown_main.Rmd` et [rmarkdown_main.html](https://github.com/seb951/rmarkdown_workshop/blob/master/Rmarkdown/rmarkdown_main.html))  
-• Le fichier .Rmd and .html file pour la seconde partie de l'atelier (`rmarkdown_otherformats.Rmd` et [rmarkdown_otherformats.html]((https://github.com/seb951/rmarkdown_workshop/blob/master/Rmarkdown/rmarkdown_otherformats.html)))   
+• Le fichier .Rmd and .html file pour la seconde partie de l'atelier (`rmarkdown_otherformats.Rmd` et [rmarkdown_otherformats.html](https://github.com/seb951/rmarkdown_workshop/blob/master/Rmarkdown/rmarkdown_otherformats.html))   
 • Une introduction à `shiny`.  
 • Un répertoire `figures` avec des exemples de figures.   
 • Un répertoire `biblio` avec une bibliographie comme exemple.    
