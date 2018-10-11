@@ -23,16 +23,16 @@ sebastien.renaut@umontreal.ca
 • Practice, hopefully learn some tricks and find out where to get more info about Rmarkdown.  
 
 **Actuellement, ce dépôt github contient:**  
-• Le fichier .Rmd et .html format pour l'intro à l'atelier (`rmarkdown_main.Rmd` et [rmarkdown_main.html](https://github.com/seb951/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
-• Le fichier .Rmd and .html file pour la seconde partie de l'atelier (`rmarkdown_otherformats.Rmd` et [rmarkdown_otherformats.html](https://github.com/seb951/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))   
+• Le fichier .Rmd et .html format pour l'intro à l'atelier (`rmarkdown_main.Rmd` et [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
+• Le fichier .Rmd and .html file pour la seconde partie de l'atelier (`rmarkdown_otherformats.Rmd` et [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))   
 • Une introduction à `shiny`.  
 • Un répertoire `figures` avec des exemples de figures.   
 • Un répertoire `biblio` avec une bibliographie comme exemple.    
 • Un répertoire `csl` avec des fichiers .csl comme exemples. 
 
 **Currently, the repo contains (note that I'm still working on preparing the workshop):**    
-• Both the .Rmd and .html format for the main workshop intro (`rmarkdown_main.Rmd` and [rmarkdown_main.html](https://github.com/seb951/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
-• The .Rmd and .html file for the second part of the workshop (`rmarkdown_otherformats.Rmd` and [rmarkdown_otherformats.html](https://github.com/seb951/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))    
+• Both the .Rmd and .html format for the main workshop intro (`rmarkdown_main.Rmd` and [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
+• The .Rmd and .html file for the second part of the workshop (`rmarkdown_otherformats.Rmd` and [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))    
 • The shiny.Rmd introduction.  
 • A `figures` directory with some example figures I loaded.  
 • A `biblio` directory with an example bibliography.  
