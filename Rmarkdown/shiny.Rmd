@@ -149,5 +149,4 @@ shinyApp(ui = ui, server = server,options=list(height = 550))
 
 • Publish document at the top right corner  
 
-![](/Users/jerry/Dropbox/CSBQ/workshop/Rmarkdown/figures/shiny.png){width=500px}   
 

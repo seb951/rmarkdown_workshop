@@ -179,7 +179,7 @@ plot(x)
 • Click green arrow in *.Rmd* file to execute code in console.  
 **bash**
 ```{bash}
-ls -thor
+ls -1
 ```
 
 **python**
@@ -206,11 +206,11 @@ Markdown provides an easy way to make standard types of formatted text, like:
 
 • \# at the beginning of line for a header level (6 levels)
 
-• _**bold italix**_  
+• _**bold italic**_  
 
 • `code`    
 
-• [links](rmarkdown.rstudio.com)  
+• [links](https://www.rmarkdown.rstudio.com)  
 
 • "\&nbsp;  " character (html Non-Breaking SPace) for extra line spacing is usefull.  
 
