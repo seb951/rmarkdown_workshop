@@ -145,7 +145,7 @@ shinyApp(ui = ui, server = server,options=list(height = 550))
 
 `#install.packages("rsconnect")`  
 `library(rsconnect)`  
-`rsconnect::setAccountInfo(name='sebastien',token='9EC11C1F1441B6D968993E601C5F854D',secret='zsFPQ/7ckRkrzuaaEatBRIf0B24nXxhAM+NcY/V9')` 
+`rsconnect::setAccountInfo(name='sebastien',token='this_is_my_token_please_setup_your_own',secret='this_is_my_secret_please_setup_your_own')` 
 
 • Publish document at the top right corner  
 
