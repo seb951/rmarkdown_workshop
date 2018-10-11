@@ -2,9 +2,9 @@
 sebastien.renaut@umontreal.ca
 
 **In this workshop, we will:**  
-• Learn the basic idea being markdown and the R packages `rmarkdown` & `knitr`.  
+• Learn the basic idea behind markdown and the R packages `rmarkdown` & `knitr`.  
 • Create .html documents (webpages), containing text, executable R code, images, formulae, references, etc.  
-• Create .pdf or .docx documents that can be submitted as manuscripts, reports or formatted to the requirements of a specific scientific journal.  
+• Create .pdf or .docx documents that can be submitted as manuscripts and reports or formatted to the requirements of a specific scientific journal.  
 • Create a dynamic R page (R package `shiny`)  
 • Practice, hopefully learn some tricks and find out where to get more info about Rmarkdown.  
 
