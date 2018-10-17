@@ -1,5 +1,5 @@
 # Atelier R markdown workshop
-https://seb951.github.io/rmarkdown_workshop/
+https://seb951.github.io/rmarkdown_workshop/  
 sebastien.renaut@umontreal.ca
 
 **In this workshop, we will:**  
