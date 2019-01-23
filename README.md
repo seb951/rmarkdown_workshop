@@ -3,7 +3,7 @@
 * LOCATION: Stewart Biology (S3/4), McGill University  
 * QUESTIONS: sebastien.renaut@umontreal.ca  
 * WEBSITE: https://seb951.github.io/rmarkdown_workshop/   
-* REGISTRATION PRIORITY: Will be given to [https://qcbs.ca/](QCBS) members  
+* REGISTRATION PRIORITY: Will be given to [QCBS](https://qcbs.ca/) members  
 * PREREQUISITE: A laptop (if not, you will pair with someone that has one). A recent version of [R Studio](https://www.rstudio.com/). Basic knowledge of the R programming language   
 
 ## In this workshop, we will:  
