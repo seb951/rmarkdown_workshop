@@ -24,7 +24,7 @@ sebastien.renaut@umontreal.ca
 • Un répertoire `biblio` avec une bibliographie comme exemple.    
 • Un répertoire `csl` avec des fichiers .csl comme exemples. 
 
-**Currently, the repo contains (note that I'm still working on preparing the workshop):**    
+**Currently, the repo contains:**    
 • The workshop introduction (`rmarkdown_main.Rmd` and [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
 • The second part of the workshop (`rmarkdown_otherformats.Rmd` and [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))    
 • The `shiny` introduction.  
