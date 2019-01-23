@@ -1,6 +1,9 @@
-# Atelier R markdown workshop
-https://seb951.github.io/rmarkdown_workshop/  
-sebastien.renaut@umontreal.ca
+**Details**
+• March 5th, 2019, 1pm-5pm.  
+• Steward Biology (S3/4), McGill University
+• Questions: sebastien.renaut@umontreal.ca
+• Website: https://seb951.github.io/rmarkdown_workshop/ 
+• Priority will be given to [qcbs.ca](QCBS) members.
 
 **In this workshop, we will:**  
 • Learn the basic idea behind markdown and the R packages `rmarkdown` & `knitr`.  
@@ -9,27 +12,5 @@ sebastien.renaut@umontreal.ca
 • Create a dynamic R page (R package `shiny`)  
 • Practice, hopefully learn some tricks and find out where to get more info about Rmarkdown.  
 
-**Lors de l'atelier nous allons:**  
-• Apprendre l'idée de base derrière markdown, et les modules R `rmarkdown` et `knitr`.   
-• Créer des documents .html (pages web), contenant du texte, du code R exécutable, images, formules, références, etc.  
-• Créer un document .pdf or .docx, pouvant être soumis comme un manuscrit scientifique, rapport ou formaté selon les prérequis d'un journal spécifique.  
-• Créer une page dynamique R (module R `shiny`)  
-• Se pratiquer, apprendre quelques trucs et ou trouver plus d'information sur Rmarkdown.
-
-**Actuellement, ce dépôt github contient:**  
-• L'introduction à l'atelier (`rmarkdown_main.Rmd` et [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
-• La seconde partie de l'atelier (`rmarkdown_otherformats.Rmd` et [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))   
-• Une introduction à `shiny`.  
-• Un répertoire `figures` avec des exemples de figures.   
-• Un répertoire `biblio` avec une bibliographie comme exemple.    
-• Un répertoire `csl` avec des fichiers .csl comme exemples. 
-
-**Currently, the repo contains:**    
-• The workshop introduction (`rmarkdown_main.Rmd` and [rmarkdown_main.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html))  
-• The second part of the workshop (`rmarkdown_otherformats.Rmd` and [rmarkdown_otherformats.html](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_otherformats.html))    
-• The `shiny` introduction.  
-• A `figures` directory with some example figures I loaded.  
-• A `biblio` directory with an example bibliography.  
-• A `csl` directory with some example .csl files.  
-
+**Please fill in form below if interested**
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSestwgIISKpfnv3U6Xiyh-8aZSMKG-Ahrt7BUmSgAMBHCr6Ew/viewform?embedded=true" width="640" height="1303" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
