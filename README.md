@@ -12,7 +12,7 @@ sebastien.renaut@umontreal.ca
 **Lors de l'atelier nous allons:**  
 • Apprendre l'idée de base derrière markdown, et les modules R `rmarkdown` et `knitr`.   
 • Créer des documents .html (pages web), contenant du texte, du code R exécutable, images, formules, références, etc.  
-• Créer un document .pdf or .docx, pouvant être soumis comme un manuscrit scientifique, rapport où formater selon les prérequis d'un journal spécifique.  
+• Créer un document .pdf or .docx, pouvant être soumis comme un manuscrit scientifique, rapport ou formaté selon les prérequis d'un journal spécifique.  
 • Créer une page dynamique R (module R `shiny`)  
 • Se pratiquer, apprendre quelques trucs et ou trouver plus d'information sur Rmarkdown.
 
