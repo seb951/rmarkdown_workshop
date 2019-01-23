@@ -32,3 +32,4 @@ sebastien.renaut@umontreal.ca
 • A `biblio` directory with an example bibliography.  
 • A `csl` directory with some example .csl files.  
 
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSestwgIISKpfnv3U6Xiyh-8aZSMKG-Ahrt7BUmSgAMBHCr6Ew/viewform?embedded=true" width="640" height="1303" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
