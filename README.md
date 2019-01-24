@@ -3,6 +3,7 @@
 * LOCATION: Stewart Biology (S3/4), McGill University  
 * QUESTIONS: sebastien.renaut@umontreal.ca   
 * REGISTRATION: Priority will be given to [QCBS](https://qcbs.ca/) members  
+* COST: Free for QCBS members. Minimal (TBA) fee for non-members 
 * PREREQUISITE: A laptop (if not, you will pair with someone that has one). A recent version of [R Studio](https://www.rstudio.com/). Basic knowledge of the R programming language   
 
 ## In this workshop, we will  
