@@ -27,13 +27,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](../figures/download.png){width=500px}  
 &nbsp;  
   
-* ~2hrs: Introduction and practice      
+* ~2 hours: Introduction and practice      
 
-* ~15min: pause  
+* ~15 minutes: pause  
 
-* ~1min: other formats (*.docx*, *.pdf*)  
+* ~1 hour: other formats (*.docx*, *.pdf*)  
 
-* ~15min: shiny   
+* ~15 minutes: shiny   
 
 #Markdown
 * Markdown is a **lightweight markup language** with plain text formatting syntax (Easy-to-read, easy-to-write plain text format). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word .docx).  
