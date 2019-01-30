@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #Word documents
-• You can specify it when you create a new `rmarkdown` document.  
+* You can specify it when you create a new `rmarkdown` document.  
   
-• You can also specify it later in the YAML header.     
+* You can also specify it later in the YAML header.     
 
 `---`  
 `title: "rmarkdown_pdf_docx"`  
@@ -21,26 +21,26 @@ knitr::opts_chunk$set(echo = TRUE)
 `output: word_document`  
 `---`    
 
-• Then, it's just a matter of kniting the document!      
+* Then, it's just a matter of kniting the document!      
 
 #pdf document
-• You need a extra step to go from a LaTeX (*.tex*) file to a *.pdf* file.
+* You need a extra step to go from a LaTeX (*.tex*) file to a *.pdf* file.
 
-• [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
+* [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
 
-• It is the *de facto* standard for the communication and publication of scientific documents.  
+* It is the *de facto* standard for the communication and publication of scientific documents.  
 
-• LaTeX is available as free software.  
+* LaTeX is available as free software.  
 
 ![](../figures/pandoc1.png){width=500px}
 
-• [Latex software](https://www.latex-project.org/get/) is available here.  
+* [Latex software](https://www.latex-project.org/get/) is available here.  
 
-• `tinytex` R package is a wrapper function that installs *TinyTeX*.
+* `tinytex` R package is a wrapper function that installs *TinyTeX*.
 
-• *TinyTeX* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
+* *TinyTeX* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
 
-• But first, go install it in the R console `install.packages("tinytex")`    
+* But first, go install it in the R console `install.packages("tinytex")`    
 
 ```{r tinytex, include=T}
 #install.packages("tinytex")
@@ -74,21 +74,21 @@ library(tinytex)
 `bibliography: ../reference_material/reference.bib`  
 `---`    
 
-• Note the indentation in the **.Rmd** document.     
+* Note the indentation in the **.Rmd** document.     
 
-• Note the bibliography file + *.csl* file for formatting references.
+* Note the bibliography file + *.csl* file for formatting references.
 
 #R packages `rticles`  
-• This is a nice package to format articles according to the specification of a journal.  
+* This is a nice package to format articles according to the specification of a journal.  
 
-• But first, you need to install it in the R console `install.packages("rticles")`.
+* But first, you need to install it in the R console `install.packages("rticles")`.
 
 ```{r rticles, include=T}
 #install.packages("rticles")
 library(rticles)
 ```  
   
-• Once installed, try starting a new R markdown document according to your journal of interest.  
+* Once installed, try starting a new R markdown document according to your journal of interest.  
    
 ![](../figures/getstarted.png){width=500px}  
 &nbsp;  
@@ -96,15 +96,15 @@ library(rticles)
 &nbsp;  
   
 #Template (*.tex*)  
-• You can build your own template if you know Latex...     
+* You can build your own template if you know Latex...     
 
-• There are many templates available on the web that you can use.  
+* There are many templates available on the web that you can use.  
 
-• Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks svmiller!):  
+* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks svmiller!):  
 
-• Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
+* Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
 
-• Simply download it and add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
+* Simply download it and add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
 `---`  
 `output:`  
 `  pdf_document:`  
@@ -116,27 +116,29 @@ library(rticles)
 `---`   
 
 #Overleaf 
-• Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
+* Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
 
 ![](../figures/overleaf.png){width=500px}
   
-• Remember this:  
+* Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
-• So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
+* So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
 
-• [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
+* [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
 
   
 #slide presentation  
-• You can generate Powerpoint like presentations. We will not learn this today:
+* You can generate Powerpoint like presentations. We will not learn this today:
 ![](../figures/slides.png){width=500px} 
 
+# Bookdown
+https://bookdown.org/
 
 # Radix
-• https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
+* https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
 
-• Stay tuned, as it might replace the 'rmarkdown' package...  
+* Stay tuned, as it might replace the 'rmarkdown' package...  
 ![](../figures/radix.png){width=500px}  
 
 
