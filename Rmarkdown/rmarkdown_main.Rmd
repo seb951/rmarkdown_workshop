@@ -60,7 +60,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
     + Subsequently tranformed into *.html*/*.tex*/*.docx* by [`pandoc`](https://pandoc.org/). Note that *.tex* files need to be transformed by `pdflatex` into *.pdf* files. (We'll come back to that later.)  
 
-    + `Pandoc` is an universal document converter, not an R package.
+    + [`Pandoc`](https://pandoc.org/) is an universal document converter, not an R package.
 
     + `rmarkdown`, `knitr`, and `pandoc` are built in `Rstudio`. `pdflatex` is not.  
 

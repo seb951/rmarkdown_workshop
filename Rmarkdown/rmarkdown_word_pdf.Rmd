@@ -2,7 +2,10 @@
 title: "Rmarkdown: Word and pdf documents"
 author: "Sebastien Renaut"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
+#output: html_document
+output: 
+  pdf_document:
+    keep_tex: true
 ---
 
 ```{r setup, include=FALSE}
@@ -129,9 +132,13 @@ knitr::opts_chunk$set(echo = TRUE)
 * Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
-* So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. We will not learn this today, but check:  
+* So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. 
+
+* Let's quickly look at [overleaf](https://www.overleaf.com/). 
 
 * [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
+
+* [How do I connect an Overleaf project with a repo on GitHub, GitLab or BitBucket?] https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F
 
   
 #slide presentation  
