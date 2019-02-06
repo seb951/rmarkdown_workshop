@@ -92,9 +92,13 @@ knitr::opts_chunk$set(echo = TRUE)
         + item 1a
         + item 1b
      
-> Quoted text   
+> Quoted text (using the \> sign)   
 > more quoted text     
 > still more quoted text     
+
+`Quoted text (using the \`\`) quotations`   
+`more quoted text`     
+`still more quoted text`   
 
 Species | Counts
 --------- | -----
@@ -127,12 +131,12 @@ Species | Counts
 
 
 #Header
->---  
+>\---  
 >title: "Rmarkdown"  
 >author: "Sebastien Renaut"  
 >date: '2018-03-12'  
 >output: html_document  
->---  
+>\---  
 
 * Header, metadata, YAML, YAML Ain't Markup Language (https://en.wikipedia.org/wiki/YAML#History_and_name) ?  
 
@@ -147,7 +151,7 @@ Species | Counts
 * Note that some options can be specified either for the whole document (in the YAML header), the code chunks, or both (chunks options supersede YAML header). More on code chunks later.  
 
 #Customizing header
->---  
+>\---  
 >title: "Rmarkdown"  
 >author: "Sebastien Renaut"  
 >date: "`r format(Sys.time(), '%B %d, %Y')`"   
@@ -159,7 +163,7 @@ Species | Counts
 >   theme: united 
 >   toc: yes  
 >   toc_depth: 3  
->---
+>\---
   
 * Note the indentation in the **.Rmd** document for the *html_document* options.
 * Note that date is population via an `R` function
@@ -334,7 +338,7 @@ hist(x)
 >\```{r table, echo=T}    
 >\#Default R printout (ugly)    
 >print(head(mtcars))    
-  
+>    
 >\#kable from knitr (better looking)      
 >knitr::kable(head(mtcars),digits =1,caption = "An motorcars table")  
 >\```     
@@ -356,7 +360,7 @@ knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 * Add a table using `knitr`  
 
 #Citations, footnotes, bibliography
-* Footnotes are easy when you have a few references [^1]  
+* Footnotes are easy when you have a few references. Use `[^1]` and add reference at the end [^1].    
 
 * Otherwise, you may specify a bibliography and citation style in the header.  
 

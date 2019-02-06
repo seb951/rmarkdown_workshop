@@ -1,5 +1,5 @@
 ---
-title: "Rmarkdown_word_pdf"
+title: "Rmarkdown: Word and pdf documents"
 author: "Sebastien Renaut"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Word documents
+#Microsoft Word
 * You can specify it when you create a new `rmarkdown` document.  
   
 * You can also specify it later in the YAML header.     
@@ -23,8 +23,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Then, it's just a matter of kniting the document!      
 
-#pdf document
-* You need a extra step to go from a LaTeX (*.tex*) file to a *.pdf* file.
+* Little documentation, few options & configurations are possible. (This is not the course of events that should be promoted, as it moves away from an open source environment).   
+
+#Portable Document Format (.pdf)
+* You need a extra step to go from LaTeX (*.tex*) format to a *.pdf*. This is handled by the `pdflatex` function in R.
 
 * [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
 
@@ -36,57 +38,60 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * [Latex software](https://www.latex-project.org/get/) is available here.  
 
-* `tinytex` R package is a wrapper function that installs *TinyTeX*.
+* If interested, follow this discussion: [*Why LaTeX is such a bloated system?*](https://ubuntuforums.org/showthread.php?t=395863)
 
-* *TinyTeX* is a custom LaTeX distribution based on TeX Live that is small in size but functions well in most cases, especially for R users (https://yihui.name/tinytex/r/).   
+* So...[*TinyTeX*](https://yihui.name/tinytex/r/) is a custom LaTeX distribution based on TeX Live that is small in size (~150MB) but functions well in most cases, especially for `R` users .
 
-* But first, go install it in the R console `install.packages("tinytex")`    
+* `tinytex` R package is a wrapper function that installs *TinyTeX*.  
 
-```{r tinytex, include=T}
-#install.packages("tinytex")
-library(tinytex)
-#(Next line is commented out as well, because it takes a few minutes to install tinytex...)
-#tinytex::install_tinytex()
-```
+#Exercice 1 (15min.)
+* Install the `tinytex` R package from the console.  
+  
+>install.packages("tinytex")  
+>library(tinytex)  
+>It takes a few minutes to download and compile tinytex (~150MB)  
+>install_tinytex()  
 
-#Basic yaml setup for pdf  
-`---`  
-`title: "rmarkdown_pdf_docx"`  
-`author: "Sebastien Renaut"`  
-`date: '2018-09-06'`  
-`output: pdf_document`  
-`---`  
+* Compile your document as *.pdf*:  
 
-#More complex yaml setup for .pdf files
-`---`  
-`output:`   
-`  pdf_document:`  
-`    keep_tex: true`  
-`    fig_caption: true`  
-`    latex_engine: pdflatex`  
-`title: "**This is my first Rmarkdown manuscript**"`  
-`date: "`r format(Sys.time(), '%B %d, %Y')`"`  
-`geometry: margin=1in`  
-`fontfamily: mathpazo`  
-`fontsize: 11pt`  
-`spacing: double`  
-`csl: ../reference_material/peerj.csl`  
-`bibliography: ../reference_material/reference.bib`  
-`---`    
+>\---    
+>title: "rmarkdown_pdf_docx"    
+>author: "Sebastien Renaut"    
+>date: '2018-09-06'    
+>output: pdf_document    
+>\---    
+
+#More complex header
+  
+>\---    
+>output   
+>  pdf_document:  
+>    keep_tex: true  
+>    fig_caption: true  
+>    latex_engine: pdflatex  
+>title: "**This is my first Rmarkdown manuscript**"  
+>date: `r format(Sys.time(), '%B %d, %Y')`  
+>geometry: margin=1in  
+>fontfamily: mathpazo  
+>fontsize: 11pt  
+>spacing: double  
+>csl: ../reference_material/peerj.csl  
+>bibliography: ../reference_material/reference.bib  
+>\---    
 
 * Note the indentation in the **.Rmd** document.     
 
-* Note the bibliography file + *.csl* file for formatting references.
+* Note the bibliography file and csl file for formatting references.
 
-#R packages `rticles`  
+#Exercice 2: R packages `rticles` (10min.) 
 * This is a nice package to format articles according to the specification of a journal.  
 
 * But first, you need to install it in the R console `install.packages("rticles")`.
 
-```{r rticles, include=T}
-#install.packages("rticles")
-library(rticles)
-```  
+>\```{r rticles, include=T}  
+>#install.packages("rticles")  
+>library(rticles)  
+>\```    
   
 * Once installed, try starting a new R markdown document according to your journal of interest.  
    
@@ -120,6 +125,7 @@ library(rticles)
 
 ![](../figures/overleaf.png){width=500px}
   
+      
 * Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
