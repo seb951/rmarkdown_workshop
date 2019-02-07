@@ -2,17 +2,18 @@
 title: "Rmarkdown: Word and pdf documents"
 author: "Sebastien Renaut"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-#output: html_document
-output: 
-  pdf_document:
-    keep_tex: true
+output: html_document
+#output: radix::radix_article
+#output: 
+#  pdf_document:
+#    keep_tex: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Microsoft Word
+# Microsoft Word  
 * You can specify it when you create a new `rmarkdown` document.  
   
 * You can also specify it later in the YAML header.     
@@ -28,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Little documentation, few options & configurations are possible. (This is not the course of events that should be promoted, as it moves away from an open source environment).   
 
-#Portable Document Format (.pdf)
+# Portable Document Format (.pdf)
 * You need a extra step to go from LaTeX (*.tex*) format to a *.pdf*. This is handled by the `pdflatex` function in R.
 
 * [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
@@ -47,7 +48,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * `tinytex` R package is a wrapper function that installs *TinyTeX*.  
 
-#Exercice 1 (15min.)
+# Exercice 1 (15min.)
 * Install the `tinytex` R package from the console.  
   
 >install.packages("tinytex")  
@@ -64,7 +65,7 @@ knitr::opts_chunk$set(echo = TRUE)
 >output: pdf_document    
 >\---    
 
-#More complex header
+# More complex header
   
 >\---    
 >output   
@@ -86,7 +87,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Note the bibliography file and csl file for formatting references.
 
-#Exercice 2: R packages `rticles` (10min.) 
+# Exercice 2: R packages `rticles` (10min.) 
 * This is a nice package to format articles according to the specification of a journal.  
 
 * But first, you need to install it in the R console `install.packages("rticles")`.
@@ -103,7 +104,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](../figures/from_template.png){width=500px}  
 &nbsp;  
   
-#Template (*.tex*)  
+# Template (*.tex*)  
 * You can build your own template if you know Latex...     
 
 * There are many templates available on the web that you can use.  
@@ -113,17 +114,18 @@ knitr::opts_chunk$set(echo = TRUE)
 * Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
 
 * Simply download it and add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
-`---`  
-`output:`  
-`  pdf_document:`  
-`   keep_tex: true`  
-`   fig_caption: true`  
-`   latex_engine: pdflatex`  
-`   template: ../reference_material/svm-latex-ms.tex`        
-`title: "**This is my first Rmarkdown manuscript**`  
-`---`   
 
-#Overleaf 
+>\--- 
+>output:  
+>  pdf_document:  
+>   keep_tex: true  
+>   fig_caption: true  
+>   latex_engine: pdflatex  
+>   template: ../reference_material/svm-latex-ms.tex        
+>title: "**This is my first Rmarkdown manuscript**  
+>\---   
+
+# Overleaf 
 * Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
 
 ![](../figures/overleaf.png){width=500px}
@@ -140,21 +142,51 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
 
-* [How do I connect an Overleaf project with a repo on GitHub, GitLab or BitBucket?] https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F
+* [How do I connect an Overleaf project with a repo on GitHub, GitLab or BitBucket?](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)
 
   
-#slide presentation  
-* You can generate Powerpoint like presentations. We will not learn this today:
-![](../figures/slides.png){width=500px}   
+# Presentations
+* You can also generate Powerpoint-like presentations.  
+![](../figures/slides.png){width=400px}   
 
 
+  
 # Bookdown
-https://bookdown.org/
+* [Bookdown](https://bookdown.org/) ![](../figures/bookdown.png){width=20px} is an open-source R package that facilitates writing books and long-form articles/reports with R Markdown.  
 
 # Radix
-* https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/    
-
-* Stay tuned, as it might replace the 'rmarkdown' package...  
+* [Radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/) offers a better look for publishing blog, webpages, adapted to mobile devices.  
 ![](../figures/radix.png){width=500px}  
 
+* You will need:   
+  + [Rstudio v1.2][https://www.rstudio.com/products/rstudio/download/preview/].   
+  + `radix`  
+
+>\```{r radix, echo = T}    
+>install.packages("radix")  
+>\```  
+
+  + Change output in header to:   
+  
+>\---  
+>title: "Rmarkdown: radix"  
+>author: "Sebastien Renaut"  
+>output: radix::radix_article  
+>\---  
+
+  + Then you can start playing with the `radix` options, such as in this example below (full width figures):
+    
+>\```{r radix_example, echo = F, layout='l-screen-inset'}  
+>library(leaflet)  
+>leaflet() %>%  
+>	addTiles() %>%   
+>	addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")  
+>\```    
+    
+```{r radix_example, echo = F, eval = F, layout='l-screen-inset'}
+library(leaflet)
+leaflet() %>%
+	addTiles() %>% 
+	addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")
+```
 

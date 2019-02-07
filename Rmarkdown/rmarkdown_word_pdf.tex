@@ -82,13 +82,14 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{February 06, 2019}
+    \date{February 07, 2019}
 
 
 \begin{document}
 \maketitle
 
-\section{Microsoft Word}\label{microsoft-word}
+\hypertarget{microsoft-word}{%
+\section{Microsoft Word}\label{microsoft-word}}
 
 \begin{itemize}
 \item
@@ -98,10 +99,10 @@
 \end{itemize}
 
 \texttt{-\/-\/-}\\
-\texttt{title:\ "rmarkdown\_pdf\_docx"}\\
-\texttt{author:\ "Sebastien\ Renaut"}\\
-\texttt{date:\ \textquotesingle{}2018-09-06\textquotesingle{}}\\
-\texttt{output:\ word\_document}\\
+\texttt{title:\ "rmarkdown\_pdf\_docx"}~\\
+\texttt{author:\ "Sebastien\ Renaut"}~\\
+\texttt{date:\ \textquotesingle{}2018-09-06\textquotesingle{}}~\\
+\texttt{output:\ word\_document}~\\
 \texttt{-\/-\/-}
 
 \begin{itemize}
@@ -113,8 +114,9 @@
   away from an open source environment).
 \end{itemize}
 
+\hypertarget{portable-document-format-.pdf}{%
 \section{Portable Document Format
-(.pdf)}\label{portable-document-format-.pdf}
+(.pdf)}\label{portable-document-format-.pdf}}
 
 \begin{itemize}
 \item
@@ -130,11 +132,7 @@
   LaTeX is available as free software.
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=5.20833in]{../figures/pandoc1.png}
-\caption{}
-\end{figure}
+\includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
 
 \begin{itemize}
 \item
@@ -154,7 +152,8 @@
   \emph{TinyTeX}.
 \end{itemize}
 
-\section{Exercice 1 (15min.)}\label{exercice-1-15min.}
+\hypertarget{exercice-1-15min.}{%
+\section{Exercice 1 (15min.)}\label{exercice-1-15min.}}
 
 \begin{itemize}
 \tightlist
@@ -185,7 +184,8 @@ output: pdf\_document\\
 ---
 \end{quote}
 
-\section{More complex header}\label{more-complex-header}
+\hypertarget{more-complex-header}{%
+\section{More complex header}\label{more-complex-header}}
 
 \begin{quote}
 ---\\
@@ -195,7 +195,7 @@ keep\_tex: true\\
 fig\_caption: true\\
 latex\_engine: pdflatex\\
 title: ``\textbf{This is my first Rmarkdown manuscript}''\\
-date: February 06, 2019\\
+date: February 07, 2019\\
 geometry: margin=1in\\
 fontfamily: mathpazo\\
 fontsize: 11pt\\
@@ -212,8 +212,9 @@ bibliography: ../reference\_material/reference.bib\\
   Note the bibliography file and csl file for formatting references.
 \end{itemize}
 
+\hypertarget{exercice-2-r-packages-rticles-10min.}{%
 \section{\texorpdfstring{Exercice 2: R packages \texttt{rticles}
-(10min.)}{Exercice 2: R packages rticles (10min.)}}\label{exercice-2-r-packages-rticles-10min.}
+(10min.)}{Exercice 2: R packages rticles (10min.)}}\label{exercice-2-r-packages-rticles-10min.}}
 
 \begin{itemize}
 \item
@@ -238,13 +239,14 @@ library(rticles)\\
   your journal of interest.
 \end{itemize}
 
-\includegraphics[width=5.20833in]{../figures/getstarted.png}\\
+\includegraphics[width=5.20833in,height=\textheight]{../figures/getstarted.png}\\
 \hspace*{0.333em}\\
-\includegraphics[width=5.20833in]{../figures/from_template.png}\\
+\includegraphics[width=5.20833in,height=\textheight]{../figures/from_template.png}\\
 \hspace*{0.333em}
 
+\hypertarget{template-.tex}{%
 \section{\texorpdfstring{Template
-(\emph{.tex})}{Template (.tex)}}\label{template-.tex}
+(\emph{.tex})}{Template (.tex)}}\label{template-.tex}}
 
 \begin{itemize}
 \item
@@ -260,19 +262,22 @@ library(rticles)\\
   \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex}{CVs}:
 \item
   Simply download it and add it to the YAML header like this:
-  \texttt{template:\ ../reference\_material/svm-latex-ms.tex}\\
-  \texttt{-\/-\/-}\\
-  \texttt{output:}\\
-  \texttt{pdf\_document:}\\
-  \texttt{keep\_tex:\ true}\\
-  \texttt{fig\_caption:\ true}\\
-  \texttt{latex\_engine:\ pdflatex}\\
-  \texttt{template:\ ../reference\_material/svm-latex-ms.tex}\\
-  \texttt{title:\ "**This\ is\ my\ first\ Rmarkdown\ manuscript**}\\
-  \texttt{-\/-\/-}
+  \texttt{template:\ ../reference\_material/svm-latex-ms.tex}
 \end{itemize}
 
-\section{Overleaf}\label{overleaf}
+\begin{quote}
+--- output:\\
+pdf\_document:\\
+keep\_tex: true\\
+fig\_caption: true\\
+latex\_engine: pdflatex\\
+template: ../reference\_material/svm-latex-ms.tex\\
+title: "\textbf{This is my first Rmarkdown manuscript}\\
+---
+\end{quote}
+
+\hypertarget{overleaf}{%
+\section{Overleaf}\label{overleaf}}
 
 \begin{itemize}
 \tightlist
@@ -282,53 +287,115 @@ library(rticles)\\
   publishing scientific documents much quicker and easier.
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=5.20833in]{../figures/overleaf.png}
-\caption{}
-\end{figure}
+\includegraphics[width=5.20833in,height=\textheight]{../figures/overleaf.png}
 
 \begin{itemize}
 \item
   Remember this:\\
-  \includegraphics[width=5.20833in]{../figures/pandoc1.png}
+  \includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
 \item
   So you can generate your \textbf{.tex} file, upload it to a github
   repo and Overleaf will connect to it. Others can then collaborate and
   modify the .tex file.
 \item
-  Let's quickly look at \href{https://www.overleaf.com/}{overleaf}.
+  Let's take a quick look at \href{https://www.overleaf.com/}{overleaf}.
+  Once you have an overleaf account, you can connect it to a
+  \href{https://www.github.com/}{github} repository. You can then
+  pull/push from overleaf to github, allowing others to modify your .tex
+  file.
+\end{itemize}
+
+\includegraphics[width=5.20833in,height=\textheight]{../figures/overleaf_github.png}
+
+\begin{itemize}
 \item
   \href{https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd}{A
   tutorial on how to interface an R Notebook with Overleaf}
 \item
-  {[}How do I connect an Overleaf project with a repo on GitHub, GitLab
-  or BitBucket?{]}
-  \url{https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket\%3F}
+  \href{https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket\%3F}{How
+  do I connect an Overleaf project with a repo on GitHub, GitLab or
+  BitBucket?}
 \end{itemize}
 
-\section{slide presentation}\label{slide-presentation}
+\hypertarget{presentations}{%
+\section{Presentations}\label{presentations}}
 
 \begin{itemize}
 \tightlist
 \item
-  You can generate Powerpoint like presentations. We will not learn this
-  today: \includegraphics[width=5.20833in]{../figures/slides.png}
+  You can also generate Powerpoint-like presentations.\\
+  \includegraphics[width=4.16667in,height=\textheight]{../figures/slides.png}
 \end{itemize}
 
-\section{Bookdown}\label{bookdown}
+\hypertarget{bookdown}{%
+\section{Bookdown}\label{bookdown}}
 
-\url{https://bookdown.org/}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://bookdown.org/}{Bookdown}
+  \includegraphics[width=0.20833in,height=\textheight]{../figures/bookdown.png}
+  is an open-source R package that facilitates writing books and
+  long-form articles/reports with R Markdown.
+\end{itemize}
 
-\section{Radix}\label{radix}
+\hypertarget{radix}{%
+\section{Radix}\label{radix}}
 
 \begin{itemize}
 \item
-  \url{https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/}
+  \href{https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/}{Radix}
+  offers a better look for publishing blog, webpages, adapted to mobile
+  devices.\\
+  \includegraphics[width=5.20833in,height=\textheight]{../figures/radix.png}
 \item
-  Stay tuned, as it might replace the `rmarkdown' package\ldots{}\\
-  \includegraphics[width=5.20833in]{../figures/radix.png}
+  You will need:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {[}Rstudio
+    v1.2{]}{[}\url{https://www.rstudio.com/products/rstudio/download/preview/}{]}.\\
+  \item
+    \texttt{radix}
+  \end{itemize}
 \end{itemize}
+
+\begin{quote}
+```\{r radix, echo = T\}\\
+install.packages(``radix'')\\
+```
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Change output in header to:
+\end{itemize}
+
+\begin{quote}
+---\\
+title: ``Rmarkdown: radix''\\
+author: ``Sebastien Renaut''\\
+output: radix::radix\_article\\
+---
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Then you can start playing with the \texttt{radix} options, such as in
+  this example below (full width figures):
+\end{itemize}
+
+\begin{quote}
+```\{r radix\_example, echo = F, layout=`l-screen-inset'\}\\
+library(leaflet)\\
+leaflet() \%\textgreater{}\%\\
+addTiles() \%\textgreater{}\%\\
+addMarkers(lng=174.768, lat=-36.852,popup=``The birthplace of R'')\\
+```
+\end{quote}
 
 
 \end{document}

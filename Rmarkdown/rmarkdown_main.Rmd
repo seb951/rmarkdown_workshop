@@ -230,7 +230,7 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
   
     + `fig.width=...`, `fig.height=...` can also change figure width/heigth.    
 
-* By default `R studio` creates this code chunk (remember that `knitr` executes code and creates a new markdown (*.md*) document which includes the code and output). Let's examine this chunk:    
+* By default `R studio` creates a *Global Options* code chunk (remember that `knitr` executes code and creates a new markdown (*.md*) document which includes the code and output). Let's examine this chunk:    
 
 >\```{r setup, include=FALSE}  
 >knitr::opts_chunk$set(echo = TRUE)  
@@ -295,6 +295,8 @@ print "Hello World!";
 &nbsp;   
 &nbsp;  
 &nbsp;   
+
+* If this figure is small it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=40px} to generate webpages with ![](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=30px} images...
 
 * This is a graph previously saved in the *figures* directory   
 `![](../figures/DEG_heatmap.png){width=250px}`   
