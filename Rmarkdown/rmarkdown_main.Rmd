@@ -30,9 +30,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * ~15 minutes: pause  
 
-* ~1 hour: other formats (*.docx*, *.pdf*)  
+* ~1 hour: other formats (*.docx*, *.pdf*). [Workshop here](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)    
 
-* ~15 minutes: shiny   
+* ~15 minutes: shiny. [Workshop here](https://github.com/seb951/rmarkdown_workshop/blob/master/Rmarkdown/shiny.Rmd)     
 
 #Markdown
 * Markdown is a **lightweight markup language** with plain text formatting syntax (Easy-to-read, easy-to-write plain text format). It is designed so that it can be converted to HTML and many other formats (e.g. PDF, MS Word, .docx).  
