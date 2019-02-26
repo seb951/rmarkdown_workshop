@@ -29,6 +29,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Little documentation, few options & configurations are possible. (This is not the course of events that should be promoted, as it moves away from an open source environment).   
 
+* (FYI, there is a spellchecker in `Rstudio`: Edit >Check Spelling...)
+
 # Portable Document Format (.pdf)
 * You need a extra step to go from LaTeX (*.tex*) format to a *.pdf*. This is handled by the `pdflatex` function in R.
 
