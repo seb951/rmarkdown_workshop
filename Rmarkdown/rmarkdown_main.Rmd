@@ -174,7 +174,7 @@ Species | Counts
 
 
 # Header
-```
+```header
 ---  
 title: "Rmarkdown"  
 author: "Sebastien Renaut"  
@@ -196,7 +196,7 @@ output: html_document
 * Note that some options can be specified either for the whole document (in the header), the code chunks, or both (chunks options supersede header). More on code chunks later.  
 
 # Customizing header
-```  
+```custom 
 ---  
 title: "Rmarkdown"  
 author: "Sebastien Renaut"  
@@ -234,7 +234,11 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 
 * `toc_depth:3` depth of TOC.    
 
-* `number_sections:T` Add section numbering to headers.  
+* `number_sections:T` Add section numbering to headers. If you do not want a certain heading to be numbered, you can add `{-}` or `{.unnumbered}` after the heading, e.g.,
+
+```markdown
+# Preface {-}
+```
 
 * More options [here](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
     
@@ -259,14 +263,15 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
   
 * A main code chunks may look like this:  
 
-
->\```{r code chunk example, include = T, message = T, warning=T, echo = T, fig.cap="Figure 1"}  
->#Running some R code.
->x = rexp(1000)  
->min(x)  
->max(x)  
->plot(x)  
->\```    
+````chunks  
+`r ''````{r code chunk example, include = T, message = T, warning=T, echo = T, fig.cap="Figure 1"}  
+#Running some R code.
+x = rexp(1000)  
+min(x)  
+max(x)  
+plot(x)  
+```    
+````
 
 * On the 1st line, I specify that I will run the `R` programming language.  
 
@@ -287,10 +292,11 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 
 * By default `R studio` creates a *Global Options* code chunk. Let's examine this chunk:    
 
->\```{r setup, include=FALSE}  
->knitr::opts_chunk$set(echo = TRUE)  
->\```  
-
+````global  
+`r ''````{r setup, include=FALSE}  
+knitr::opts_chunk$set(echo = TRUE)  
+```  
+````
 * see [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more info.   
 
 * Note that you also run inline code using the using the \`   \` symbols and specifying the programming language. For example, \` r 10+5 \` would be processes as `r 10+5`.
@@ -305,23 +311,37 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 
 ## More Code chunks
 R markdown can read and execute different languages!    
-  
-* **bash**
-```{bash}
+````bash  
+`r ''````{bash, echo = F}
+ls -1
+```
+````
+
+```{bash, echo = F}
 ls -1
 ```
 
-* **python**  
-```{python}
+````python  
+`r ''````{python, echo = F}
+x = "hello python!"
+print(x.split(' '))
+```
+````
+
+```{python, echo = F}
 x = "hello python!"
 print(x.split(' '))
 ```
 
-* **perl**  
-```{perl}
+````perl  
+`r ''````{perl, echo = F}
 print "Hello perl!";
 ```
+````
 
+```{perl, echo = F}
+print "Hello perl!";
+```
 ## Math symbols
 Mathematical material is set off by the use of single dollar-sign characters (similar as in the LaTeX typesetting language).  
 
@@ -367,17 +387,27 @@ Mathematical material is set off by the use of single dollar-sign characters (si
     + Options are specified directly after the URL or link (eg. {width=250px} or {width=50%}).  
 
 * Images can also be interpreted by `knitr` as below:  
-  
->\```{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}  
->knitr::include_graphics("../figures/orange.jpeg")  
->\```
-  
+
+````global  
+`r ''````{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}  
+knitr::include_graphics("../figures/orange.jpeg")  
+```
+````
+
 ```{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}
 knitr::include_graphics("../figures/orange.jpeg")
 ```
 
 * Graphs can also be generated directly by `R` code, specified in a code chunk (`R` options specified in the code chunk) and interpreted by `knitr` as we did previously.  
  
+````ggplot  
+`r ''````{r another example, echo = T, message = F}
+library(ggplot2)
+mtcars_ggplot = ggplot(mtcars, aes(x=wt, y=mpg)) + 
+geom_point() + geom_smooth()
+mtcars_ggplot
+```
+````
 
 ```{r another example, echo = T, message = F}
 library(ggplot2)
@@ -411,10 +441,12 @@ knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 
 * Otherwise, you may specify a bibliography and citation style in the header.  
 
-`---`  
-`csl: csl/peerj.csl`  
-`bibliography: biblio/test_library.bib`  
-`---`
+```citations
+---  
+csl: csl/peerj.csl  
+bibliography: biblio/test_library.bib  
+---
+```
  
 * The Citation Style Language (*.csl*) file specifies the reference format.     
   
@@ -450,7 +482,8 @@ knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 * [Lessons](https://rmarkdown.rstudio.com/lesson-1.html)  
 
 * [Book](https://bookdown.org/yihui/rmarkdown/)   
-
+  * This is a great reference. In addition, it is (of course) written in `R mardown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you like, go see how it was written in the *.Rmd* version!  
+  
 * [Cheatsheet (old - short)](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
 * [Cheatsheet (newer - longer)](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)

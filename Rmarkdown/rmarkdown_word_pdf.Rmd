@@ -1,48 +1,81 @@
----
-title: "Rmarkdown: Word and pdf documents"
-author: "Sebastien Renaut"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: html_document
-#output: radix::radix_article
-#output: 
-#  pdf_document:
-#    keep_tex: true
----
+---    
+title: "rmarkdown_pdf"    
+author: "Sébastien Renaut"    
+date: '2018-09-06'    
+output: 
+  html_document: 
+    toc: yes  
+--- 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Microsoft Word  
-* You can specify it when you create a new `rmarkdown` document.  
-  
-* You can also specify it later in the YAML header.     
+# Different outputs
+* There are six versions of this document:
+  + *.Rmd*: The `Rmarkdown` document. 
+  + *.html*: A Webpage as we saw in the previous section. Follow using this version. 
+  + *rmarkdown_word_pdf2.html*: A `radix` webpage. 
+  + *.docx*: A MS Word document.
+  + *.tex*: A [LaTeX](https://www.latex-project.org) document.
+  + *.pdf*: A PDF document.
 
-`---`  
-`title: "rmarkdown_pdf_docx"`  
-`author: "Sebastien Renaut"`  
-`date: '2018-09-06'`  
-`output: word_document`  
-`---`    
+## html document
+```html
+---    
+title: "rmarkdown_pdf"    
+author: "Sébastien Renaut"    
+date: '2018-09-06'    
+output: 
+  html_document: 
+    toc: yes  
+--- 
+```
+  
+## Microsoft Word  
+```word
+---  
+title: "rmarkdown_docx"  
+author: "Sébastien Renaut"  
+date: '2018-09-06'  
+output: 
+  word_document: 
+    toc: yes
+---   
+```
+
+* You can specify it when you create a new `Rmarkdown` document.  
+  
+* You can also specify it later in the header.     
 
 * Then, it's just a matter of kniting the document!      
 
-* Little documentation, few options & configurations are possible. (This is not the course of events that should be promoted, as it moves away from an open source environment).   
+* Little documentation, few options & configurations are possible (This is probably not the format that should be promoted, as it moves away from an open source environment).   
 
 * (FYI, there is a spellchecker in `Rstudio`: Edit >Check Spelling...)
 
-# Portable Document Format (.pdf)
-* You need a extra step to go from LaTeX (*.tex*) format to a *.pdf*. This is handled by the `pdflatex` function in R.
+## Portable Document Format (.pdf)
+```pdf
+---    
+title: "rmarkdown_pdf"    
+author: "Sébastien Renaut"    
+date: '2018-09-06'    
+output: 
+  pdf_document:
+    keep_tex: true
+    toc: yes  
+---    
+```
+
+* You need a extra step to go from a LaTeX (*.tex*) format to a *.pdf*. This is handled by the `pdflatex` function in R.
 
 * [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
 
 * It is the *de facto* standard for the communication and publication of scientific documents.  
 
-* LaTeX is available as free software.  
+* LaTeX is available as free software [here](https://www.latex-project.org/get/).
 
-![](../figures/pandoc1.png){width=500px}
-
-* [Latex software](https://www.latex-project.org/get/) is available here.  
+![](../figures/pandoc1.png){width=500px}  
 
 * If interested, follow this discussion: [*Why LaTeX is such a bloated system?*](https://ubuntuforums.org/showthread.php?t=395863)
 
@@ -50,55 +83,64 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * `tinytex` R package is a wrapper function that installs *TinyTeX*.  
 
-# Exercice 1 (15min.)
-* Install the `tinytex` R package from the console.  
+## Exercice 1 (10min.)
+* Install the `tinytex` R package from the console. It may take a few minutes to download and compile (~150MB)   
   
->install.packages("tinytex")  
->library(tinytex)  
->It takes a few minutes to download and compile tinytex (~150MB)  
->install_tinytex()  
+```tinytex  
+install.packages("tinytex")  
+library(tinytex)  
+install_tinytex()  
+```  
 
-* Compile your document as *.pdf*:  
+* Create a new document, compile it as *.pdf*.  
+  * Add a Table of Content. 
+  * Add a graphic.
 
->\---    
->title: "rmarkdown_pdf_docx"    
->author: "Sebastien Renaut"    
->date: '2018-09-06'    
->output: pdf_document    
->\---    
+* Now compile it as a Word document  (*.docx*)
 
-# More complex header
-  
->\---    
->output   
->  pdf_document:  
->    keep_tex: true  
->    fig_caption: true  
->    latex_engine: pdflatex  
->title: "**This is my first Rmarkdown manuscript**"  
->date: `r format(Sys.time(), '%B %d, %Y')`  
->geometry: margin=1in  
->fontfamily: mathpazo  
->fontsize: 11pt  
->spacing: double  
->csl: ../reference_material/peerj.csl  
->bibliography: ../reference_material/reference.bib  
->\---    
+* Add some reference by specifying the `csl: ../csl/peerj.csl` and `bibliography: ../biblio/test_library.bib` in the header  
 
-* Note the indentation in the **.Rmd** document.     
+# LaTeX template  
+* This allows further options in the *.Rmd* file when going from *.tex* file to *.pdf*.  
 
-* Note the bibliography file and csl file for formatting references.
+* You can build your own *.tex* template if you know LaTeX...     
 
-# Exercice 2: R packages `rticles` (10min.) 
-* This is a nice package to format articles according to the specification of a journal.  
+* There are many templates available on the web that you can use.  
 
-* But first, you need to install it in the R console `install.packages("rticles")`.
+* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks [svmiller](https://github.com/svmiller) on ![](../figures/octocat.png){width=30px})   
+  + Using this (sligthly modified) template, I am writing [my first *.Rmd* manuscript](https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf).  
+&nbsp;  
+![](../figures/acadian.png){width=500px}  
+&nbsp;   
+&nbsp;   
+* Here is one I like for [*Curriculum Vitae*](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex)    
+  + Using this template, I re-wrote my [CV](http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf) to give it a fresh look!  
+&nbsp;  
+![](../figures/CV.png){width=500px}
+&nbsp;   
+&nbsp;   
+* Download template and add it to the header. Not however that you should download or at least take a look at the [*.Rmd* to see options](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.Rmd), and [*.pdf* to see output](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.pdf).   
 
->\```{r rticles, include=T}  
->#install.packages("rticles")  
->library(rticles)  
->\```    
-  
+```tex
+--- 
+output:  
+  pdf_document:  
+   keep_tex: true  
+   fig_caption: true  
+   latex_engine: pdflatex  
+   template: ../reference_material/svm-latex-ms.tex        
+title: "**This is my first Rmarkdown manuscript**  
+#many more options can go here which will be using by pdflatex.
+---   
+```
+
+* You should know have all the tools to generate your fully reproducible manuscripts from `R`. The only objection I see is formatting manuscript this way is integrating comments from co-authors who do not use `R`, `R markdown`, `git` or `github`.  
+
+# Exercice 2 (10min.)   
+* R packages `rticles` is (potentially) a nice package to format articles according to the specification of a journal.    
+
+* But first, you need to install it in the R console.
+
 * Once installed, try starting a new R markdown document according to your journal of interest.  
    
 ![](../figures/getstarted.png){width=500px}  
@@ -106,28 +148,26 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](../figures/from_template.png){width=500px}  
 &nbsp;  
   
-# Template (*.tex*)  
-* You can build your own template if you know Latex...     
+* Right now, few templates available. 
 
-* There are many templates available on the web that you can use.  
+* Some templates may be slower to render, depending on what *LaTeX* package they depend on and need to be downloaded (e.g PNAS).
 
-* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks svmiller!):  
+# Other possibilities
 
-* Here is one I like for [CVs](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex):  
+## Presentations
+```ioslides
+---
+title: "Untitled"
+author: "Sebastien Renaut"
+date: "27/02/2019"
+output: ioslides_presentation
+---
+```
 
-* Simply download it and add it to the YAML header like this: `template: ../reference_material/svm-latex-ms.tex`   
+* You can also generate Powerpoint-like presentations. 
+![](../figures/slides.png){width=400px}   
 
->\--- 
->output:  
->  pdf_document:  
->   keep_tex: true  
->   fig_caption: true  
->   latex_engine: pdflatex  
->   template: ../reference_material/svm-latex-ms.tex        
->title: "**This is my first Rmarkdown manuscript**  
->\---   
-
-# Overleaf 
+## Overleaf 
 * Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
 
 ![](../figures/overleaf.png){width=500px}
@@ -136,9 +176,9 @@ knitr::opts_chunk$set(echo = TRUE)
 * Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
-* So you can generate your **.tex** file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the .tex file. 
+* So you can generate your *.tex* file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the *.tex* file. 
 
-* Let's take a quick look at [overleaf](https://www.overleaf.com/). Once you have an overleaf account, you can connect it to a [github](https://www.github.com/) repository. You can then pull/push from overleaf to github, allowing others to modify your .tex file.
+* Let's take a quick look at [overleaf](https://www.overleaf.com/). Once you have an overleaf account, you can connect it to a [github](https://www.github.com/) repository. You can then pull/push from overleaf to github, allowing others to modify your *.tex* file.
 
 ![](../figures/overleaf_github.png){width=500px}
 
@@ -146,49 +186,56 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * [How do I connect an Overleaf project with a repo on GitHub, GitLab or BitBucket?](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)
 
-  
-# Presentations
-* You can also generate Powerpoint-like presentations.  
-![](../figures/slides.png){width=400px}   
-
-
-  
-# Bookdown
+## Bookdown
 * [Bookdown](https://bookdown.org/) ![](../figures/bookdown.png){width=20px} is an open-source R package that facilitates writing books and long-form articles/reports with R Markdown.  
 
-# Radix
+![](../figures/rmarkdown.png){width=500px}
+
+## Radix
 * [Radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/) offers a better look for publishing blog, webpages, adapted to mobile devices.  
 ![](../figures/radix.png){width=500px}  
 
-* You will need:   
-  + [Rstudio v1.2][https://www.rstudio.com/products/rstudio/download/preview/].   
-  + `radix`  
+* You will need [Rstudio v1.2](https://www.rstudio.com/products/rstudio/download/preview/), `radix` and `leaflet`.
 
->\```{r radix, echo = T}    
->install.packages("radix")  
->\```  
+````install  
+install.packages("radix")  
+install.packages("leaflet")  
+````
 
-  + Change output in header to:   
-  
->\---  
->title: "Rmarkdown: radix"  
->author: "Sebastien Renaut"  
->output: radix::radix_article  
->\---  
+* Change output in header to:   
+
+````rad_head  
+---  
+title: "Rmarkdown: radix"  
+author: "Sébastien Renaut"  
+output: radix::radix_article  
+---  
+````
 
   + Then you can start playing with the `radix` options, such as in this example below (full width figures):
     
->\```{r radix_example, echo = F, layout='l-screen-inset'}  
->library(leaflet)  
->leaflet() %>%  
->	addTiles() %>%   
->	addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")  
->\```    
-    
-```{r radix_example, echo = F, eval = F, layout='l-screen-inset'}
+````radix 
+#Note that you may need to set eval = F for some formats (pdf, docx) to compile properly
+
+`r ''````{r radix_example, echo = F, eval = T, layout='l-screen-inset'}  
+library(leaflet)  
+leaflet() %>%  
+addTiles() %>%   
+addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")  
+```    
+````   
+
+```{r radix_example, echo = F, eval = T, layout='l-screen-inset'}
 library(leaflet)
 leaflet() %>%
 	addTiles() %>% 
 	addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")
 ```
 
+
+## Exercice 3
+* Use a previously generate document to generate a `radix` html output. 
+
+* What does it look like? Better? 
+
+***
