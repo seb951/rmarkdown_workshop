@@ -138,15 +138,16 @@
 \begin{itemize}
 \tightlist
 \item
-  There are six versions of this document:
+  There are six versions of this document. We will examine them, one by
+  one:
 
   \begin{itemize}
   \tightlist
   \item
-    \emph{.Rmd}: The \texttt{Rmarkdown} document.
+    \emph{.Rmd}: The \texttt{R\ markdown} document.
   \item
-    \emph{.html}: A Webpage as we saw in the previous section. Follow
-    using this version.
+    \emph{.html}: A Wwbpage as we saw in the previous section. Follow
+    workshop using this version.
   \item
     \emph{rmarkdown\_word\_pdf2.html}: A \texttt{radix} webpage.
   \item
@@ -154,7 +155,7 @@
   \item
     \emph{.tex}: A \href{https://www.latex-project.org}{LaTeX} document.
   \item
-    \emph{.pdf}: A PDF document.
+    \emph{.pdf}: A Portable Document Format.
   \end{itemize}
 \end{itemize}
 
@@ -169,7 +170,8 @@
 \NormalTok{date: '2018-09-06'    }
 \NormalTok{output: }
 \NormalTok{  html_document: }
-\NormalTok{    toc: yes  }
+\NormalTok{    toc: yes }
+\NormalTok{    theme: cerulean }
 \NormalTok{--- }
 \end{Highlighting}
 \end{Shaded}
@@ -200,8 +202,8 @@ output:
   is probably not the format that should be promoted, as it moves away
   from an open source environment).
 \item
-  (FYI, there is a spellchecker in \texttt{Rstudio}: Edit
-  \textgreater{}Check Spelling\ldots{})
+  FYI, there is a spellchecker in \texttt{Rstudio}: Edit
+  \textgreater{}Check Spelling\ldots{}
 \end{itemize}
 
 \hypertarget{portable-document-format-.pdf}{%
@@ -221,9 +223,16 @@ output:
 \end{verbatim}
 
 \begin{itemize}
+\tightlist
 \item
-  You need a extra step to go from a LaTeX (\emph{.tex}) format to a
-  \emph{.pdf}. This is handled by the \texttt{pdflatex} function in R.
+  You need an extra step to go from a LaTeX (\emph{.tex}) format to a
+  \emph{.pdf}. This is handled by the
+  \texttt{R\ markdown\ pdf\_document} function in R.
+\end{itemize}
+
+\includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
+
+\begin{itemize}
 \item
   \href{https://www.latex-project.org}{LaTeX software} is a high-quality
   typesetting system.
@@ -233,18 +242,13 @@ output:
 \item
   LaTeX is available as free software
   \href{https://www.latex-project.org/get/}{here}.
-\end{itemize}
-
-\includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
-
-\begin{itemize}
 \item
   If interested, follow this discussion:
   \href{https://ubuntuforums.org/showthread.php?t=395863}{\emph{Why
   LaTeX is such a bloated system?}}
 \item
   So\ldots{}\href{https://yihui.name/tinytex/r/}{\emph{TinyTeX}} is a
-  custom LaTeX distribution based on TeX Live that is small in size
+  custom LaTeX distribution that is small in size
   (\textasciitilde{}150MB) but functions well in most cases, especially
   for \texttt{R} users .
 \item
@@ -258,8 +262,9 @@ output:
 \begin{itemize}
 \tightlist
 \item
-  Install the \texttt{tinytex} R package from the console. It may take a
-  few minutes to download and compile (\textasciitilde{}150MB)
+  If you haven't done so, install the \texttt{tinytex} R package from
+  the console and run \texttt{install\_tinytex()}. It may take a few
+  minutes to download and compile (\textasciitilde{}150MB).
 \end{itemize}
 
 \begin{verbatim}
@@ -287,7 +292,7 @@ install_tinytex()
 \end{itemize}
 
 \hypertarget{latex-template}{%
-\section{LaTeX template}\label{latex-template}}
+\subsection{LaTeX template}\label{latex-template}}
 
 \begin{itemize}
 \item
@@ -306,9 +311,10 @@ install_tinytex()
   \begin{itemize}
   \tightlist
   \item
-    Using this (sligthly modified) template, I am writing
-    \href{https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf}{my
-    first \emph{.Rmd} manuscript}.\\
+    For example, using this (sligthly modified) template, I am writing
+    my first
+    \href{https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf}{\emph{.Rmd}
+    manuscript}.\\
     \hspace*{0.333em}\\
     \includegraphics[width=5.20833in,height=\textheight]{../figures/acadian.png}\\
     \hspace*{0.333em}\\
@@ -322,7 +328,7 @@ install_tinytex()
   \begin{itemize}
   \tightlist
   \item
-    Using this template, I re-wrote my
+    For example, using this template, I re-wrote my
     \href{http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf}{CV}
     to give it a fresh look!\\
     \hspace*{0.333em}\\
@@ -331,12 +337,12 @@ install_tinytex()
     \hspace*{0.333em}\\
   \end{itemize}
 \item
-  Download template and add it to the header. Not however that you
-  should download or at least take a look at the
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.Rmd}{\emph{.Rmd}
-  to see options}, and
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.pdf}{\emph{.pdf}
-  to see output}.
+  Download and save template. Refer to it in the header. (Note however
+  that you should download or at least take a look at the
+  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.Rmd}{\emph{.Rmd}}
+  to see options available, and
+  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.pdf}{\emph{.pdf}}
+  to see output.)
 \end{itemize}
 
 \begin{Shaded}
@@ -355,16 +361,17 @@ install_tinytex()
 \end{Shaded}
 
 \begin{itemize}
-\tightlist
 \item
   You should know have all the tools to generate your fully reproducible
-  manuscripts from \texttt{R}. The only objection I see is formatting
-  manuscript this way is integrating comments from co-authors who do not
-  use \texttt{R}, \texttt{R\ markdown}, \texttt{git} or \texttt{github}.
+  manuscripts in \texttt{R}.
+\item
+  The only real objection I see in formatting manuscript this way is
+  integrating comments from co-authors who do not use \texttt{R},
+  \texttt{R\ markdown}, \texttt{git} or \texttt{github}.
 \end{itemize}
 
 \hypertarget{exercice-2}{%
-\section{Exercice 2}\label{exercice-2}}
+\subsection{Exercice 2}\label{exercice-2}}
 
 \begin{itemize}
 \item
@@ -386,8 +393,8 @@ install_tinytex()
 \item
   Right now, few templates available.
 \item
-  Some templates may be slower to render, depending on what \emph{LaTeX}
-  package they depend on and need to be downloaded (e.g PNAS).
+  Some templates may be slower to render (e.g PNAS), depending on what
+  \emph{LaTeX} package they depend on and need to be downloaded.
 \end{itemize}
 
 \hypertarget{other-possibilities}{%
@@ -409,8 +416,9 @@ output: ioslides_presentation
 \tightlist
 \item
   You can also generate Powerpoint-like presentations.
-  \includegraphics[width=4.16667in,height=\textheight]{../figures/slides.png}
 \end{itemize}
+
+\includegraphics[width=7.29167in,height=\textheight]{../figures/slides.png}
 
 \hypertarget{overleaf}{%
 \subsection{Overleaf}\label{overleaf}}
@@ -432,7 +440,7 @@ output: ioslides_presentation
 \item
   You can generate your \emph{.tex} file, upload it to a github repo and
   Overleaf will connect to it. Others can then collaborate and modify
-  the \emph{.tex} file.
+  the \emph{.tex} file via overleaf platform.
 \item
   Let's take a quick look at \href{https://www.overleaf.com/}{overleaf}.
   Once you have an overleaf account, you can connect it to a
@@ -528,7 +536,7 @@ addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")
 \end{verbatim}
 
 \hypertarget{exercice-3}{%
-\section{Exercice 3}\label{exercice-3}}
+\subsection{Exercice 3}\label{exercice-3}}
 
 \begin{itemize}
 \item

@@ -7,6 +7,7 @@ output:
     number_sections: T
     toc: yes
     toc_depth: 3
+    theme: cerulean
     toc_float:
       collapsed: T
 runtime: shiny
@@ -22,11 +23,9 @@ library(shiny)
 
 * `Shiny` allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
 
-* Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/).
+* Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/). See [gallery](https://shiny.rstudio.com/gallery/) for more examples.  
 
-* See [gallery](https://shiny.rstudio.com/gallery/) for more examples.  
-
-* To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
+* To learn more, look at official ![](rsconnect/documents/rstudio.png){width=44px} documentation on [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
 
 # Set-up
 
@@ -47,12 +46,14 @@ runtime: shiny
 ## Inputs and Outputs
 * Output is automatically updated whenever inputs change.   
 
-* The code below demonstrates how a standard plot can be made interactive by wrapping it in the Shiny `renderPlot` function (*output*). The `selectInput` and `sliderInput` functions create the *input* widgets used to generate plots.  
+* The code below demonstrates how a standard plot can be made interactive by wrapping it in the Shiny `renderPlot` function (*output*).   
+  
+* The `selectInput` and `sliderInput` functions create the *input* widgets used to generate plots.    
 
 
 ```{r eruptions, echo=T}
-#Here we will use the faithful geyser example dataset to generate histogram and a density function.
-knitr::kable(head(faithful),format = "markdown",digits =1,caption = "A motorcars table", align = "c") 
+#Faithful geyser dataset to generate histogram and density function.
+knitr::kable(head(faithful),digits =1,caption = "Ye old faithful", align = "c") 
 
 #SELECT INPUT
 inputPanel(
@@ -80,7 +81,9 @@ renderPlot({
 ```
 
 ## Embedded Application
-* It's also possible to embed an entire Shiny application within an R Markdown document using the `shinyAppDir` function.  
+* It's also possible to embed an entire Shiny application within an `R Markdown` document using the `shinyAppDir` function.  
+  
+* Note the use of the `height` parameter to determine how much vertical space the embedded application should occupy.   
 
 ```{r tabsets, echo=T}
 shinyAppDir(
@@ -91,12 +94,12 @@ shinyAppDir(
 )
 ```
 
-* Note the use of the `height` parameter to determine how much vertical space the embedded application should occupy.  
+ 
 
 ## Another example
 ```{r mtcars, echo=T} 
 # Define a User Interfacce for a "Miles per gallon" app using mtcars
-knitr::kable(head(mtcars),digits =1,format = "markdown",caption = "An motorcars table", align = "c")
+knitr::kable(head(mtcars),digits =1,caption = "An motorcars table", align = "c")
 
 ui <- fluidPage(
 
@@ -144,26 +147,29 @@ shinyApp(ui = ui, server = server,options=list(height = 550))
 * You will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to interact with your `shiny` app.
 
 * Two ways to deploy a `shiny` document: 
-  + Host it by service provided by **RStudio**
-    + Technically easier.
+  + Host it by service provided by *R Studio*   
+    + Technically easier
     + webpage hosted on shinyapps.io
     + Freemium business model
   + Set up your own server
-    +  Independence from *Rstudio*
+    +  Independence from *R studio*
 
 # ShinyApps.io
 * Sign up to http://www.shinyapps.io/ 
 
 * Connect to the remote server (may need to install `rsconnect` and `packrat`)
 
-* Also need to set remote account info
+* Also need to specify remote account info
   + Once signed up, go to http://www.shinyapps.io/ >Account >Tokens >Show   
-
-```rsconnect 
+  + Then run function below with personnal info.  
+    
+```rsconnect
 rsconnect::setAccountInfo(name='yourname',token='alphanumeric',secret='ASCII') 
 ```
 
 * Publish document in Rtudio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
 
+# Set-up your own shiny app
+* File > New file > Shiny web app  
 
 

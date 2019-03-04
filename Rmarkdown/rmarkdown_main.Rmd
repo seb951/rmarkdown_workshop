@@ -6,7 +6,7 @@ output:
   html_document:
     highlight: tango
     number_sections: T
-    theme: united
+    theme: cerulean
     toc: yes
     toc_depth: 2
     toc_float:
@@ -22,16 +22,17 @@ knitr::opts_chunk$set(echo = TRUE)
 # Pre-requisite {.unnumbered}
 * The latest version of R installed (R version 3.5.2: https://cran.rstudio.com/). This is very important.
 
-* Preferably Rstudio 1.2 (https://www.rstudio.com/products/rstudio/download/preview/). Note that this version is not officially released yet. If you don't have it / don't want to install it, not big deal, you'll still be able to do 98% of the workshop.
+* Preferably Rstudio v.1.2 (https://www.rstudio.com/products/rstudio/download/preview/). Note that this version is not officially released yet. If you don't have it / don't want to install it, no big deal, you'll still be able to do 98% of the workshop.
 
+* These packages need to be installed / updated.  
 ```prereq
 install.packages("knitr")
 install.packages("rmarkdown")
 install.packages("radix")
 install.packages("leaflet") 
+install.packages("rticles")  
 install.packages("tinytex")
 tinytex::install_tinytex()  #Please run this command as well to install a LaTeX distribution This may take a few minutes to install (~150MB).
-install.packages("rticles")
 ```
 
 # Introduction  
@@ -42,7 +43,7 @@ install.packages("rticles")
 ![](../figures/download.png){width=500px}  
 &nbsp;  
 
-* Follow the *.html* (web browser) and the *.Rmd* (Rstudio) documents. Try and experiment.  
+* Follow the *.html* (web browser) and the *.Rmd* (R studio) documents. Try and experiment.  
 
 * ~2 hours: Introduction and practice      
 
@@ -66,14 +67,14 @@ install.packages("rticles")
 # R Markdown
 * An extension of the markdown syntax that enables **R code to be embedded and executed**.  
 
-* Generate **fully reproducible reports** in different of static and dynamic output formats.  
+* Generate **fully reproducible reports** in different static and dynamic output formats.  
 
-* Most of these packages are maintained by the Rstudio team  (https://rmarkdown.rstudio.com/, ![](../figures/yihui.png){width=20px} [Yihui Xie](https://yihui.name/))    
+* Most of these packages are maintained by the R studio team  (https://rmarkdown.rstudio.com/, ![](../figures/yihui.png){width=20px} [Yihui Xie](https://yihui.name/))    
 
 * Plain text files that typically have the file extension *.Rmd*.  
 
 * So, how does it work:
-    + Write text & code in `Rstudio`.
+    + Write text & code in `R studio`.
     
     + Knit: The R package `rmarkdown` feeds the *.Rmd* file to the R package `knitr`.   
 
@@ -85,7 +86,7 @@ install.packages("rticles")
 
     + By default, `Rstudio` comes with `rmarkdown`, `knitr`, and `pandoc` (but not `pdflatex`).  
 
-    + When you click the **Knit** button (top left), a document will be generated that includes both content as well as the output of  `R` code within the document. You can also use the `render()` function.
+    + When you click the **Knit** button (top left), a document will be generated that includes both content as well as the output of `R` code within the document. You can also use the `render()` function.
 ![](../figures/pandoc1.png){width=500px}
 
 ## Exercice 1: Setting up an R markdown file
@@ -117,7 +118,7 @@ install.packages("rticles")
 
     + backslash (\\) to interpret a special characters as character  
 
-    + \# and space at the beginning of line for a header level (6 levels, \# to \#\#\#\#\#\#)
+    + "\# and space" at the beginning of line for a header level (6 levels, \# to \#\#\#\#\#\#)
 
     + _**bold italic**_ (\_\*\*bold italic\*\*\_) 
 
@@ -127,9 +128,11 @@ install.packages("rticles")
 
     + "\&nbsp;  " character (html *N*on-*B*reaking *SP*ace) for extra line spacing can be useful.  
   
-    + list (first element using \* and space, then *idented* (tab or 2 spaces) \* and space)
+    + list (first element using "\* and space", then "*idented* (tab or 2 spaces) \* and space")
       + item 1a
       + item 1b  
+    
+    + \*\*\* for an horizontal line
     
     + `quoted text` (\`quoted text\`)  
     
@@ -181,12 +184,16 @@ Species | Counts
 *H. sapiens* | 24
 *M. musculus* | 442    
 
-* The [cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) or [v2]([cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)) is your friend.  
+* The [cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) or [v2](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) is your friend.  
 
 
 ## Exercice 2  
-* Lets write some text now (add italicized/bold text, some URLs, and an itemized list, have fun!). Convert the document to a webpage.  
+* Write some text now (add italicized/bold text, some URLs, and an itemized list, have fun!).    
+* You can use this wikipedia text and list of [roses subgenera](https://en.wikipedia.org/wiki/List_of_Rosa_species#Subgenera_and_sections) as an example to reproduce.  
+![](../figures/rosa.png){width=800px}
 
+
+* Convert the document to a html webpage.  
 
 # Header
 ```header
@@ -206,33 +213,32 @@ output: html_document
 
 * It uses `Python`-style indentation to specify certain options.  
 
-* Many options possible depending what type of document you are generating. See below for some examples.  
+* [Many options possible](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) depending what type of document you are generating. See below for some examples.  
 
 * Note that some options can be specified either for the whole document (in the header), the code chunks, or both (chunks options supersede header). More on code chunks later.  
 
-# Customizing header
+## Customizing header
 ```custom 
 ---  
 title: "Rmarkdown"  
 author: "Sebastien Renaut"  
 date: "`r format(Sys.time(), '%B %d, %Y')`"   
 output: 
-#pdf_document:
  html_document:  
    highlight: tango  
    number_sections: T  
-   theme: united 
+   theme: cerulean 
    toc: yes  
    toc_depth: 3  
 ---  
 ```  
   
-* Note the indentation in the **.Rmd** document for the *output* options.
-* Note the **#** symbol to comment out option.   
-* Note that date is population via an `R` function  
+* Note the indentation in the **.Rmd** document for the *output* options.  
+    
+* Note that date is population via an `R` function.    
 
 ## Outputs 
-See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more information. But these are some formats of interest:  
+See the [official R markdown lessons](https://rmarkdown.rstudio.com/lesson-9.html) for more information. But these are some formats of interest:  
 
 * `output: html_document`   
 
@@ -242,9 +248,9 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 
 * `output: word_document` (*.docx*)   
 
-* interactive `shiny` apps (We'll get to that later). 
+* interactive `shiny` apps (We'll get to that later as well). 
 
-## Customizing header: Table of content
+## Table of content
 * `toc: yes` Generate TOC.   
 
 * `toc_depth:3` depth of TOC.    
@@ -255,31 +261,31 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 # Preface {-}
 ```
 
-* More options [here](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
+* More options in [official R markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
     
-## Customizing header: Theme, highlight & other options
+## Theme, highlight & other options
 * `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo").  
   
 * `highlight: ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
 
-* See this [Reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) for more options. 
+* See the [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) and [official R markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for more options. 
 
 ## Exercice 3
 * Change theme of your `Rmarkdown` document    
 * Change highlighting      
 * Add TOC    
-* Try saving it as `output: word_document`    
+* Change output (eg.: `output: word_document`)    
 * Save, knitr and play with options.     
 
 # Code chunks
-* The real power of `R Markdown` comes from mixing markdown with chunks of code.    
+* The real power of `R Markdown` comes from mixing markdown syntax with chunks of code.    
 
 * A code chunk is intepreted by `knitr`. It works essentially the same as the `R` syntax we are familiar with.  
   
 * A main code chunks may look like this:  
 
 ````chunks  
-`r ''````{r code chunk example, include = T, message = T, warning=T, echo = T, fig.cap="Figure 1"}  
+`r ''````{r example, include = T, message = T, warning=T, echo = F, fig.cap="Figure 1"}  
 #Running some R code.
 x = rexp(1000)  
 min(x)  
@@ -288,18 +294,27 @@ plot(x)
 ```    
 ````
 
+```{r example, include = T, message = T, warning=T, echo = F, fig.cap="A figure of random points"}  
+#Running some R code.
+x = rexp(1000)  
+min(x)  
+max(x)  
+plot(x)  
+```
+   
+     
 * On the 1st line, I specify that I will run the `R` programming language.  
 
 * Then, I give the chunk a **UNIQUE** name and specify options.   
 
 * Here are common options:  
-    + `include = F`: Code and results will NOT appear in the finished file. Code is still interpreted, and the results can be used by other chunks.    
+    + `include = FALSE`: Code and results will NOT appear in the finished file. Code is still interpreted, and the results can be used by other chunks.    
   
-    + `echo = FALSE` prevents code, but not results from appearing in the finished file. This is a useful way to embed figures.  
+    + `echo = F` prevents code, but not results from appearing in the finished file. This is a useful way to embed figures.  
   
-    + `message = FALSE` prevents messages that are generated by code from appearing in the finished file.    
+    + `message = F` prevents messages that are generated by code from appearing in the finished file.    
   
-    + `warning = FALSE` prevents warnings that are generated by code from appearing in the finished file.    
+    + `warning = F` prevents warnings that are generated by code from appearing in the finished file.    
   
     + `fig.cap = "..."` adds a caption to graphical results.    
   
@@ -324,11 +339,11 @@ knitr::opts_chunk$set(echo = TRUE)
 * Can you find options to print code, but not run it?   
 * Also, try clicking the green arrow in the *.Rmd* on the right to execute a code chunk a preview its output. 
 
-## More Code chunks
+## More on code chunks
 R markdown can read and execute different languages!    
 ````bash  
 `r ''````{bash, echo = F}
-ls -1
+ls -1 | head -3
 ```
 ````
 
@@ -357,7 +372,7 @@ print "Hello perl!";
 ```{perl, echo = F}
 print "Hello perl!";
 ```
-## Math symbols
+# Math symbols
 Mathematical material is set off by the use of single dollar-sign characters (similar as in the LaTeX typesetting language).  
 
 * So to write $E = mc^{2}$, you'd write:  **\$E = mc^{2}\$**   
@@ -374,20 +389,20 @@ Mathematical material is set off by the use of single dollar-sign characters (si
   
 * The use of double dollars quote allows for displayed formulas (centered). $$\sqrt{b^2 - 4ac}$$  
 
-* See [more](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) example equations from this McGill math Rmarkdown tutorial.  
+* See [more](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) example equations from this McGill math R markdown tutorial.  
 
 # Include pictures & figures.
-* There are several ways to include figures.   
+There are several ways to include figures.   
 
 ### URL {.unnumbered}
 Can be included from an URL directly uploaded from the web:  
-`![optional caption here](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=250px}`  
+`![optional caption here](https://upload.wikimedia.org/wikipedia/commons/7/7f/Rosa_persica%3B_Baikonur_01.jpg){width=250px}`  
    
-![Optional caption here](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=250px}  
+![Optional caption here](https://upload.wikimedia.org/wikipedia/commons/7/7f/Rosa_persica%3B_Baikonur_01.jpg){width=250px}  
 &nbsp;   
 
 ### Inline figure {.unnumbered}
-If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=30px} images...
+If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Rosa_persica%3B_Baikonur_01.jpg){width=30px} images...
 
 ### Previously saved {.unnumbered}
 This is a graph previously saved in the *figures* directory   
@@ -395,12 +410,12 @@ This is a graph previously saved in the *figures* directory
 ![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
 
-In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not R graphics options:  
-    * It's simple, but options are tricky.  
+In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not `knitr` R graphics options:  
+* It's simple, but options can be tricky.  
 
-    * You may need to play with spacing, figure size, and figure position.  
+* You may need to play with spacing, figure size, and figure position.  
 
-    * Options are specified directly after the URL or link (eg. {width=250px} or {width=50%}).  
+* Options are specified directly after the URL or link (eg. {width=250px} or {width=50%}).  
 
 ### knitr {.unnumbered}
 Images can also be interpreted by `knitr` as below:  
@@ -417,12 +432,12 @@ knitr::include_graphics("../figures/orange.jpeg")
 
 ### Wrapping text {.unnumbered}
 ````global  
-`r ''````{r roaches, out.width = "25%",fig.cap = "Cockroaches man", echo = F,out.extra='style="float:right; padding:10px"'}
+`r ''````{r cockroaches, out.width = "25%",fig.cap = "Cockroaches man", echo = F,out.extra='style="float:right; padding:10px"'}
 knitr::include_graphics("https://en.wikipedia.org/wiki/File:Snodgrass_common_household_roaches.png")  
 ```
 ````
 
-```{r roaches, out.width = "25%",echo = F,out.extra='style="float:right; padding:10px"'}
+```{r cockroaches, out.width = "25%",echo = F,out.extra='style="float:right; padding:10px"'}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/7/72/Snodgrass_common_household_roaches.png")
 ```
 
@@ -485,10 +500,12 @@ print(head(mtcars))
 knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 ```
 
-## Exercice 5 (10 min.)
-* Find a picture on the web.     
+## Exercice 5
+* Find a picture on the web. Save it.     
 
 * Add it to document using either `knitr` or `pandoc`.  
+
+* Repeat exercice by linking directly with figure.  
 
 * Add a table using `knitr`.  
 
@@ -506,39 +523,39 @@ bibliography: biblio/test_library.bib
  
 * The Citation Style Language (*.csl*) file specifies the reference format.     
   
-* It is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using *.csl* include Zotero, Mendeley and Papers.    
+* It is an open XML-based language that describe the formatting of citations and bibliographies. Reference management programs using *.csl* include [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/?interaction_required=true) and [Papers3](https://www.readcube.com/papers/mac).     
   
 * Most journals should have a *.csl* file be on this [GitHub repo](https://github.com/citation-style-language/styles). But you could create your own.  
 
 * A *.bib* file contains the bibliographic information of your document. 
 
-* Here, I created a  a *.bib* file in the reference management software [Papers3](https://www.readcube.com/papers/mac). 
+* Here, I created a *.bib* file (*../biblio/test_library.bib*) in the reference management software [Papers3](https://www.readcube.com/papers/mac). 
  
-* But now, I often copy *.bib* reference directly from google scholar.   
+* But now, I often copy *.bib* references directly from Google Scholar and add it to a *.bib* database text file.   
 ![](../figures/gs.png){width=500px}
 
 
 ## Citations: examples  
-* Example: The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 70,000 times!  
+* Example: *The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 70,000 times.*  
 
 * These are three random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
   
 * Citations go inside square brackets [  ] and are separated by semicolons (;). 
 
-* Each citation must have a unique key, composed of ‘@’ + the citation identifier from the *.bib* database.  
+* Each citation must have a unique key, composed of ‘@’ + the citation identifier from the *.bib* database file.  
 
-* A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, Stephen Altschul and a bunch of other people [-@altschul1997gapped] have been cited 70,000 times. 
+* A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, *Stephen Altschul and a bunch of other people [-@altschul1997gapped] have been cited 70,000 times.* 
 
 ## Exercice 6
-* Create a library (`.bib` file) with the references for your five favorite scientific papers.
+* Create a *.bib* database text file with the references for your five favorite scientific papers.
 
-* Find and use another Citation Style Language (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). (hint: type 't' in GitHub repo to activate search). 
+* Find and use another Citation Style Language (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). (hint: type 't' in GitHub repo linked in Section 10 to activate search function). 
 
 # Cheatsheets and help
 * [Lessons](https://rmarkdown.rstudio.com/lesson-1.html)  
 
 * [Book](https://bookdown.org/yihui/rmarkdown/)   
-  * This is a great reference. In addition, it is (of course) written in `R mardown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you like, go see how it was written in the *.Rmd* version!  
+  * This is a great reference. In addition, it is (of course) written in `R mardown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you want to reproduce, go see how it was written in the *.Rmd* version!  
   
 * [Cheatsheet (old - short)](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
