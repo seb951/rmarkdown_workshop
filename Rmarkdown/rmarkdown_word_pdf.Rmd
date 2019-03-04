@@ -5,7 +5,7 @@ date: '2018-09-06'
 output: 
   html_document: 
     toc: yes  
---- 
+---  
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -83,7 +83,7 @@ output:
 
 * `tinytex` R package is a wrapper function that installs *TinyTeX*.  
 
-## Exercice 1 (10min.)
+## Exercice 1  
 * Install the `tinytex` R package from the console. It may take a few minutes to download and compile (~150MB)   
   
 ```tinytex  
@@ -107,7 +107,8 @@ install_tinytex()
 
 * There are many templates available on the web that you can use.  
 
-* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks [svmiller](https://github.com/svmiller) on ![](../figures/octocat.png){width=30px})   
+* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks [svmiller](https://github.com/svmiller) on ![](../figures/octocat.png){width=40px})   
+  
   + Using this (sligthly modified) template, I am writing [my first *.Rmd* manuscript](https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf).  
 &nbsp;  
 ![](../figures/acadian.png){width=500px}  
@@ -136,7 +137,7 @@ title: "**This is my first Rmarkdown manuscript**
 
 * You should know have all the tools to generate your fully reproducible manuscripts from `R`. The only objection I see is formatting manuscript this way is integrating comments from co-authors who do not use `R`, `R markdown`, `git` or `github`.  
 
-# Exercice 2 (10min.)   
+# Exercice 2   
 * R packages `rticles` is (potentially) a nice package to format articles according to the specification of a journal.    
 
 * But first, you need to install it in the R console.
@@ -176,9 +177,9 @@ output: ioslides_presentation
 * Remember this:  
 ![](../figures/pandoc1.png){width=500px}
   
-* So you can generate your *.tex* file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the *.tex* file. 
+* You can generate your *.tex* file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the *.tex* file. 
 
-* Let's take a quick look at [overleaf](https://www.overleaf.com/). Once you have an overleaf account, you can connect it to a [github](https://www.github.com/) repository. You can then pull/push from overleaf to github, allowing others to modify your *.tex* file.
+* Let's take a quick look at [overleaf](https://www.overleaf.com/). Once you have an overleaf account, you can connect it to a [github](https://www.github.com/) repository and *.tex* document. You can then pull/push from overleaf to github, allowing others to modify your *.tex* file.
 
 ![](../figures/overleaf_github.png){width=500px}
 
@@ -192,7 +193,10 @@ output: ioslides_presentation
 ![](../figures/rmarkdown.png){width=500px}
 
 ## Radix
-* [Radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/) offers a better look for publishing blog, webpages, adapted to mobile devices.  
+* [Radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/) offers a better look for publishing blog, webpages, adapted to mobile devices.
+
+* Note that in future version, *Radix* is now called [*distill*](https://github.com/rstudio/distill)
+
 ![](../figures/radix.png){width=500px}  
 
 * You will need [Rstudio v1.2](https://www.rstudio.com/products/rstudio/download/preview/), `radix` and `leaflet`.
@@ -233,7 +237,7 @@ leaflet() %>%
 ```
 
 
-## Exercice 3
+# Exercice 3
 * Use a previously generate document to generate a `radix` html output. 
 
 * What does it look like? Better? 

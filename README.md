@@ -17,8 +17,8 @@
 * [website](https://seb951.github.io/rmarkdown_workshop/)  
 * [github repository](https://github.com/seb951/rmarkdown_workshop)  
 * [Introduction](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html)
-* [PDF and Word](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)
-* [Shiny](https://github.com/seb951/rmarkdown_workshop/blob/master/Rmarkdown/shiny.Rmd)
+* [PDF, Word and others](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)
+* [Shiny](https://sebastien.shinyapps.io/shiny/)
 
 
 ## Please fill in form below if interested  

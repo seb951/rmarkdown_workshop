@@ -8,7 +8,7 @@ output:
     number_sections: T
     theme: united
     toc: yes
-    toc_depth: 3
+    toc_depth: 2
     toc_float:
       collapsed: T
 csl: ../csl/peerj.csl
@@ -19,10 +19,25 @@ bibliography: ../biblio/test_library.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction  
-* You can download the workshop material on [github](https://github.com/seb951/rmarkdown_workshop). 
+# Pre-requisite {.unnumbered}
+* The latest version of R installed (R version 3.5.2: https://cran.rstudio.com/). This is very important.
 
-* Don't hesitate to comment (new issues), or request changes (pull request) on ![](../figures/octocat.png){width=40px}.   
+* Preferably Rstudio 1.2 (https://www.rstudio.com/products/rstudio/download/preview/). Note that this version is not officially released yet. If you don't have it / don't want to install it, not big deal, you'll still be able to do 98% of the workshop.
+
+```prereq
+install.packages("knitr")
+install.packages("rmarkdown")
+install.packages("radix")
+install.packages("leaflet") 
+install.packages("tinytex")
+tinytex::install_tinytex()  #Please run this command as well to install a LaTeX distribution This may take a few minutes to install (~150MB).
+install.packages("rticles")
+```
+
+# Introduction  
+* You can download the workshop material on [GitHub](https://github.com/seb951/rmarkdown_workshop) ![](../figures/octocat.png){width=40px}. 
+
+* Don't hesitate to comment (new issues), or request changes (pull request) on GitHub ![](../figures/octocat.png){width=40px}.   
 
 ![](../figures/download.png){width=500px}  
 &nbsp;  
@@ -33,7 +48,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * ~15 minutes: pause  
 
-* ~1 hour: other formats (*.docx*, *.pdf*). [Workshop here](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)    
+* ~1 hour: other formats (*.docx*, *.pdf*, and others). [Workshop here](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)    
 
 * ~15 minutes: shiny. [Workshop here](https://sebastien.shinyapps.io/shiny/)  
   
@@ -45,7 +60,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Typically, file have the extension *.md*.    
 
-* Look at this [example](https://github.com/seb951/rmarkdown_workshop/blob/master/README.md). Examine the html render (github automatically interprets *.md* files) and raw file.     
+* Look at this [example](https://github.com/seb951/rmarkdown_workshop/blob/master/README.md). Examine the html render (GitHub automatically interprets *.md* files) and raw file.     
 ![](../figures/md_example.png){width=500px}
 
 # R Markdown
@@ -70,10 +85,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
     + By default, `Rstudio` comes with `rmarkdown`, `knitr`, and `pandoc` (but not `pdflatex`).  
 
-    + When you click the **Knit** button (top left), a document will be generated that includes both content as well as the output of  `R` code within the document.  
+    + When you click the **Knit** button (top left), a document will be generated that includes both content as well as the output of  `R` code within the document. You can also use the `render()` function.
 ![](../figures/pandoc1.png){width=500px}
 
-## Exercice 1: Setting up an R markdown file (10 min.)
+## Exercice 1: Setting up an R markdown file
 * This is easily done through `R studio`  
    
 ![](../figures/getstarted.png){width=500px}  
@@ -169,7 +184,7 @@ Species | Counts
 * The [cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) or [v2]([cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)) is your friend.  
 
 
-## Exercice 2  (10 min.)
+## Exercice 2  
 * Lets write some text now (add italicized/bold text, some URLs, and an itemized list, have fun!). Convert the document to a webpage.  
 
 
@@ -249,7 +264,7 @@ See the [documentation](https://rmarkdown.rstudio.com/lesson-9.html) for more in
 
 * See this [Reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) for more options. 
 
-## Exercice 3 (10 min.)
+## Exercice 3
 * Change theme of your `Rmarkdown` document    
 * Change highlighting      
 * Add TOC    
@@ -301,7 +316,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Note that you also run inline code using the using the \`   \` symbols and specifying the programming language. For example, \` r 10+5 \` would be processes as `r 10+5`.
 
-## Exercice 4 (10 min.)
+## Exercice 4
 * Add a code chunks that will:
     + load an R package and make a plot  
     + load an R package and print some output of a function     
@@ -364,29 +379,31 @@ Mathematical material is set off by the use of single dollar-sign characters (si
 # Include pictures & figures.
 * There are several ways to include figures.   
 
-* Can be included from an URL directly uploaded from the web:  
+### URL {.unnumbered}
+Can be included from an URL directly uploaded from the web:  
 `![optional caption here](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=250px}`  
    
 ![Optional caption here](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=250px}  
 &nbsp;   
-&nbsp;  
-&nbsp;   
 
-* If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=30px} images...
+### Inline figure {.unnumbered}
+If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](https://static.independent.co.uk/s3fs-public/styles/article_large/public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg){width=30px} images...
 
-* This is a graph previously saved in the *figures* directory   
+### Previously saved {.unnumbered}
+This is a graph previously saved in the *figures* directory   
 `![](../figures/DEG_heatmap.png){width=250px}`   
 ![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
 
-* In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not R graphics options:  
-    + It's simple, but options are tricky.  
+In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not R graphics options:  
+    * It's simple, but options are tricky.  
 
-    + You may need to play with spacing, figure size, and figure position.  
+    * You may need to play with spacing, figure size, and figure position.  
 
-    + Options are specified directly after the URL or link (eg. {width=250px} or {width=50%}).  
+    * Options are specified directly after the URL or link (eg. {width=250px} or {width=50%}).  
 
-* Images can also be interpreted by `knitr` as below:  
+### knitr {.unnumbered}
+Images can also be interpreted by `knitr` as below:  
 
 ````global  
 `r ''````{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}  
@@ -398,10 +415,35 @@ knitr::include_graphics("../figures/orange.jpeg")
 knitr::include_graphics("../figures/orange.jpeg")
 ```
 
-* Graphs can also be generated directly by `R` code, specified in a code chunk (`R` options specified in the code chunk) and interpreted by `knitr` as we did previously.  
+### Wrapping text {.unnumbered}
+````global  
+`r ''````{r roaches, out.width = "25%",fig.cap = "Cockroaches man", echo = F,out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://en.wikipedia.org/wiki/File:Snodgrass_common_household_roaches.png")  
+```
+````
+
+```{r roaches, out.width = "25%",echo = F,out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/7/72/Snodgrass_common_household_roaches.png")
+```
+
+#### Cockroaches {.unnumbered}
+Cockroaches are insects of the order Blattodea, which also includes termites. About 30 cockroach species out of 4,600 are associated with human habitats. About four species are well known as pests.
+
+The cockroaches are an ancient group, dating back at least as far as the Carboniferous period...   
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;   
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
+### R generated {.unnumbered}
+Graphs can also be generated directly by `R` code, specified in a code chunk (`R` options specified in the code chunk) and interpreted by `knitr` as we did previously.  
  
 ````ggplot  
-`r ''````{r another example, echo = T, message = F}
+`r ''````{r another example, echo = F, message = F}
 library(ggplot2)
 mtcars_ggplot = ggplot(mtcars, aes(x=wt, y=mpg)) + 
 geom_point() + geom_smooth()
@@ -409,13 +451,27 @@ mtcars_ggplot
 ```
 ````
 
-```{r another example, echo = T, message = F}
+```{r another example, echo = F, message = F}
 library(ggplot2)
 mtcars_ggplot = ggplot(mtcars, aes(x=wt, y=mpg)) + 
 geom_point() + geom_smooth()
 mtcars_ggplot
 ```
 
+### 2 figures in 2 columns {.unnumbered}
+
+````2figs  
+`r ''````{r out.width=c('50%', '50%'), fig.show='hold',echo=F}
+boxplot(1:10)
+plot(rnorm(10))
+```
+````
+
+```{r out.width=c('50%', '50%'), fig.show='hold',echo=F}
+boxplot(1:10)
+plot(rnorm(10))
+```   
+  
 # Including Tables
 * By default, R Markdown displays data frames and matrices as they would be in the R terminal (in a monospaced font). ![](../figures/vomit.png){width=39px}   
 
@@ -452,7 +508,7 @@ bibliography: biblio/test_library.bib
   
 * It is an open XML-based language to describe the formatting of citations and bibliographies. Reference management programs using *.csl* include Zotero, Mendeley and Papers.    
   
-* Most journals should have a *.csl* file be on this [github repo](https://github.com/citation-style-language/styles). But you could create your own.  
+* Most journals should have a *.csl* file be on this [GitHub repo](https://github.com/citation-style-language/styles). But you could create your own.  
 
 * A *.bib* file contains the bibliographic information of your document. 
 
@@ -473,10 +529,10 @@ bibliography: biblio/test_library.bib
 
 * A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, Stephen Altschul and a bunch of other people [-@altschul1997gapped] have been cited 70,000 times. 
 
-## Exercice 6 (10 min.)
+## Exercice 6
 * Create a library (`.bib` file) with the references for your five favorite scientific papers.
 
-* Find and use another Citation Style Language (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). 
+* Find and use another Citation Style Language (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). (hint: type 't' in GitHub repo to activate search). 
 
 # Cheatsheets and help
 * [Lessons](https://rmarkdown.rstudio.com/lesson-1.html)  
@@ -486,7 +542,7 @@ bibliography: biblio/test_library.bib
   
 * [Cheatsheet (old - short)](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
-* [Cheatsheet (newer - longer)](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+* [Cheatsheet (newer - longer)](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
 
 * [Pimp my Rmd](https://holtzy.github.io/Pimp-my-rmd/)
 

@@ -20,7 +20,7 @@ library(shiny)
 # What is Shiny?
 * This `R Markdown` html document is made interactive using `shiny`. 
 
-* ``Shiny allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
+* `Shiny` allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
 
 * Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/).
 
@@ -31,7 +31,7 @@ library(shiny)
 # Set-up
 
 ## Header
-```
+```header
 ---  
 title: "shiny_workshop"  
 author: "Sebastien Renaut"  
@@ -159,10 +159,11 @@ shinyApp(ui = ui, server = server,options=list(height = 550))
 * Also need to set remote account info
   + Once signed up, go to http://www.shinyapps.io/ >Account >Tokens >Show   
 
->  
->rsconnect::setAccountInfo(name='yourname',token='alphanumeric',secret='ASCII') 
->
+```rsconnect 
+rsconnect::setAccountInfo(name='yourname',token='alphanumeric',secret='ASCII') 
+```
 
-* Publish document in Rtudio by clicking on *blue eye* at the top right corner. Voilà!  
+* Publish document in Rtudio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
+
 
 
