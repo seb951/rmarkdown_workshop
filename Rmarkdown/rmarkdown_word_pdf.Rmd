@@ -52,7 +52,9 @@ output:
 
 * Then, it's just a matter of kniting the document!      
 
-* Little documentation, few options & configurations are possible (This is probably not the format that should be promoted, as it moves away from an open source environment).   
+* Little documentation, few options & configurations are possible (This is probably not the format that should be promoted, as it moves away from an open source environment).  
+
+* Can specify a [LibreOffice](https://www.libreoffice.org/) OpenDocument Text (`output: odt_document`) or Rich Text Format (`output: rtf_document`) instead 
 
 * FYI, there is a spellchecker in `Rstudio`: Edit >Check Spelling...
 
