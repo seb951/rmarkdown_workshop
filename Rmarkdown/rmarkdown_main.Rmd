@@ -28,8 +28,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```prereq
 install.packages("knitr")
 install.packages("rmarkdown")
-install.packages("radix")
-install.packages("leaflet") 
 install.packages("rticles")  
 install.packages("tinytex")
 tinytex::install_tinytex()  #Please run this command as well to install a LaTeX distribution This may take a few minutes to install (~150MB).
@@ -125,6 +123,8 @@ tinytex::install_tinytex()  #Please run this command as well to install a LaTeX 
     + _**bold italic**_ (\_\*\*bold italic\*\*\_) 
 
     + [links](https://www.rmarkdown.rstudio.com)  (\[links](https://www.rmarkdown.rstudio.com))     
+
+    + <!--comments-->  (\<!--comments-->)
 
     + Two spaces or two carriage return for a newline character  
 
@@ -410,12 +410,12 @@ Can be included from an URL directly uploaded from the web:
 &nbsp;   
 
 ### Inline figure {.unnumbered}
-If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Rosa_persica%3B_Baikonur_01.jpg){width=30px} images...
+If this figure is small, it can be added to the text directly: eg.: Today, we are using  ![](../figures/rstudio.png){width=44px} to generate webpages with ![](../figures/rosa_banksiae.JPG){width=30px} images...
 
 ### Previously saved {.unnumbered}
 This is a graph previously saved in the *figures* directory   
-`![](../figures/DEG_heatmap.png){width=250px}`   
-![](../figures/DEG_heatmap.png){width=250px}
+`![](../figures/rosa_banksiae.JPG){width=250px}`   
+![](../figures/rosa_banksiae.JPG){width=250px}
 &nbsp;  
 
 In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not `knitr` R graphics options:
@@ -430,40 +430,39 @@ In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc
 Images can also be interpreted by `knitr` as below:  
 
 ````global  
-`r ''````{r graphic_example, out.width = "20%", fig.cap = "Heat map", echo = F,fig.align = "center"}  
-knitr::include_graphics("../figures/DEG_heatmap.png")  
+`r ''````{r graphic_example, out.width = "20%", fig.cap = "rosa_banksiae", echo = F,fig.align = "center"}  
+knitr::include_graphics("../figures/rosa_banksiae.JPG")  
 ```
 ````
 
-```{r graphic_example, out.width = "20%", fig.cap = "Heat map", echo = F,fig.align = "center"}
-knitr::include_graphics("../figures/DEG_heatmap.png")
+```{r graphic_example, out.width = "20%", fig.cap = "rosa_banksiae.JPG", echo = F,fig.align = "center"}
+knitr::include_graphics("../figures/rosa_banksiae.JPG")
 ```
 ``` ```
 
 ### Wrapping text {.unnumbered}
 ````global  
-`r ''````{r cockroaches, out.width = "25%",fig.cap = "Cockroaches man", echo = F,out.extra='style="float:right; padding:10px"'}
-knitr::include_graphics("https://en.wikipedia.org/wiki/File:Snodgrass_common_household_roaches.png")  
+`r ''````{r roses, out.width = "50%",echo = F,out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("../figures/rosa_banksiae.JPG")  
 ```
 ````
 
-```{r cockroaches, out.width = "25%",echo = F,out.extra='style="float:right; padding:10px"'}
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/7/72/Snodgrass_common_household_roaches.png")
+```{r roses, out.width = "40%",echo = F,out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("../figures/rosa_banksiae.JPG")
 ```
 ``` ```
 
-#### Cockroaches {.unnumbered}
-*Cockroaches* are insects of the order Blattodea, which also includes termites. About 30 cockroach species out of 4,600 are associated with human habitats. About four species are well known as pests.
+#### Subgenera and sections {.unnumbered}
+The genus Rosa is subdivided into four subgenera:
 
-The cockroaches are an ancient group, dating back at least as far as the Carboniferous period...   
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;   
-&nbsp;  
-&nbsp;  
-&nbsp;  
+* _**Hulthemia**_ (formerly Simplicifoliae, meaning "with single leaves") containing one or two species from southwest Asia, R. persica and R.berberifolia (syn. R. persica var. berberifolia) which are the only roses without compound leaves or stipules.
+* _**Hesperrhodos**_ (from the Greek for "western rose") has two species, both from southwestern North America. These are R. minutifolia and R. stellata.
+* _**Platyrhodon**_ (from the Greek for "flaky rose", referring to flaky bark) with one species from east Asia, R. roxburghii.
+* _**Rosa**_ (the type subgenus) containing    
+&nbsp;
+&nbsp;
+&nbsp;
+
 
 ### R generated {.unnumbered}
 Graphs can also be generated directly by `R` code, specified in a code chunk (`R` options specified in the code chunk) and interpreted by `knitr` as we did previously.  
@@ -489,13 +488,13 @@ mtcars_ggplot
 
 ````2figs  
 `r ''````{r out.width=c('50%', '50%'), fig.show='hold',echo=F}
-boxplot(1:10)
+mtcars_ggplot
 plot(rnorm(10))
 ```
 ````
 
 ```{r out.width=c('50%', '50%'), fig.show='hold',echo=F}
-boxplot(1:10)
+mtcars_ggplot
 plot(rnorm(10))
 ```   
 ``` ```
