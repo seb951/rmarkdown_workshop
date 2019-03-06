@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Different outputs
 * There are six versions of this document. We will examine them, one by one:
   + *.Rmd*: The `R markdown` document. 
-  + *.html*: A Wwbpage as we saw in the previous section. Follow workshop using this version. 
+  + *.html*: A webpage as we saw in the previous section. Follow workshop using this version. 
   + *rmarkdown_word_pdf2.html*: A `radix` webpage. 
   + *.docx*: A MS Word document.
   + *.tex*: A [LaTeX](https://www.latex-project.org) document.

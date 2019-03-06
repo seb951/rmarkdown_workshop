@@ -35,6 +35,8 @@ install.packages("tinytex")
 tinytex::install_tinytex()  #Please run this command as well to install a LaTeX distribution This may take a few minutes to install (~150MB).
 ```
 
+* In Tools -> Global Options -> Code -> Display, check "Show whitespace characters". This will let you see spaces and newlines in the editor.
+
 # Introduction  
 * You can download the workshop material on [GitHub](https://github.com/seb951/rmarkdown_workshop) ![](../figures/octocat.png){width=40px}. 
 
@@ -110,7 +112,7 @@ tinytex::install_tinytex()  #Please run this command as well to install a LaTeX 
 
 
 # R markdown syntax
-* Markdown provides an easy way to make standard types of formatted text, like:    
+* Markdown provides an easy way to make standard types of formatted text, like:
 
     + *italics* (\*text\*) or _italics_ (\_text\_)  
 
@@ -124,10 +126,8 @@ tinytex::install_tinytex()  #Please run this command as well to install a LaTeX 
 
     + [links](https://www.rmarkdown.rstudio.com)  (\[links](https://www.rmarkdown.rstudio.com))     
 
-    + Two spaces for a newline character  
+    + Two spaces or two carriage return for a newline character  
 
-    + "\&nbsp;  " character (html *N*on-*B*reaking *SP*ace) for extra line spacing can be useful.  
-  
     + list (first element using "\* and space", then "*idented* (tab or 2 spaces) \* and space")
       + item 1a
       + item 1b  
@@ -184,7 +184,7 @@ Species | Counts
 *H. sapiens* | 24
 *M. musculus* | 442    
 
-* The [cheatsheet v1](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) or [v2](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) is your friend.  
+* The [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) is your friend.  
 
 
 ## Exercice 2  
@@ -266,7 +266,7 @@ See the [official R markdown lessons](https://rmarkdown.rstudio.com/lesson-9.htm
 ## Theme, highlight & other options
 * `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo").  
   
-* `highlight: ` Syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
+* `highlight: ` Code syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
 
 * See the [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) and [official R markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for more options. 
 
@@ -285,7 +285,7 @@ See the [official R markdown lessons](https://rmarkdown.rstudio.com/lesson-9.htm
 * A main code chunks may look like this:  
 
 ````chunks  
-`r ''````{r example, include = T, message = T, warning=T, echo = F, fig.cap="Figure 1"}  
+`r ''````{r example, include = T, message = T, warning=T, echo = F, fig.cap="A figure of random points"}  
 #Running some R code.
 x = rexp(1000)  
 min(x)  
@@ -301,7 +301,7 @@ min(x)
 max(x)  
 plot(x)  
 ```
-   
+``` ```
      
 * On the 1st line, I specify that I will run the `R` programming language.  
 
@@ -329,7 +329,9 @@ plot(x)
 knitr::opts_chunk$set(echo = TRUE)  
 ```  
 ````
-* see [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more info.   
+``` ```
+
+* see [cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) for more info.   
 
 * Note that you also run inline code using the using the \`   \` symbols and specifying the programming language. For example, \` r 10+5 \` would be processes as `r 10+5`.
 
@@ -350,8 +352,9 @@ ls -1 | head -3
 ````
 
 ```{bash, echo = F}
-ls -1
+ls -1 | head -3
 ```
+``` ```
 
 ````python  
 `r ''````{python, echo = F}
@@ -364,6 +367,7 @@ print(x.split(' '))
 x = "hello python!"
 print(x.split(' '))
 ```
+``` ```
 
 ````perl  
 `r ''````{perl, echo = F}
@@ -374,6 +378,8 @@ print "Hello perl!";
 ```{perl, echo = F}
 print "Hello perl!";
 ```
+``` ```
+
 # Math symbols
 Mathematical material is set off by the use of single dollar-sign characters (similar as in the LaTeX typesetting language).  
 
@@ -412,7 +418,8 @@ This is a graph previously saved in the *figures* directory
 ![](../figures/DEG_heatmap.png){width=250px}
 &nbsp;  
 
-In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not `knitr` R graphics options:  
+In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc options need to be specified, not `knitr` R graphics options:
+
 * It's simple, but options can be tricky.  
 
 * You may need to play with spacing, figure size, and figure position.  
@@ -423,14 +430,15 @@ In all these cases, graphs are rendered with `pandoc` and not `knitr`, so pandoc
 Images can also be interpreted by `knitr` as below:  
 
 ````global  
-`r ''````{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}  
-knitr::include_graphics("../figures/orange.jpeg")  
+`r ''````{r graphic_example, out.width = "20%", fig.cap = "Heat map", echo = F,fig.align = "center"}  
+knitr::include_graphics("../figures/DEG_heatmap.png")  
 ```
 ````
 
-```{r graphic_example, out.width = "20%", fig.cap = "An orange man", echo = F,fig.align = "center"}
-knitr::include_graphics("../figures/orange.jpeg")
+```{r graphic_example, out.width = "20%", fig.cap = "Heat map", echo = F,fig.align = "center"}
+knitr::include_graphics("../figures/DEG_heatmap.png")
 ```
+``` ```
 
 ### Wrapping text {.unnumbered}
 ````global  
@@ -442,9 +450,10 @@ knitr::include_graphics("https://en.wikipedia.org/wiki/File:Snodgrass_common_hou
 ```{r cockroaches, out.width = "25%",echo = F,out.extra='style="float:right; padding:10px"'}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/7/72/Snodgrass_common_household_roaches.png")
 ```
+``` ```
 
 #### Cockroaches {.unnumbered}
-Cockroaches are insects of the order Blattodea, which also includes termites. About 30 cockroach species out of 4,600 are associated with human habitats. About four species are well known as pests.
+*Cockroaches* are insects of the order Blattodea, which also includes termites. About 30 cockroach species out of 4,600 are associated with human habitats. About four species are well known as pests.
 
 The cockroaches are an ancient group, dating back at least as far as the Carboniferous period...   
 &nbsp;  
@@ -474,8 +483,9 @@ mtcars_ggplot = ggplot(mtcars, aes(x=wt, y=mpg)) +
 geom_point() + geom_smooth()
 mtcars_ggplot
 ```
+``` ```
 
-### 2 figures in 2 columns {.unnumbered}
+### Two figures in two columns {.unnumbered}
 
 ````2figs  
 `r ''````{r out.width=c('50%', '50%'), fig.show='hold',echo=F}
@@ -488,7 +498,8 @@ plot(rnorm(10))
 boxplot(1:10)
 plot(rnorm(10))
 ```   
-  
+``` ```
+
 # Including Tables
 * By default, R Markdown displays data frames and matrices as they would be in the R terminal (in a monospaced font). ![](../figures/vomit.png){width=39px}   
 
@@ -511,36 +522,52 @@ knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 
 * Add a table using `knitr`.  
 
-# Citations, footnotes, bibliography
-* Footnotes are easy when you have a few references. Use `[^1]` and add reference at the end using same format [^1].    
+# References
 
-* Otherwise, you may specify a bibliography and citation style in the header.  
+## Footnotes
 
+* Footnotes are easy when you have a few references[^1]. Use `[^1]` and add reference at the end using this format: `[^1]: Renaut 2019. R markdown footnote. Number 1. pp1-2.`    
+
+## Bibliography
+* Otherwise, you may specify a bibliography and citation style by adding these two lines in the header.  
+
+* Note that you need to specify the file path or add them to the current directory.  
 ```citations
----  
-csl: csl/peerj.csl  
-bibliography: biblio/test_library.bib  
----
+csl: peerj.csl  
+bibliography: test_library.bib  
 ```
- 
+
+### Citation Style Language (*.csl*)
 * The Citation Style Language (*.csl*) file specifies the reference format.     
   
 * It is an open XML-based language that describe the formatting of citations and bibliographies. Reference management programs using *.csl* include [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/?interaction_required=true) and [Papers3](https://www.readcube.com/papers/mac).     
   
 * Most journals should have a *.csl* file be on this [GitHub repo](https://github.com/citation-style-language/styles). But you could create your own.  
 
-* A *.bib* file contains the bibliographic information of your document. 
+### Bibliographic information (*.bib*)
+* A *.bib* file contains the bibliographic information of your document in *bibTeX* format. 
+````bibfile
+@article{altschul1997gapped,
+  title={Gapped BLAST and PSI-BLAST: a new generation of protein database search programs},
+  author={Altschul, Stephen F and Madden, Thomas L and Sch{\"a}ffer, Alejandro A and Zhang, Jinghui and Zhang, Zheng and Miller, Webb and Lipman, David J},
+  journal={Nucleic acids research},
+  volume={25},
+  number={17},
+  pages={3389--3402},
+  year={1997},
+  publisher={Oxford University Press}
+}
+````
 
 * Here, I created a *.bib* file (*../biblio/test_library.bib*) in the reference management software [Papers3](https://www.readcube.com/papers/mac). 
  
-* But now, I often copy *.bib* references directly from Google Scholar and add it to a *.bib* database text file.   
+* I often copy *.bib* references directly from Google Scholar and add it to a *.bib* database text file.   
+
 ![](../figures/gs.png){width=500px}
 
 
 ## Citations: examples  
-* Example: *The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 70,000 times.*  
-
-* These are three random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
+The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 70,000 times. These are three random references [eg. @ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn].  
   
 * Citations go inside square brackets [  ] and are separated by semicolons (;). 
 
@@ -549,18 +576,16 @@ bibliography: biblio/test_library.bib
 * A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, *Stephen Altschul and a bunch of other people [-@altschul1997gapped] have been cited 70,000 times.* 
 
 ## Exercice 6
-* Create a *.bib* database text file with the references for your five favorite scientific papers.
+* Find 3 references in Google Scholar. Copy *bibTeX* references to a text file. Save it with a *.bib* extension.
 
-* Find and use another Citation Style Language (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). (hint: type 't' in GitHub repo linked in Section 10 to activate search function). 
+* Find, save as text file (*.csl* extension) and use another Citation Style Language from this [GitHub repo](https://github.com/citation-style-language/styles) (e.g. Nature, PLOS ONE, Indian Journal Of Dermatology, etc.). (hint: type 't' in GitHub repo linked in Section 10 to activate search function). 
 
 # Cheatsheets and help
 * [Lessons](https://rmarkdown.rstudio.com/lesson-1.html)  
 
 * [Book](https://bookdown.org/yihui/rmarkdown/)   
-  * This is a great reference. In addition, it is (of course) written in `R mardown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you want to reproduce, go see how it was written in the *.Rmd* version!  
+  * This is a great reference. In addition, it is (of course) written in `R markdown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you want to reproduce, go see how it was written in the *.Rmd* version!  
   
-* [Cheatsheet (old - short)](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-
 * [Cheatsheet (newer - longer)](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
 
 * [Pimp my Rmd](https://holtzy.github.io/Pimp-my-rmd/)
