@@ -80,25 +80,10 @@ renderPlot({
 })
 ```
 
-## Embedded Application
-* It's also possible to embed an entire Shiny application within an `R Markdown` document using the `shinyAppDir` function.  
-  
-* Note the use of the `height` parameter to determine how much vertical space the embedded application should occupy.   
-
-```{r tabsets, echo=T}
-shinyAppDir(
-  system.file("examples/06_tabsets", package = "shiny"),
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
-
- 
 
 ## Another example
 ```{r mtcars, echo=T} 
-# Define a User Interfacce for a "Miles per gallon" app using mtcars
+# Define a User Interfacce for a "Miles per gallon" server app.
 knitr::kable(head(mtcars),digits =1,caption = "An motorcars table", align = "c")
 
 ui <- fluidPage(
@@ -135,8 +120,8 @@ server <- function(input, output) {
 
 }
 
-# Return a Shiny app object
-shinyApp(ui = ui, server = server,options=list(height = 550))
+# Return a Shiny app object (note the width and height arguments)
+shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
 ```  
 
 # Deployment

@@ -1,9 +1,9 @@
 ## Details    
-* DATE: March 5th, 2019, 1pm-5pm.    
-* LOCATION: Stewart Biology (S3/4), McGill University  
-* QUESTIONS: sebastien.renaut@umontreal.ca   
-* REGISTRATION: Priority will be given to [QCBS](https://qcbs.ca/) members  
-* COST: Free for QCBS members. Minimal (TBA) fee for non-members 
+* DATE: March 19th, 2019, 1pm-4pm.    
+* LOCATION: Salle Hydro-Québec (1210), Pavillon Charles-Eugène Marchand, Université Laval  
+* QUESTIONS: sebastien.renaut@umontreal.ca 
+* REGISTRATION: closed
+* COST: free 
 * PREREQUISITE: A laptop (if not, you will pair with someone that has one). A recent version of [R Studio](https://www.rstudio.com/). Basic knowledge of the R programming language   
 
 ## In this workshop, we will  
@@ -19,7 +19,3 @@
 * [Introduction](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_main.html)
 * [PDF, Word and others](https://seb951.github.io/rmarkdown_workshop/Rmarkdown/rmarkdown_word_pdf.html)
 * [Shiny](https://sebastien.shinyapps.io/shiny/)
-
-
-## Please fill in form below if interested  
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSestwgIISKpfnv3U6Xiyh-8aZSMKG-Ahrt7BUmSgAMBHCr6Ew/viewform?embedded=true" width="640" height="1303" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>

@@ -133,23 +133,21 @@
 \tableofcontents
 }
 \hypertarget{different-outputs}{%
-\section{Different outputs}\label{different-outputs}}
+\section*{Different outputs}\label{different-outputs}}
+\addcontentsline{toc}{section}{Different outputs}
 
 \begin{itemize}
 \tightlist
 \item
-  There are six versions of this document. We will examine them, one by
-  one:
+  There are five versions of this document. We will examine them:
 
   \begin{itemize}
   \tightlist
   \item
     \emph{.Rmd}: The \texttt{R\ markdown} document.
   \item
-    \emph{.html}: A Wwbpage as we saw in the previous section. Follow
+    \emph{.html}: A webpage as we saw in the previous section. Follow
     workshop using this version.
-  \item
-    \emph{rmarkdown\_word\_pdf2.html}: A \texttt{radix} webpage.
   \item
     \emph{.docx}: A MS Word document.
   \item
@@ -160,7 +158,7 @@
 \end{itemize}
 
 \hypertarget{html-document}{%
-\subsection{html document}\label{html-document}}
+\section{html document}\label{html-document}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -176,8 +174,17 @@
 \end{Highlighting}
 \end{Shaded}
 
+\begin{itemize}
+\item
+  You can specify it when you create a new \texttt{Rmarkdown} document.
+\item
+  You can also specify it later in the header.
+\item
+  Then, it's just a matter of kniting the document!
+\end{itemize}
+
 \hypertarget{microsoft-word}{%
-\subsection{Microsoft Word}\label{microsoft-word}}
+\section{Microsoft Word}\label{microsoft-word}}
 
 \begin{verbatim}
 ---  
@@ -192,22 +199,20 @@ output:
 
 \begin{itemize}
 \item
-  You can specify it when you create a new \texttt{Rmarkdown} document.
-\item
-  You can also specify it later in the header.
-\item
-  Then, it's just a matter of kniting the document!
-\item
   Little documentation, few options \& configurations are possible (This
   is probably not the format that should be promoted, as it moves away
   from an open source environment).
+\item
+  Can specify a \href{https://www.libreoffice.org/}{LibreOffice}
+  OpenDocument Text (\texttt{output:\ odt\_document}) or Rich Text
+  Format (\texttt{output:\ rtf\_document}) instead.
 \item
   FYI, there is a spellchecker in \texttt{Rstudio}: Edit
   \textgreater{}Check Spelling\ldots{}
 \end{itemize}
 
 \hypertarget{portable-document-format-.pdf}{%
-\subsection{Portable Document Format
+\section{Portable Document Format
 (.pdf)}\label{portable-document-format-.pdf}}
 
 \begin{verbatim}
@@ -226,8 +231,8 @@ output:
 \tightlist
 \item
   You need an extra step to go from a LaTeX (\emph{.tex}) format to a
-  \emph{.pdf}. This is handled by the
-  \texttt{R\ markdown\ pdf\_document} function in R.
+  \emph{.pdf}. This is handled by the \texttt{R\ tinytex\ pdflatex}
+  function in R.
 \end{itemize}
 
 \includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
@@ -252,12 +257,16 @@ output:
   (\textasciitilde{}150MB) but functions well in most cases, especially
   for \texttt{R} users .
 \item
-  \texttt{tinytex} R package is a wrapper function that installs
-  \emph{TinyTeX}.
+  \texttt{tinytex}
+  \includegraphics[width=0.26042in,height=\textheight]{../figures/tinytex.png}
+  is an R studio package that installs \emph{TinyTeX}.
+\item
+  You should know have all the tools to generate your fully reproducible
+  manuscripts in \texttt{R}!
 \end{itemize}
 
 \hypertarget{exercice-1}{%
-\subsection{Exercice 1}\label{exercice-1}}
+\section{Exercice 1}\label{exercice-1}}
 
 \begin{itemize}
 \tightlist
@@ -291,96 +300,28 @@ install_tinytex()
   and \texttt{bibliography:\ ../biblio/test\_library.bib} in the header
 \end{itemize}
 
-\hypertarget{latex-template}{%
-\subsection{LaTeX template}\label{latex-template}}
+\hypertarget{further-customization}{%
+\section{Further customization}\label{further-customization}}
+
+\hypertarget{rticles}{%
+\subsection{\texorpdfstring{\texttt{rticles}}{rticles}}\label{rticles}}
 
 \begin{itemize}
 \item
-  This allows further options in the \emph{.Rmd} file when going from
-  \emph{.tex} file to \emph{.pdf}.
-\item
-  You can build your own \emph{.tex} template if you know LaTeX\ldots{}
-\item
-  There are many templates available on the web that you can use.
-\item
-  Here is one I like for
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex}{manuscripts}
-  (Thanks \href{https://github.com/svmiller}{svmiller} on
-  \includegraphics[width=0.41667in,height=\textheight]{../figures/octocat.png})
-
-  \begin{itemize}
-  \tightlist
-  \item
-    For example, using this (sligthly modified) template, I am writing
-    my first
-    \href{https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf}{\emph{.Rmd}
-    manuscript}.\\
-    \hspace*{0.333em}\\
-    \includegraphics[width=5.20833in,height=\textheight]{../figures/acadian.png}\\
-    \hspace*{0.333em}\\
-    \hspace*{0.333em}\\
-  \end{itemize}
-\item
-  Here is one I like for
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex}{\emph{Curriculum
-  Vitae}}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    For example, using this template, I re-wrote my
-    \href{http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf}{CV}
-    to give it a fresh look!\\
-    \hspace*{0.333em}\\
-    \includegraphics[width=5.20833in,height=\textheight]{../figures/CV.png}
-    ~\\
-    \hspace*{0.333em}\\
-  \end{itemize}
-\item
-  Download and save template. Refer to it in the header. (Note however
-  that you should download or at least take a look at the
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.Rmd}{\emph{.Rmd}}
-  to see options available, and
-  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-rmarkdown-article-example.pdf}{\emph{.pdf}}
-  to see output.)
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{--- }
-\NormalTok{output:  }
-\NormalTok{  pdf_document:  }
-\NormalTok{   keep_tex: true  }
-\NormalTok{   fig_caption: true  }
-\NormalTok{   latex_engine: pdflatex  }
-\NormalTok{   template: ../reference_material/svm-latex-ms.tex        }
-\NormalTok{title: "**This is my first Rmarkdown manuscript**  }
-\NormalTok{#many more options can go here which will be using by pdflatex.}
-\NormalTok{---   }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\item
-  You should know have all the tools to generate your fully reproducible
-  manuscripts in \texttt{R}.
-\item
-  The only real objection I see in formatting manuscript this way is
-  integrating comments from co-authors who do not use \texttt{R},
-  \texttt{R\ markdown}, \texttt{git} or \texttt{github}.
-\end{itemize}
-
-\hypertarget{exercice-2}{%
-\subsection{Exercice 2}\label{exercice-2}}
-
-\begin{itemize}
-\item
-  R packages \texttt{rticles} is (potentially) a nice package to format
-  articles according to the specification of a journal.
+  R packages \texttt{rticles} is a (potentially) useful package to
+  format articles according to the specification of a journal.
 \item
   But first, you need to install it in the R console.
+\end{itemize}
+
+\begin{verbatim}
+install.packages("rticles")
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
 \item
-  Once installed, try starting a new R markdown document according to
+  Once installed, you can start a new R markdown document according to
   your journal of interest.
 \end{itemize}
 
@@ -393,15 +334,74 @@ install_tinytex()
 \item
   Right now, few templates available.
 \item
-  Some templates may be slower to render (e.g PNAS), depending on what
-  \emph{LaTeX} package they depend on and need to be downloaded.
+  Some templates may be slower to render, depending on what \emph{LaTeX}
+  package they depend on and need to be installed.
 \end{itemize}
 
-\hypertarget{other-possibilities}{%
-\section{Other possibilities}\label{other-possibilities}}
+\hypertarget{latex-template-manuscript}{%
+\subsection{LaTeX template:
+manuscript}\label{latex-template-manuscript}}
+
+\begin{itemize}
+\item
+  This allows further options in the \emph{.Rmd} file when going from
+  \emph{.tex} file to \emph{.pdf}.
+\item
+  You can build your own \emph{.tex} template if you know LaTeX\ldots{}
+\item
+  But, there are also many templates available on the web that you can
+  use.
+\item
+  Here is one I like for
+  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex}{manuscripts}
+  (Thanks \href{https://github.com/svmiller}{svmiller} on
+  \includegraphics[width=0.35417in,height=\textheight]{../figures/octocat.png})
+
+  \begin{itemize}
+  \item
+    For example, using this template, I am writing a scientific paper
+    \href{https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf}{entirely
+    in R markdown}.\\
+    \hspace*{0.333em}\\
+    \includegraphics[width=5.20833in,height=\textheight]{../figures/acadian.png}\\
+    \hspace*{0.333em}\\
+    \hspace*{0.333em}
+  \item
+    The only real objection I see, is integrating the comments of
+    co-authors.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{latex-template-cv}{%
+\subsection{LaTeX template: CV}\label{latex-template-cv}}
+
+\begin{itemize}
+\item
+  Here is a template I like for
+  \href{https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex}{\emph{Curriculum
+  Vitae}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example, using this template, I re-wrote my
+    \href{http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf}{CV}
+    to give it a fresh look!\\
+    \hspace*{0.333em}
+  \end{itemize}
+\end{itemize}
+
+\includegraphics[width=6.25in,height=\textheight]{../figures/CV.png} ~
+
+\begin{itemize}
+\tightlist
+\item
+  Let's briefly examine and knit the \emph{svm-rmarkdown-cv.Rmd} file in
+  the reference\_material directory.
+\end{itemize}
 
 \hypertarget{presentations}{%
-\subsection{Presentations}\label{presentations}}
+\section{Presentations}\label{presentations}}
 
 \begin{verbatim}
 ---
@@ -418,51 +418,10 @@ output: ioslides_presentation
   You can also generate Powerpoint-like presentations.
 \end{itemize}
 
-\includegraphics[width=7.29167in,height=\textheight]{../figures/slides.png}
-
-\hypertarget{overleaf}{%
-\subsection{Overleaf}\label{overleaf}}
-
-\begin{itemize}
-\tightlist
-\item
-  Overleaf is an online LaTeX and Rich Text collaborative writing and
-  publishing tool that makes the whole process of writing, editing and
-  publishing scientific documents much quicker and easier.
-\end{itemize}
-
-\includegraphics[width=5.20833in,height=\textheight]{../figures/overleaf.png}
-
-\begin{itemize}
-\item
-  Remember this:\\
-  \includegraphics[width=5.20833in,height=\textheight]{../figures/pandoc1.png}
-\item
-  You can generate your \emph{.tex} file, upload it to a github repo and
-  Overleaf will connect to it. Others can then collaborate and modify
-  the \emph{.tex} file via overleaf platform.
-\item
-  Let's take a quick look at \href{https://www.overleaf.com/}{overleaf}.
-  Once you have an overleaf account, you can connect it to a
-  \href{https://www.github.com/}{github} repository and \emph{.tex}
-  document. You can then pull/push from overleaf to github, allowing
-  others to modify your \emph{.tex} file.
-\end{itemize}
-
-\includegraphics[width=5.20833in,height=\textheight]{../figures/overleaf_github.png}
-
-\begin{itemize}
-\item
-  \href{https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd}{A
-  tutorial on how to interface an R Notebook with Overleaf}
-\item
-  \href{https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket\%3F}{How
-  do I connect an Overleaf project with a repo on GitHub, GitLab or
-  BitBucket?}
-\end{itemize}
+\includegraphics[width=6.25in,height=\textheight]{../figures/slides.png}
 
 \hypertarget{bookdown}{%
-\subsection{Bookdown}\label{bookdown}}
+\section{Bookdown}\label{bookdown}}
 
 \begin{itemize}
 \tightlist
@@ -474,79 +433,6 @@ output: ioslides_presentation
 \end{itemize}
 
 \includegraphics[width=5.20833in,height=\textheight]{../figures/rmarkdown.png}
-
-\hypertarget{radix}{%
-\subsection{Radix}\label{radix}}
-
-\begin{itemize}
-\item
-  \href{https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/}{Radix}
-  offers a better look for publishing blog, webpages, adapted to mobile
-  devices.
-\item
-  Note that in future version, \emph{Radix} is now called
-  \href{https://github.com/rstudio/distill}{\emph{distill}}
-\end{itemize}
-
-\includegraphics[width=5.20833in,height=\textheight]{../figures/radix.png}
-
-\begin{itemize}
-\tightlist
-\item
-  You will need
-  \href{https://www.rstudio.com/products/rstudio/download/preview/}{Rstudio
-  v1.2}, \texttt{radix} and \texttt{leaflet}.
-\end{itemize}
-
-\begin{verbatim}
-install.packages("radix")  
-install.packages("leaflet")  
-\end{verbatim}
-
-\begin{itemize}
-\tightlist
-\item
-  Change output in header to:
-\end{itemize}
-
-\begin{verbatim}
----  
-title: "Rmarkdown: radix"  
-author: "Sébastien Renaut"  
-output: radix::radix_article  
----  
-\end{verbatim}
-
-\begin{itemize}
-\tightlist
-\item
-  Then you can start playing with the \texttt{radix} options, such as in
-  this example below (full width figures):
-\end{itemize}
-
-\begin{verbatim}
-#Note that you may need to set eval = F for some formats (pdf, docx) to compile properly
-
-```{r radix_example, echo = F, eval = T, layout='l-screen-inset'}  
-library(leaflet)  
-leaflet() %>%  
-addTiles() %>%   
-addMarkers(lng=174.768, lat=-36.852,popup="The birthplace of R")  
-```    
-\end{verbatim}
-
-\hypertarget{exercice-3}{%
-\subsection{Exercice 3}\label{exercice-3}}
-
-\begin{itemize}
-\item
-  Use a previously generate document to generate a \texttt{radix} html
-  output.
-\item
-  What does it look like? Better?
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 
 \end{document}

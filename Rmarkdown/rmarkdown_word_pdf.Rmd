@@ -1,26 +1,27 @@
 ---    
-title: "rmarkdown_pdf_word_andmore"    
+title: "rmarkdown: PDF, Word, and more"    
 author: "Sébastien Renaut"    
 date: '2018-09-06'    
 output: 
   html_document: 
     toc: yes 
-    theme: cerulean 
+    theme: cerulean
+    number_sections: T 
 ---   
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Different outputs
-* There are five versions of this document. We will examine them, one by one:
+# Different outputs {.unnumbered}
+* There are five versions of this document. We will examine them:
   + *.Rmd*: The `R markdown` document. 
   + *.html*: A webpage as we saw in the previous section. Follow workshop using this version. 
   + *.docx*: A MS Word document.
   + *.tex*: A [LaTeX](https://www.latex-project.org) document.
   + *.pdf*: A Portable Document Format.
 
-## html document
+# html document
 ```html
 ---    
 title: "rmarkdown_pdf"    
@@ -32,8 +33,15 @@ output:
     theme: cerulean 
 --- 
 ```
+
+* You can specify it when you create a new `Rmarkdown` document.  
   
-## Microsoft Word  
+* You can also specify it later in the header.     
+
+* Then, it's just a matter of kniting the document!      
+
+  
+# Microsoft Word  
 ```word
 ---  
 title: "rmarkdown_docx"  
@@ -45,19 +53,13 @@ output:
 ---   
 ```
 
-* You can specify it when you create a new `Rmarkdown` document.  
-  
-* You can also specify it later in the header.     
-
-* Then, it's just a matter of kniting the document!      
-
 * Little documentation, few options & configurations are possible (This is probably not the format that should be promoted, as it moves away from an open source environment).  
 
-* Can specify a [LibreOffice](https://www.libreoffice.org/) OpenDocument Text (`output: odt_document`) or Rich Text Format (`output: rtf_document`) instead 
+* Can specify a [LibreOffice](https://www.libreoffice.org/) OpenDocument Text (`output: odt_document`) or Rich Text Format (`output: rtf_document`) instead. 
 
 * FYI, there is a spellchecker in `Rstudio`: Edit >Check Spelling...
 
-## Portable Document Format (.pdf)
+# Portable Document Format (.pdf)
 ```pdf
 ---    
 title: "rmarkdown_pdf"    
@@ -74,23 +76,22 @@ output:
 
 ![](../figures/pandoc1.png){width=500px}  
 
-* [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.  
+* [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.
 
-* It is the *de facto* standard for the communication and publication of scientific documents.  
+* It is the *de facto* standard for the communication and publication of scientific documents.
 
-* LaTeX is available as free software [here](https://www.latex-project.org/get/).  
+* LaTeX is available as free software [here](https://www.latex-project.org/get/).
 
 * If interested, follow this discussion: [*Why LaTeX is such a bloated system?*](https://ubuntuforums.org/showthread.php?t=395863)
 
 * So...[*TinyTeX*](https://yihui.name/tinytex/r/) is a custom LaTeX distribution that is small in size (~150MB) but functions well in most cases, especially for `R` users .
 
-* `tinytex` ![](../figures/tinytex.png){width=25px} is a R studio package that installs *TinyTeX*.  
+* `tinytex` ![](../figures/tinytex.png){width=25px} is an R studio package that installs *TinyTeX*.  
 
-* You should know have all the tools to generate your fully reproducible manuscripts in `R`. 
+* You should know have all the tools to generate your fully reproducible manuscripts in `R`! 
 
-* The only real objection I see in formatting manuscript this way is integrating comments from co-authors who do not use `R`, `R markdown`, `git` or `github`.  
 
-## Exercice 1  
+# Exercice 1  
 * If you haven't done so, install the `tinytex` R package from the console and run `install_tinytex()`. It may take a few minutes to download and compile (~150MB).   
   
 ```tinytex  
@@ -107,37 +108,17 @@ install_tinytex()
 
 * Add some reference by specifying the `csl: ../csl/peerj.csl` and `bibliography: ../biblio/test_library.bib` in the header  
 
-## LaTeX template  
-* This allows further options in the *.Rmd* file when going from *.tex* file to *.pdf*.  
-
-* You can build your own *.tex* template if you know LaTeX...     
-
-* There are many templates available on the web that you can use.  
-
-* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks [svmiller](https://github.com/svmiller) on ![](../figures/octocat.png){width=40px})   
-  
-  + For example, using this template, I am writing my first [*.Rmd* manuscript](https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf).  
-&nbsp;  
-![](../figures/acadian.png){width=500px}  
-&nbsp;   
-&nbsp;   
-* Here is one I like for [*Curriculum Vitae*](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex)    
-  + For example, using this template, I re-wrote my [CV](http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf) to give it a fresh look!  
-&nbsp;  
-&nbsp;   
-&nbsp;   
-* Let's briefly examine and knit the *svm-rmarkdown-cv.Rmd* file in the reference_material directory.
-
-***
-
-# Other possibilities
+# Further customization
 
 ## `rticles`   
-* R packages `rticles` is (potentially) a nice package to format articles according to the specification of a journal.    
+* R packages `rticles` is a (potentially) useful package to format articles according to the specification of a journal.
 
 * But first, you need to install it in the R console.
+```rticles
+install.packages("rticles")
+```
 
-* Once installed, try starting a new R markdown document according to your journal of interest.  
+* Once installed, you can start a new R markdown document according to your journal of interest.  
    
 ![](../figures/getstarted.png){width=500px}  
 &nbsp;  
@@ -146,9 +127,38 @@ install_tinytex()
   
 * Right now, few templates available. 
 
-* Some templates may be slower to render (e.g PNAS), depending on what *LaTeX* package they depend on and need to be downloaded.
+* Some templates may be slower to render, depending on what *LaTeX* package they depend on and need to be installed.
 
-## Presentations
+## LaTeX template: manuscript  
+* This allows further options in the *.Rmd* file when going from *.tex* file to *.pdf*.  
+
+* You can build your own *.tex* template if you know LaTeX...     
+
+* But, there are also many templates available on the web that you can use.  
+
+* Here is one I like for [manuscripts](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-ms.tex) (Thanks [svmiller](https://github.com/svmiller) on ![](../figures/octocat.png){width=34px})   
+  
+  + For example, using this template, I am writing a scientific paper [entirely in R markdown](https://github.com/seb951/Acadian_seaplants/blob/master/manuscript_Rmd/Acadian_seaplants_v5.pdf).  
+&nbsp;  
+![](../figures/acadian.png){width=500px}  
+&nbsp;   
+&nbsp;   
+
+  + The only real objection I see, is integrating the comments of co-authors.
+
+## LaTeX template: CV
+
+* Here is a template I like for [*Curriculum Vitae*](https://github.com/svmiller/svm-r-markdown-templates/blob/master/svm-latex-cv.tex)    
+
+  + For example, using this template, I re-wrote my [CV](http://sebastien.renaut.com/wp-content/uploads/2019/02/cv.pdf) to give it a fresh look!  
+&nbsp;  
+
+![](../figures/CV.png){width=600px}
+&nbsp; 
+
+* Let's briefly examine and knit the *svm-rmarkdown-cv.Rmd* file in the reference_material directory.
+
+# Presentations
 ```ioslides
 ---
 title: "Untitled"
@@ -160,26 +170,9 @@ output: ioslides_presentation
 
 * You can also generate Powerpoint-like presentations.   
   
-![](../figures/slides.png){width=700px}   
+![](../figures/slides.png){width=600px}   
 
-## Overleaf 
-* Overleaf is an online LaTeX and Rich Text collaborative writing and publishing tool that makes the whole process of writing, editing and publishing scientific documents much quicker and easier.
-
-![](../figures/overleaf.png){width=500px}
-  
-      
-* Remember this:  
-![](../figures/pandoc1.png){width=500px}
-  
-* You can generate your *.tex* file, upload it to a github repo and Overleaf will connect to it. Others can then collaborate and modify the *.tex* file via overleaf platform. 
-
-* Let's take a quick look at [overleaf](https://www.overleaf.com/). Once you have an overleaf account, you can connect it to a [github](https://www.github.com/) repository and *.tex* document. You can then pull/push from overleaf to github, allowing others to modify your *.tex* file.
-
-* [A tutorial on how to interface an R Notebook with Overleaf](https://medium.com/@arinbasu/a-tutorial-on-how-to-interface-an-r-notebook-with-overleaf-11f23c306cfd)
-
-* [How do I connect an Overleaf project with a repo on GitHub, GitLab or BitBucket?](https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F)
-
-## Bookdown
+# Bookdown
 * [Bookdown](https://bookdown.org/) ![](../figures/bookdown.png){width=20px} is an open-source R package that facilitates writing books and long-form articles/reports with R Markdown.  
 
 ![](../figures/rmarkdown.png){width=500px}
