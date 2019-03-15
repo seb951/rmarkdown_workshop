@@ -6,7 +6,7 @@
 * COÛT: gratuit 
 * PRÉREQUIS: Un ordinateur portable (sinon, vous pourrez suivre avec un autre étudiant). Une version récente de [R](https://cran.r-project.org/) et [R Studio](https://www.rstudio.com/). Basic knowledge of the R programming language   
 
-**Lors de l'atelier nous allons:**  
+## Lors de l'atelier nous allons:  
 * Apprendre la base du language `markdown` et des modules R `rmarkdown` et `knitr`.  
 * Créer des documents .html (pages web) contenant du texte, du code R exécutable, images, formules, références, etc.  
 * Créer des documents .pdf or .docx, pouvant être soumis comme manuscrit scientifique, rapport ou formaté selon les prérequis d'un journal spécifique.  
