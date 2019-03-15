@@ -8,8 +8,6 @@ output:
     toc: yes
     toc_depth: 3
     theme: cerulean
-    toc_float:
-      collapsed: T
 runtime: shiny
 ---
 
@@ -19,13 +17,15 @@ library(shiny)
 ```
 
 # What is Shiny?
-* This `R Markdown` html document is made interactive using `shiny`. 
++ This `R Markdown` html document is made interactive using `shiny`. 
 
-* `Shiny` allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
++ `Shiny` allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
 
-* Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/). See [gallery](https://shiny.rstudio.com/gallery/) for more examples.  
++ Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/). 
 
-* To learn more, look at official ![](rsconnect/documents/rstudio.png){width=44px} documentation on [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
++ See [gallery](https://shiny.rstudio.com/gallery/) for more  
+
++ Look at official ![](rsconnect/documents/rstudio.png){width=44px} documentation on [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html) to learn more.
 
 # Set-up
 
@@ -41,15 +41,15 @@ runtime: shiny
 ```
 
 ## Viewing document with shiny  
-* Run document (instead of Knit)
++ Run document (instead of Knit)
 
 ## Inputs and Outputs
-* Output is automatically updated whenever inputs change.   
++ Output is automatically updated whenever inputs change.   
 
-* The code below demonstrates how a standard plot can be made interactive by wrapping it in the Shiny `renderPlot` function (*output*).   
++ Let's examine the code below to demonstrate how a standard plot can be made interactive:
+  + First, define  `selectInput` and `sliderInput` functions to create the *input* widgets used to generate plots.    
+  + Then, use the `renderPlot` function (*output*) to generate plot.   
   
-* The `selectInput` and `sliderInput` functions create the *input* widgets used to generate plots.    
-
 
 ```{r eruptions, echo=T}
 #Faithful geyser dataset to generate histogram and density function.
@@ -68,7 +68,7 @@ inputPanel(
   
 )
 
-  #PLOTS
+  #histogram and density plots based on input variables (a data.frame).
 renderPlot({
   #An histogram of eruptions with breaks defined according to "selectInput"
   hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
@@ -82,6 +82,9 @@ renderPlot({
 
 
 ## Another example
++ First we define a user interface (what the user will be able to modify) using the `fluidPage` function
++ Then a server function running in the background to generate the plots using 
+
 ```{r mtcars, echo=T} 
 # Define a User Interfacce for a "Miles per gallon" server app.
 knitr::kable(head(mtcars),digits =1,caption = "An motorcars table", align = "c")
@@ -110,7 +113,7 @@ ui <- fluidPage(
               )
   )
 
-# Define server logic to plot various variables against mpg ----
+# Define server function to plot various variables against mpg
 server <- function(input, output) {
 
   #Generate a plot
@@ -125,13 +128,13 @@ shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
 ```  
 
 # Deployment
-* When you run a `shiny` document locally, it uses your local R session. Only you can see and interact with the document.   
++ When you run a `shiny` document locally, it uses your local R session. Only you can see and interact with the document.   
 
-* The power of `shiny` comes from a live R session running behind the scenes.
++ The power of `shiny` comes from a live R session running behind the scenes.
 
-* You will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to interact with your `shiny` app.
++ You will have to deploy the document on a server, and share the URL of the document. Then other people only need a web browser to interact with your `shiny` app.
 
-* Two ways to deploy a `shiny` document: 
++ Two ways to deploy a `shiny` document: 
   + Host it by service provided by *R Studio*   
     + Technically easier
     + webpage hosted on shinyapps.io
@@ -140,11 +143,11 @@ shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
     +  Independence from *R studio*
 
 # ShinyApps.io
-* Sign up to http://www.shinyapps.io/ 
++ Sign up to http://www.shinyapps.io/ 
 
-* Connect to the remote server (may need to install `rsconnect` and `packrat`)
++ Connect to the remote server (may need to install `rsconnect` and `packrat`)
 
-* Also need to specify remote account info
++ Also need to specify remote account info
   + Once signed up, go to http://www.shinyapps.io/ >Account >Tokens >Show   
   + Then run function below with personnal info.  
     
@@ -152,9 +155,11 @@ shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
 rsconnect::setAccountInfo(name='yourname',token='alphanumeric',secret='ASCII') 
 ```
 
-* Publish document in Rtudio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
++ Publish document in Rtudio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
 
-# Set-up your own shiny app
-* File > New file > Shiny web app  
+# Exercice 1
++ Set-up your own shiny app
+
++ File > New file > R Markdown > Shiny 
 
 
