@@ -4,7 +4,7 @@
 * QUESTIONS: sebastien.renaut@umontreal.ca 
 * INSCRIPTIONS: fermées
 * COÛT: gratuit 
-* PRÉREQUIS: Un ordinateur portable (sinon, vous pourrez suivre avec un autre étudiant). Une version récente de [R](https://cran.r-project.org/) et [R Studio](https://www.rstudio.com/). Basic knowledge of the R programming language   
+* PRÉREQUIS: Notions de base du language R. Un ordinateur portable (sinon, vous pourrez suivre avec un autre étudiant). Une version récente de [R](https://cran.r-project.org/) et [R Studio](https://www.rstudio.com/).    
 
 ## Lors de l'atelier nous allons:  
 * Apprendre la base du language `markdown` et des modules R `rmarkdown` et `knitr`.  
