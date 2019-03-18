@@ -16,14 +16,14 @@ runtime: shiny
 library(shiny)
 ```
 
-# What is Shiny?
+# What is shiny?
 + This `R Markdown` html document is made interactive using `shiny`. 
 
 + `Shiny` allows you to create documents were readers can change the assumptions underlying your analysis and see the results immediately. 
 
 + Look at this [example](https://gallery.shinyapps.io/087-crandash/) or [that one ](https://gallery.shinyapps.io/lake_erie_fisheries_stock_assessment_app/). 
 
-+ See [gallery](https://shiny.rstudio.com/gallery/) for more  
++ See [gallery](https://shiny.rstudio.com/gallery/) for more.  
 
 + Look at official ![](rsconnect/documents/rstudio.png){width=44px} documentation on [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html) to learn more.
 
@@ -53,7 +53,7 @@ runtime: shiny
 
 ```{r eruptions, echo=T}
 #Faithful geyser dataset to generate histogram and density function.
-knitr::kable(head(faithful),digits =1,caption = "Ye old faithful", align = "c") 
+knitr::kable(head(faithful),digits =1,caption = "Ye old faithful geyser", align = "c") 
 
 #SELECT INPUT
 inputPanel(
@@ -82,8 +82,7 @@ renderPlot({
 
 
 ## Another example
-+ First we define a user interface (what the user will be able to modify) using the `fluidPage` function
-+ Then a server function running in the background to generate the plots using 
++ First, we define a user interface (what the user will be able to modify) using the `fluidPage` function.
 
 ```{r mtcars, echo=T} 
 # Define a User Interfacce for a "Miles per gallon" server app.
@@ -112,7 +111,11 @@ ui <- fluidPage(
                 )
               )
   )
+```
 
++ Then a server function running in the background to generate the plots:  
+
+```{r mtcars_server, echo=T} 
 # Define server function to plot various variables against mpg
 server <- function(input, output) {
 
@@ -122,7 +125,11 @@ server <- function(input, output) {
   })
 
 }
+```
 
++ Finally, the `shinyApp` function renders an interactive app.  
+
+```{r mtcars_app, echo=T} 
 # Return a Shiny app object (note the width and height arguments)
 shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
 ```  
@@ -140,26 +147,27 @@ shinyApp(ui = ui, server = server,options = list(width = "100%", height = 600))
     + webpage hosted on shinyapps.io
     + Freemium business model
   + Set up your own server
-    +  Independence from *R studio*
+    +  Independence from *R studio*, but need a server running R...
 
 # ShinyApps.io
 + Sign up to http://www.shinyapps.io/ 
 
 + Connect to the remote server (may need to install `rsconnect` and `packrat`)
 
-+ Also need to specify remote account info
-  + Once signed up, go to http://www.shinyapps.io/ >Account >Tokens >Show   
-  + Then run function below with personnal info.  
++ Also need to specify remote account info:
+  + Once signed up, go to http://www.shinyapps.io/ -> Account -> Tokens -> Show   
+  + Then run function below with personnal information.  
     
 ```rsconnect
 rsconnect::setAccountInfo(name='yourname',token='alphanumeric',secret='ASCII') 
 ```
 
-+ Publish document in Rtudio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
++ Publish document in ``R studio by clicking on *blue eye* ![](rsconnect/documents/blue_eye.png){width=120px} at the top right corner. Voilà!  
 
 # Exercice 1
-+ Set-up your own shiny app
++ Set-up your own shiny app and publish it locally.
 
 + File > New file > R Markdown > Shiny 
+
 
 

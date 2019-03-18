@@ -1,5 +1,5 @@
 ---    
-title: "rmarkdown: PDF, Word, and more"    
+title: "R markdown: PDF, Word, and more"    
 author: "Sébastien Renaut"    
 date: '2018-09-06'    
 output: 
@@ -13,10 +13,10 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Different outputs {.unnumbered}
-* There are five versions of this document. We will examine them:
+# Outputs {.unnumbered}
+* We can output the same information in different ways
   + *.Rmd*: The `R markdown` document. 
-  + *.html*: A webpage as we saw in the previous section. Follow workshop using this version. 
+  + *.html*: A webpage. 
   + *.docx*: A MS Word document.
   + *.tex*: A [LaTeX](https://www.latex-project.org) document.
   + *.pdf*: A Portable Document Format.
@@ -76,23 +76,24 @@ output:
 
 ![](../figures/pandoc1.png){width=500px}  
 
+## LaTeX
 * [LaTeX software](https://www.latex-project.org) is a high-quality typesetting system.
 
 * It is the *de facto* standard for the communication and publication of scientific documents.
 
-* LaTeX is available as free software [here](https://www.latex-project.org/get/).
+* LaTeX is available as a [free software](https://www.latex-project.org/get/).
 
 * If interested, follow this discussion: [*Why LaTeX is such a bloated system?*](https://ubuntuforums.org/showthread.php?t=395863)
 
-* So...[*TinyTeX*](https://yihui.name/tinytex/r/) is a custom LaTeX distribution that is small in size (~150MB) but functions well in most cases, especially for `R` users .
+* So...[*TinyTeX*](https://yihui.name/tinytex/r/) 
+  + A custom LaTeX distribution that is small in size (~150MB) but functions well in most cases, especially for `R` users .
+  + `tinytex` ![](../figures/tinytex.png){width=25px} is an R studio package that installs *TinyTeX*.  
 
-* `tinytex` ![](../figures/tinytex.png){width=25px} is an R studio package that installs *TinyTeX*.  
-
-* You should know have all the tools to generate your fully reproducible manuscripts in `R`! 
+* You should now have all the tools to generate your fully reproducible manuscripts in `R`! 
 
 
 # Exercice 1  
-* If you haven't done so, install the `tinytex` R package from the console and run `install_tinytex()`. It may take a few minutes to download and compile (~150MB).   
+* If you haven't done so, install the `tinytex` R package from the console and run `install_tinytex()` to install *TinyTeX* (It may take a few minutes to download and compile, ~150MB).   
   
 ```tinytex  
 install.packages("tinytex")  
@@ -106,14 +107,13 @@ install_tinytex()
 
 * Now compile it as a Word document  (*.docx*)
 
-* Add some reference by specifying the `csl: ../csl/peerj.csl` and `bibliography: ../biblio/test_library.bib` in the header  
+* Add some references by specifying the `csl` (eg. csl : ../csl/peerj.csl) and `bibliography` (eg. bibliography : ../biblio/test_library.bib in the header.  
 
 # Further customization
 
 ## `rticles`   
 * R packages `rticles` is a (potentially) useful package to format articles according to the specification of a journal.
 
-* But first, you need to install it in the R console.
 ```rticles
 install.packages("rticles")
 ```
@@ -127,7 +127,7 @@ install.packages("rticles")
   
 * Right now, few templates available. 
 
-* Some templates may be slower to render, depending on what *LaTeX* package they depend on and need to be installed.
+* Some templates may be slower to render, depending on what *LaTeX* package need to be installed.
 
 ## LaTeX template: manuscript  
 * This allows further options in the *.Rmd* file when going from *.tex* file to *.pdf*.  
@@ -144,7 +144,7 @@ install.packages("rticles")
 &nbsp;   
 &nbsp;   
 
-  + The only real objection I see, is integrating the comments of co-authors.
+  + The only real objection I see against writing manuscript in `R markdown` is integrating the comments of co-authors.
 
 ## LaTeX template: CV
 
