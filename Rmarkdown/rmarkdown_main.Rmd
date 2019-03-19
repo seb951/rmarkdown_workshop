@@ -1,6 +1,6 @@
 ---
-title: "R markdown"
-author: "Sébastien Renaut"
+title: "R Markdown"
+author: "Sébastien Renaut (sebastien.renaut@gmail.com, Université de Montréal - [QCBS](http://www.qcbs.ca))"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   html_document:
@@ -71,7 +71,7 @@ Let's look at a few examples on the Rstudio [gallery](https://rmarkdown.rstudio.
 ![](../figures/md_example.png){width=500px}
 
 # R Markdown
-+ An extension of the markdown syntax that enables **R code to be embedded and executed**.  
++ An extension of the Markdown syntax that enables **R code to be embedded and executed**.  
 
 + Generate **fully reproducible reports** in different static and dynamic output formats.  
 
@@ -87,7 +87,7 @@ Let's look at a few examples on the Rstudio [gallery](https://rmarkdown.rstudio.
 
 + Knit: The R package `rmarkdown` feeds the *.Rmd* file to the R package `knitr`.   
 
-+ `knitr` executes code and creates a new `markdown (*.md*) document which includes the code and output.  
++ `knitr` executes code and creates a new `Markdown (*.md*) document which includes the code and output.  
 
 + Subsequently tranformed into *.html*/*.tex*/*.docx* by `pandoc`. (Note that *.tex* files need to be transformed by `pdflatex` into *.pdf* files. We'll come back to that later.)  
 
@@ -99,13 +99,13 @@ Let's look at a few examples on the Rstudio [gallery](https://rmarkdown.rstudio.
 
 ![](../figures/knitr.png){width=500px}  
 
-## Exercice 1: Setting up an R markdown file
+## Exercice 1: Setting up an R Markdown file
 + This is easily done through R studio.  
    
 ![](../figures/getstarted.png){width=500px}  
 &nbsp;      
   
-+ file > new file > R markdown > HTML   
++ file > new file > R Markdown > HTML   
 
 + Save it ("myfirstRmarkdown.Rmd")   
 
@@ -115,7 +115,7 @@ Let's look at a few examples on the Rstudio [gallery](https://rmarkdown.rstudio.
 
 + Examine at the *.Rmd* file structure.   
 
-# R markdown syntax
+# R Markdown syntax
 Markdown provides an easy way to make standard types of formatted text, like:
 
 + *italics* (\*text\*) or _italics_ (\_text\_)  
@@ -237,12 +237,13 @@ title: "Rmarkdown"
 author: "Sebastien Renaut"  
 date: "`r format(Sys.time(), '%B %d, %Y')`"   
 output: 
- html_document:  
-   highlight: tango  
-   number_sections: T  
-   theme: cerulean 
-   toc: yes  
-   toc_depth: 3  
+  html_document:  
+    code_folding: hide
+    highlight: tango  
+    number_sections: T  
+    theme: cerulean 
+    toc: yes  
+    toc_depth: 3  
 ---  
 ```  
   
@@ -274,17 +275,19 @@ See the [official R markdown lessons](https://rmarkdown.rstudio.com/lesson-9.htm
 # Preface {-}
 ```
 
-+ More options in [official R markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents).
++ More options in [official R Markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents).
     
 ## Theme, highlight & other options
 + `theme: ` specifies the theme to use for the page  ("cerulean", "journal", "flatly", "readable", "spacelab", "united", and "cosmo").  
   
 + `highlight: ` Code syntax highlighting style (e.g. "tango", "pygments", "kate", "zenburn").  
 
++ `code_folding: hide` Code is hidden, but each chunk has it’s own button for showing or hiding code.  
+
 + See the [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) and [official R markdown book](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for more options. 
 
 ## Exercice 3
-+ Change theme of your `Rmarkdown` document    
++ Change theme of your `R Markdown` document    
 
 + Change highlighting  
 
@@ -293,13 +296,13 @@ See the [official R markdown lessons](https://rmarkdown.rstudio.com/lesson-9.htm
 + Save, knit and play with options.  
 
 # Code chunks
-+ The real power of `R Markdown` comes from mixing `markdown` syntax with chunks of code.    
++ The real power of `R Markdown` comes from mixing `Markdown` syntax with chunks of code.    
 
 + A code chunk is intepreted by `knitr`. It works essentially the same as the `R` syntax we are familiar with.  
   
 + A main code chunk may look like this:  
 
- <!--An ugly Rmarkdown hack below to show the code chunk 'as is'-->
+ <!--An ugly hack below to show the full code chunk 'as is'. The code is written twice. Once to show the full code as is. Then a second time to run it. I know it's ugly, but it for the sake of teaching R markdown. The other option is to take a screen shot, or not show the code chunk label.-->
 ````chunks 
 `r ''````{r example, include = T, message = T, warning=T, echo = F, fig.cap="A figure of random points"}  
 #Running some R code.
@@ -363,7 +366,7 @@ knitr::opts_chunk$set(echo = TRUE)
 + Also, try clicking the green arrow in the *.Rmd* on the right to execute a code chunk and preview its output. 
 
 ## More on code chunks
-R markdown can read and execute different languages!    
+R Markdown can read and execute different languages!    
 ````bash  
 `r ''````{bash, echo = F}
 ls -1 | head -3
@@ -416,7 +419,7 @@ Mathematical material is set off by the use of single dollar-sign characters (si
   
 + The use of double dollars quotations allows for displayed formulas (centered). $$\sqrt{b^2 - 4ac}$$  
 
-+ See [more](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) example equations from this McGill math R markdown tutorial.  
++ See [more](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html) example equations from this McGill math R Markdown tutorial.  
 
 # Include pictures & figures
 There are several ways to include figures.   
@@ -542,7 +545,7 @@ knitr::kable(head(mtcars),digits =1,caption = "A motorcars table")
 
 ## Footnotes
 
-+ Footnotes are easy when you have a few references[^1]. Use `[^1]` in text, and add reference at the end using this format: `[^1]: Renaut 2019. R markdown footnote. Number 1. pp1-2.`    
++ Footnotes are easy when you have a few references[^1]. Use `[^1]` in text, and add reference at the end using this format: `[^1]: Renaut 2019. R Markdown footnote. Number 1. pp1-2.`    
 
 ## Bibliography
 + Otherwise, you may specify a bibliography and citation style by adding these two lines in the header.  
@@ -605,7 +608,7 @@ The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 7
 * [Lessons](https://rmarkdown.rstudio.com/lesson-1.html)  
 
 * [Book](https://bookdown.org/yihui/rmarkdown/)   
-  * This is a great reference. In addition, it is (of course) written in `R markdown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you want to reproduce, go see how it was written in the *.Rmd* version!  
+  * This is a great reference. In addition, it is (of course) written in `R Markdown` and publicly available on [GitHub]( https://github.com/rstudio/rmarkdown-book). As such, if you see something you want to reproduce, go see how it was written in the *.Rmd* version!  
   
 * [Cheatsheet (newer - longer)](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
 
@@ -617,4 +620,4 @@ The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 7
 # References
 (Note that references below are generated automatically, except for the footnote.)  
 
-[^1]: Renaut 2019. R markdown footnote. Number 1. pp1-2
+[^1]: Renaut 2019. R Markdown footnote. Number 1. pp1-2
