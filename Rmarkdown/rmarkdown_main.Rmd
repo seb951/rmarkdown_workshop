@@ -457,7 +457,7 @@ knitr::include_graphics("../figures/rosa_banksiae.JPG")
 ```
 ````
 
-```{r graphic_example, out.width = "20%", fig.cap = "rosa_banksiae.JPG", echo = F,fig.align = "center"}
+```{r graphic_example, out.width = "20%", fig.cap = "rosa_banksiae", echo = F,fig.align = "center"}
 knitr::include_graphics("../figures/rosa_banksiae.JPG")
 ```
 ``` ```
@@ -591,13 +591,15 @@ bibliography: ../biblio/test_library.bib
 ## Citations  
 The bioinformatics program *BLAST* [@altschul1997gapped] has been cited nearly 70,000 times. These are three random references [@ThibertPlante:2010vw;@Wagner:2012hw;@Yoshida:2014bn] from my database. 
 
+* Each citation must have a unique key, composed of ‘@’ + the citation identifier from the *.bib* database file. 
+
 * Citations go inside square brackets [  ] and are separated by semicolons (;). 
 
 * You can also write in-text citations by removing the square brackets. For example, @altschul1997gapped is cited a lot.
 
-* Each citation must have a unique key, composed of ‘@’ + the citation identifier from the *.bib* database file.  
-
 * A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text. For example, The BLAST algorithm by Stephen Altschul and a bunch of other people [-@altschul1997gapped] have been cited 70,000 times. 
+
+* By default, references are added at the end of document. Use the code `<div id="refs"></div>` to place references elsewhere. 
 
 ## Exercice 6
 * Find 3 papers in Google Scholar. Copy references to a text file (in *bibTeX* format). Save it with a *.bib* extension.
